@@ -1,0 +1,112 @@
+.classes-by-path {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.path-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.path-title {
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: var(--spacing-4);
+}
+
+.path-classes {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-6);
+}
+
+.class-card {
+  background-color: var(--color-background-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  text-decoration: none;
+  color: var(--color-text);
+  height: 100%;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  border-color: var(--color-primary);
+}
+
+.class-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.class-name {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-2);
+}
+
+.class-description {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.class-detail {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.detail-value {
+  color: var(--color-accent);
+}
+
+.view-details {
+  margin-top: auto;
+  text-align: center;
+  padding: var(--spacing-3);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.class-card:hover .view-details {
+  background-color: var(--color-accent);
+}
+
+@media (min-width: 640px) {
+  .path-classes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .path-classes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

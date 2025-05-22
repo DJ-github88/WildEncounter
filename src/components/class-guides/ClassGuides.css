@@ -1,0 +1,312 @@
+.class-guide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+.class-guide h2 {
+  color: #ffd700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.class-subtitle {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.guide-section {
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.guide-section h3 {
+  color: #00bfff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #00bfff;
+  padding-bottom: 5px;
+}
+
+.guide-section p {
+  margin-bottom: 1rem;
+}
+
+.ability-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ability-list li {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border-left: 3px solid #00bfff;
+}
+
+.ability-list li strong {
+  color: #ffd700;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.talent-tree {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border-left: 3px solid #9370db;
+}
+
+.talent-tree h4 {
+  color: #9370db;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.talent-tree p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.talent-tree ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.talent-tree li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.talent-tree li strong {
+  color: #ffd700;
+}
+
+.mechanic-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.mechanic-list li {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border-left: 3px solid #00bfff;
+}
+
+.mechanic-details {
+  margin-bottom: 1.5rem;
+}
+
+.ability-table {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.ability-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.ability-table th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffd700;
+  text-align: left;
+  padding: 0.8rem;
+  border-bottom: 2px solid #00bfff;
+}
+
+.ability-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ability-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ability-table tr:hover {
+  background-color: rgba(0, 191, 255, 0.1);
+}
+
+.note-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1rem;
+  border-left: 3px solid #ffd700;
+  margin-bottom: 1.5rem;
+}
+
+.note-box p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.note-box ul {
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.advanced-abilities {
+  padding-left: 1.5rem;
+}
+
+.advanced-abilities li {
+  margin-bottom: 1.5rem;
+}
+
+.advanced-abilities strong {
+  color: #ffd700;
+}
+
+.advanced-abilities em {
+  color: #aaa;
+  font-style: italic;
+}
+
+.advanced-abilities p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.attribute-table {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.attribute-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attribute-table th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffd700;
+  text-align: left;
+  padding: 0.8rem;
+  border-bottom: 2px solid #9370db;
+}
+
+.attribute-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scaling-examples {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.scaling-examples li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.round-flow {
+  padding-left: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 1rem 1rem 1rem 2.5rem;
+  border-left: 3px solid #00bfff;
+  margin-bottom: 1.5rem;
+}
+
+.round-flow li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.round-flow li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.round-flow li strong {
+  color: #ffd700;
+}
+
+.round-flow li em {
+  display: block;
+  color: #aaa;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.conclusion {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border-bottom: 2px solid #ffd700;
+}
+
+.conclusion strong {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.guide-section h4 {
+  color: #00bfff;
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .class-guide {
+    padding: 10px;
+  }
+
+  .guide-section {
+    padding: 1rem;
+  }
+
+  .class-guide h2 {
+    font-size: 2rem;
+  }
+
+  .guide-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .ability-table {
+    font-size: 0.9rem;
+  }
+
+  .ability-table th,
+  .ability-table td {
+    padding: 0.5rem;
+  }
+
+  .attribute-table {
+    font-size: 0.9rem;
+  }
+}

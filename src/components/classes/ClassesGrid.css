@@ -1,0 +1,437 @@
+.classes-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.classes-intro {
+  background-color: var(--color-background-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+  border-left: 4px solid var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.classes-intro h2 {
+  color: var(--color-primary-light);
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  font-size: 1.8rem;
+}
+
+.classes-intro p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.classes-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.filter-button {
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: var(--font-size-sm);
+}
+
+.filter-button:hover {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
+}
+
+.filter-button.active {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-color: var(--color-primary);
+}
+
+.search-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-6);
+}
+
+.class-card-container {
+  position: relative;
+  height: 100%;
+}
+
+.class-card {
+  background-color: var(--color-background-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  text-decoration: none;
+  color: var(--color-text);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.class-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.class-card:hover::before {
+  opacity: 1;
+}
+
+/* Class Tooltip Styles */
+.class-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  color: white;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.class-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%);
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent var(--color-primary) transparent transparent;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.class-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--color-primary-light);
+}
+
+.class-path-badge {
+  background-color: rgba(var(--color-primary-rgb), 0.2);
+  color: var(--color-primary-light);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.class-name {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-2);
+}
+
+.class-description {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+  flex-grow: 1;
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3);
+}
+
+.class-detail {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.class-detail:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.detail-value {
+  color: var(--color-accent);
+}
+
+.view-details {
+  text-align: center;
+  padding: var(--spacing-3);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.class-card:hover .view-details {
+  background-color: var(--color-accent);
+}
+
+/* Path-specific colors */
+.class-card[href*="pyrofiend"] .class-path-badge,
+.class-card[href*="minstrel"] .class-path-badge,
+.class-card[href*="chronarch"] .class-path-badge {
+  background-color: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
+.class-card[href*="spellguard"] .class-path-badge,
+.class-card[href*="inscriptor"] .class-path-badge,
+.class-card[href*="arcanoneer"] .class-path-badge {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.class-card[href*="chaos-weaver"] .class-path-badge,
+.class-card[href*="fate-weaver"] .class-path-badge,
+.class-card[href*="gambler"] .class-path-badge {
+  background-color: rgba(26, 188, 156, 0.2);
+  color: #1abc9c;
+}
+
+.class-card[href*="martyr"] .class-path-badge,
+.class-card[href*="false-prophet"] .class-path-badge,
+.class-card[href*="exorcist"] .class-path-badge {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.class-card[href*="plaguebringer"] .class-path-badge,
+.class-card[href*="lichborne"] .class-path-badge,
+.class-card[href*="deathcaller"] .class-path-badge {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.class-card[href*="witch-doctor"] .class-path-badge,
+.class-card[href*="formbender"] .class-path-badge,
+.class-card[href*="primalist"] .class-path-badge {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.class-card[href*="berserker"] .class-path-badge,
+.class-card[href*="dreadnaught"] .class-path-badge,
+.class-card[href*="titan"] .class-path-badge {
+  background-color: rgba(230, 126, 34, 0.2);
+  color: #e67e22;
+}
+
+.class-card[href*="toxicologist"] .class-path-badge,
+.class-card[href*="covenbane"] .class-path-badge,
+.class-card[href*="bladedancer"] .class-path-badge {
+  background-color: rgba(52, 73, 94, 0.2);
+  color: #34495e;
+}
+
+.class-card[href*="lunarch"] .class-path-badge,
+.class-card[href*="huntress"] .class-path-badge,
+.class-card[href*="warden"] .class-path-badge {
+  background-color: rgba(127, 140, 141, 0.2);
+  color: #7f8c8d;
+}
+
+@media (min-width: 640px) {
+  .classes-filters {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .filter-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--spacing-2);
+  }
+
+  .classes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .classes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .classes-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tooltip Content Styles */
+.tooltip-header {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.tooltip-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-icon {
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.tooltip-content {
+  padding: 1rem;
+}
+
+.tooltip-flavor {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.tooltip-resource-system h4,
+.tooltip-playstyle h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-light);
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3rem;
+}
+
+.tooltip-resource-system p,
+.tooltip-playstyle p {
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+  color: #bbb;
+  line-height: 1.4;
+}
+
+.tooltip-background {
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.background-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.background-note strong {
+  color: var(--color-primary-light);
+}
+
+/* Responsive tooltip positioning */
+@media (max-width: 1200px) {
+  .class-tooltip {
+    left: 50%;
+    top: -20px;
+    transform: translate(-50%, -100%);
+    width: 300px;
+  }
+
+  .class-tooltip::before {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0 10px;
+    border-color: var(--color-primary) transparent transparent transparent;
+  }
+}

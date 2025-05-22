@@ -1,0 +1,190 @@
+.rules-card {
+  background-color: #131A2B;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid #2B3043;
+  height: fit-content;
+}
+
+.rules-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Card header */
+.rules-card-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(to right, #1A2033, #131A2B);
+  border-bottom: 1px solid #2B3043;
+}
+
+.rules-card-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  color: #8A60DA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(138, 96, 218, 0.1);
+  border-radius: 50%;
+}
+
+.rules-card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8A60DA;
+  flex: 1;
+}
+
+/* Card content */
+.rules-card-content {
+  padding: 16px;
+  color: #B8C7DC;
+}
+
+.rules-card-text {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Card types */
+.rules-card-core {
+  border-left: 4px solid #8A60DA;
+}
+
+.rules-card-mechanic {
+  border-left: 4px solid #3B82F6;
+}
+
+.rules-card-warning {
+  border-left: 4px solid #EF4444;
+}
+
+.rules-card-example {
+  border-left: 4px solid #10B981;
+  background-color: #0F1A25;
+}
+
+.rules-card-variant {
+  border-left: 4px solid #F59E0B;
+  background-color: #1A1A25;
+}
+
+/* Card importance levels */
+.rules-card-importance-high {
+  border-width: 2px;
+  border-color: #8A60DA;
+}
+
+.rules-card-importance-high .rules-card-header {
+  background: linear-gradient(to right, #2A1A43, #1A1A33);
+}
+
+.rules-card-importance-high .rules-card-title {
+  font-size: 1.2rem;
+}
+
+/* Lists */
+.rules-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-card-list-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #2B3043;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rules-card-list-item:last-child {
+  border-bottom: none;
+}
+
+.rules-card-list-item strong {
+  color: #8A60DA;
+  font-weight: 600;
+}
+
+/* Description lists */
+.rules-card-description-list {
+  margin: 0;
+  padding: 0;
+}
+
+.rules-card-term {
+  color: #8A60DA;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.rules-card-definition {
+  margin: 0 0 12px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid #2B3043;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rules-card-definition:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Expand/collapse functionality */
+.rules-card-expand-button {
+  background: none;
+  border: none;
+  color: #8A60DA;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.rules-card-expand-button:hover {
+  color: #A78BFA;
+  text-decoration: underline;
+}
+
+.rules-card.expanded {
+  grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rules-card-header {
+    padding: 12px;
+  }
+  
+  .rules-card-content {
+    padding: 12px;
+  }
+  
+  .rules-card-title {
+    font-size: 1rem;
+  }
+  
+  .rules-card-text,
+  .rules-card-list-item,
+  .rules-card-term,
+  .rules-card-definition {
+    font-size: 0.9rem;
+  }
+}
