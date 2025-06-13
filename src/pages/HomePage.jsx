@@ -9,7 +9,7 @@ const HomePage = () => {
 
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title">Welcome to the TTRPG Compendium</h1>
+          <h1 className="hero-title">Welcome to Mythrill</h1>
           <p className="hero-subtitle">
             Explore our custom tabletop role-playing game system with unique classes,
             mechanics, and talent trees inspired by classic RPGs.

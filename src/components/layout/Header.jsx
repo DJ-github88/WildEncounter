@@ -13,7 +13,7 @@ const Header = () => {
     <header className="header">
       <div className="container header-container">
         <Link to="/" className="logo">
-          <h1>TTRPG Compendium</h1>
+          <h1>Mythrill</h1>
         </Link>
 
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
@@ -35,6 +35,11 @@ const Header = () => {
             <li className="nav-item">
               <NavLink to="/paths" className={({ isActive }) => isActive ? 'active' : ''}>
                 Backgrounds
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/races" className={({ isActive }) => isActive ? 'active' : ''}>
+                Races
               </NavLink>
             </li>
             <li className="nav-item">
