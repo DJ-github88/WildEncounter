@@ -7,27 +7,28 @@ const HomePage = () => {
     <div className="home-page">
       <BackgroundAnimation />
 
-      <section className="hero">
+      <section className="hero pf-ornate-frame">
         <div className="hero-content">
-          <h1 className="hero-title">Welcome to Mythrill</h1>
+          <h1 className="hero-title pf-chapter-heading">Welcome to Mythrill</h1>
           <p className="hero-subtitle">
             Explore our custom tabletop role-playing game system with unique classes,
             mechanics, and talent trees inspired by classic RPGs.
           </p>
           <div className="hero-buttons">
-            <Link to="/rules" className="btn btn-primary">Explore Rules</Link>
-            <Link to="/classes" className="btn btn-secondary">Browse Classes</Link>
+            <Link to="/rules" className="btn btn-primary pf-button">Explore Rules</Link>
+            <Link to="/classes" className="btn btn-secondary pf-button-secondary">Browse Classes</Link>
           </div>
         </div>
       </section>
 
-      <section className="section cta">
+      <section className="section cta pf-parchment">
         <div className="cta-content">
-          <h2 className="cta-title">Ready to Begin Your Adventure?</h2>
-          <p className="cta-description">
+          <h2 className="cta-title pf-section-title">Ready to Begin Your Adventure?</h2>
+          <p className="cta-description pf-subtitle">
             Dive into our comprehensive documentation and start building your character today.
           </p>
-          <Link to="/paths" className="btn btn-accent">Discover Backgrounds</Link>
+          <div className="pf-divider"></div>
+          <Link to="/paths" className="btn btn-accent pf-button">Discover Backgrounds</Link>
         </div>
       </section>
     </div>

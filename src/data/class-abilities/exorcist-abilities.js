@@ -9,7 +9,7 @@ const exorcistAbilities = {
       'Spirit Charges can be spent to modify abilities, adding effects like more damage, longer duration, or healing bonuses.',
       'Some defensive abilities require charging up (e.g. imprinting a seal that consumes multiple Charges to activate a ward).',
       'Spirit Charges also grant passive benefits: each charge grants a small buff to Radiant damage or Resistances.',
-      'Maximum Spirit Charges = Wisdom modifier + 5.'
+      'Maximum Spirit Charges = Spirit modifier + 5.'
     ],
     passiveBenefits: {
       name: 'Passive Benefits',
@@ -41,7 +41,7 @@ const exorcistAbilities = {
         { condition: 'With Spirit Charges', effect: 'Spend 1 Spirit Charge to add another 1d6 Radiant damage.' },
         { condition: 'Critical Hit', effect: 'Double all Radiant damage dice.' }
       ],
-      scaling: 'Radiant damage = 1d6 + (WIS modifier)'
+      scaling: 'Radiant damage = 1d6 + (Spirit modifier)'
     },
     {
       name: 'Ward of Faith',
@@ -56,9 +56,9 @@ const exorcistAbilities = {
         { condition: 'Damage Absorption', effect: 'Absorb up to 10 damage from undead/fiends.' },
         { condition: 'Saving Throw', effect: 'Grant advantage on one saving throw against fear/possession.' },
         { condition: 'With Additional Spirit Charges', effect: 'Spend 1 additional Spirit Charge to increase absorption to 20 damage or grant advantage on all saving throws for the duration.' },
-        { condition: 'With High Wisdom', effect: 'Absorption increases by 2 per point of WIS modifier.' }
+        { condition: 'With High Spirit', effect: 'Absorption increases by 2 per point of Spirit modifier.' }
       ],
-      scaling: 'Absorption = 10 + (WIS modifier × 2)'
+      scaling: 'Absorption = 10 + (Spirit modifier × 2)'
     },
     {
       name: 'Seal of Binding',
@@ -68,14 +68,14 @@ const exorcistAbilities = {
         spiritCharges: '1'
       },
       description: 'Imprint a holy seal on an enemy spirit or demon. The seal shackles the target: on its turn it must succeed on a resistance check or be unable to move, and it takes minor damage each turn.',
-      mechanics: 'Imprint a holy seal on an enemy spirit or demon within 30 feet. The target must make a WIS save at the start of its turn or be unable to move. It also takes 1d6 Radiant damage at the start of each of its turns. The seal lasts for 1 minute or until dispelled.',
+      mechanics: 'Imprint a holy seal on an enemy spirit or demon within 30 feet. The target must make a Spirit save at the start of its turn or be unable to move. It also takes 1d6 Radiant damage at the start of each of its turns. The seal lasts for 1 minute or until dispelled.',
       effects: [
         { condition: 'Failed Save', effect: 'Target is unable to move for that turn.' },
         { condition: 'Damage', effect: 'Target takes 1d6 Radiant damage at the start of each of its turns.' },
         { condition: 'With Additional Spirit Charges', effect: 'Spend 1 additional Spirit Charge to also prevent the target from using reactions or bonus actions.' },
-        { condition: 'With High Wisdom', effect: 'Save DC increases by 1 per 2 points of WIS modifier.' }
+        { condition: 'With High Spirit', effect: 'Save DC increases by 1 per 2 points of Spirit modifier.' }
       ],
-      scaling: 'Save DC = 12 + (WIS modifier / 2), Damage = 1d6 + (WIS modifier)'
+      scaling: 'Save DC = 12 + (Spirit modifier / 2), Damage = 1d6 + (Spirit modifier)'
     },
     {
       name: 'Divine Shield',
@@ -102,11 +102,11 @@ const exorcistAbilities = {
         spiritCharges: '0'
       },
       description: 'Sense nearby undead, fiends, or cursed objects within range. Useful for detecting hidden spirits or locating curse sources.',
-      mechanics: 'As a free action, sense the presence of undead, fiends, or cursed objects within 30 feet. With a successful WIS check, you can determine the type and general location.',
+      mechanics: 'As a free action, sense the presence of undead, fiends, or cursed objects within 30 feet. With a successful Spirit check, you can determine the type and general location.',
       effects: [
         { condition: 'Normal Use', effect: 'Sense the presence of undead, fiends, or cursed objects within 30 feet.' },
         { condition: 'With Spirit Charges', effect: 'Spend 1 Spirit Charge to increase the range to 60 feet and automatically determine the type and exact location.' },
-        { condition: 'With High Wisdom', effect: 'Range increases by 5 feet per point of WIS modifier.' },
+        { condition: 'With High Spirit', effect: 'Range increases by 5 feet per point of Spirit modifier.' },
         { condition: 'Gain Spirit Charges', effect: 'If you detect a powerful supernatural entity (CR equal to or greater than your level), gain 1 Spirit Charge.' }
       ],
       scaling: 'Range = 30 + (WIS modifier × 5) feet'
@@ -195,6 +195,70 @@ const exorcistAbilities = {
         { condition: 'Gain Spirit Charges', effect: 'For each spirit successfully banished, gain 1 Spirit Charge (up to your maximum).' }
       ],
       scaling: 'Save DC = 15 + (WIS modifier)'
+    },
+    {
+      name: 'Divine Ward',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        spiritCharges: '+1'
+      },
+      description: 'Create a protective barrier against supernatural forces.',
+      mechanics: 'Target gains +3 AC vs undead/fiends and advantage on saves vs supernatural effects for 5 rounds.',
+      effects: [
+        { condition: 'AC Bonus', effect: '+3 AC against undead and fiends' },
+        { condition: 'Save Advantage', effect: 'Advantage on saves vs supernatural effects' },
+        { condition: 'Duration', effect: 'Lasts for 5 rounds' }
+      ],
+      scaling: 'AC bonus = +3'
+    },
+    {
+      name: 'Consecrated Ground',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        spiritCharges: '+1'
+      },
+      description: 'Bless an area to make it hostile to evil spirits.',
+      mechanics: 'Create 15-ft radius consecrated area for 10 minutes. Undead/fiends take 1d6 radiant damage per turn inside.',
+      effects: [
+        { condition: 'Area', effect: 'Create 15-ft radius consecrated area' },
+        { condition: 'Damage', effect: 'Undead/fiends take 1d6 radiant damage per turn' },
+        { condition: 'Duration', effect: 'Lasts for 10 minutes' }
+      ],
+      scaling: 'Damage = 1d6 radiant per turn'
+    },
+    {
+      name: 'Spirit Sight',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        spiritCharges: '+1'
+      },
+      description: 'See through illusions and detect supernatural entities.',
+      mechanics: 'For 1 hour, see invisible creatures, detect undead/fiends within 60 ft, and see through illusions.',
+      effects: [
+        { condition: 'True Sight', effect: 'See invisible creatures and through illusions' },
+        { condition: 'Detection', effect: 'Detect undead/fiends within 60 ft' },
+        { condition: 'Duration', effect: 'Lasts for 1 hour' }
+      ],
+      scaling: 'Detection range = 60 ft'
+    },
+    {
+      name: 'Purifying Light',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        spiritCharges: '+1'
+      },
+      description: 'Emit radiant light that weakens evil creatures.',
+      mechanics: 'Create 20-ft radius bright light for 5 rounds. Undead/fiends have disadvantage on attacks and saves while in light.',
+      effects: [
+        { condition: 'Light', effect: 'Create 20-ft radius bright light' },
+        { condition: 'Debuff', effect: 'Undead/fiends have disadvantage on attacks and saves' },
+        { condition: 'Duration', effect: 'Lasts for 5 rounds' }
+      ],
+      scaling: 'Radius = 20 ft'
     }
   ],
 
@@ -335,6 +399,74 @@ const exorcistAbilities = {
         { condition: 'With Additional Spirit Charges', effect: 'Spend 1 additional Spirit Charge to make the circle indestructible or to prevent trapped spirits from using any supernatural abilities.' }
       ],
       scaling: 'Save DC = 15 + (WIS modifier), Radius = 10 + (WIS modifier / 2) feet'
+    },
+    {
+      name: 'Divine Intervention',
+      cost: {
+        actionPoints: 1,
+        mana: 4,
+        spiritCharges: '3'
+      },
+      description: 'Call upon divine power to intervene in a moment of crisis.',
+      mechanics: 'When an ally within 60 ft would be reduced to 0 HP, instantly heal them for 4d8 + SPIR HP and grant them immunity to the damage type that triggered this for 1 round.',
+      effects: [
+        { condition: 'Trigger', effect: 'When an ally would be reduced to 0 HP' },
+        { condition: 'Healing', effect: 'Heal for 4d8 + SPIR HP' },
+        { condition: 'Immunity', effect: 'Grant immunity to the triggering damage type for 1 round' }
+      ],
+      scaling: 'Healing = 4d8 + SPIR modifier'
+    },
+    {
+      name: 'Sanctuary Dome',
+      cost: {
+        actionPoints: 3,
+        mana: 5,
+        spiritCharges: '4'
+      },
+      description: 'Create a large protective dome that shields allies from all supernatural harm.',
+      mechanics: 'Create 30-ft radius dome for 5 rounds. Allies inside are immune to supernatural effects and regenerate 2d6 HP per turn.',
+      effects: [
+        { condition: 'Dome', effect: 'Create 30-ft radius protective dome' },
+        { condition: 'Immunity', effect: 'Allies inside are immune to supernatural effects' },
+        { condition: 'Regeneration', effect: 'Allies regenerate 2d6 HP per turn' },
+        { condition: 'Duration', effect: 'Lasts for 5 rounds' }
+      ],
+      scaling: 'Regeneration = 2d6 + SPIR modifier HP per turn'
+    },
+    {
+      name: 'Mass Purification',
+      cost: {
+        actionPoints: 3,
+        mana: 6,
+        spiritCharges: '5'
+      },
+      description: 'Cleanse a large area of all supernatural corruption and evil influences.',
+      mechanics: 'Purify 50-ft radius area. All curses, diseases, and supernatural effects are removed. Undead/fiends take 6d8 radiant damage.',
+      effects: [
+        { condition: 'Area Cleansing', effect: 'Remove all curses, diseases, and supernatural effects in 50-ft radius' },
+        { condition: 'Damage', effect: 'Undead/fiends take 6d8 radiant damage' },
+        { condition: 'Permanent', effect: 'Area remains consecrated for 24 hours' }
+      ],
+      scaling: 'Damage = 6d8 + (SPIR modifier × 2) radiant'
+    },
+    {
+      name: 'Avatar of Light',
+      cost: {
+        actionPoints: 3,
+        mana: 8,
+        spiritCharges: 'all'
+      },
+      description: 'Transform into a being of pure divine light, becoming the ultimate force against evil.',
+      mechanics: 'Transform for 6 rounds. Gain flight 60 ft, immunity to all damage from undead/fiends, and all abilities cost no Spirit Charges. Aura deals 3d6 radiant to enemies within 15 ft per turn.',
+      effects: [
+        { condition: 'Flight', effect: 'Gain flight speed 60 ft' },
+        { condition: 'Immunity', effect: 'Immune to all damage from undead/fiends' },
+        { condition: 'Free Abilities', effect: 'All abilities cost no Spirit Charges' },
+        { condition: 'Aura', effect: 'Deal 3d6 radiant damage to enemies within 15 ft per turn' },
+        { condition: 'Duration', effect: 'Lasts for 6 rounds' }
+      ],
+      scaling: 'Aura damage = 3d6 + SPIR modifier radiant per turn',
+      ultimate: true
     }
   ]
 };

@@ -1,6 +1,6 @@
 .talent-node {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,11 @@
   position: relative;
   cursor: pointer;
   z-index: 2;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 70%),
+    radial-gradient(circle at 70% 70%, rgba(184, 134, 11, 0.1) 0%, transparent 70%);
 }
 
 .talent-node:hover {
@@ -17,40 +21,55 @@
   z-index: 10;
 }
 
-/* Node status styles */
+/* Node status styles - Medieval theme */
 .talent-node.unavailable {
-  background-color: var(--color-background);
-  border: 2px solid var(--color-talent-unavailable);
-  opacity: 0.7;
+  border: 3px solid var(--color-talent-unavailable);
+  opacity: 0.6;
   cursor: not-allowed;
+  background: var(--color-background);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .talent-node.available {
-  background-color: var(--color-background);
-  border: 2px solid var(--color-talent-available);
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+  border: 3px solid var(--color-talent-available);
+  box-shadow:
+    0 0 8px rgba(34, 139, 34, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background));
 }
 
 .talent-node.active {
-  background-color: var(--color-background);
-  border: 2px solid var(--color-talent-active);
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+  border: 3px solid var(--color-talent-active);
+  box-shadow:
+    0 0 12px rgba(184, 134, 11, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background-dark));
 }
 
 .talent-node.maxed {
-  background-color: var(--color-background);
-  border: 2px solid var(--color-talent-maxed);
-  box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+  border: 3px solid var(--color-talent-maxed);
+  box-shadow:
+    0 0 15px rgba(220, 20, 60, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary-dark));
 }
 
 .talent-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 0 2px rgba(139, 69, 19, 0.3));
 }
 
 .talent-rank {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1px 4px;
+  min-width: 20px;
+  text-align: center;
 }
 
 .talent-node.unavailable .talent-icon,
@@ -73,29 +92,38 @@
   color: var(--color-talent-maxed);
 }
 
-/* Tooltip styles */
+/* Tooltip styles - Medieval manuscript theme */
 .talent-tooltip {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
+  width: 320px;
   max-height: 400px;
   overflow-y: auto;
-  background-color: rgba(15, 23, 42, 0.95);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
   padding: var(--spacing-4);
   z-index: 100;
   pointer-events: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px var(--color-secondary),
+    0 12px 24px rgba(0, 0, 0, 0.3);
   margin-top: var(--spacing-2);
 }
 
 .tooltip-title {
-  color: var(--color-primary-light);
+  color: var(--color-primary);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-1);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-1);
 }
 
 .tooltip-rank {

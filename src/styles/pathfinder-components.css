@@ -1,0 +1,652 @@
+/* Pathfinder UI Component Library - Medieval Manuscript Theme */
+
+/* ===== DECORATIVE BORDERS ===== */
+
+/* Ornate border with corner decorations */
+.pf-ornate-border {
+  border: 3px solid var(--color-border);
+  border-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-primary)) 1;
+  position: relative;
+  padding: 1.5rem;
+  background: var(--color-background-light);
+}
+
+.pf-ornate-border::before,
+.pf-ornate-border::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  background: var(--color-secondary);
+}
+
+.pf-ornate-border::before {
+  top: -2px;
+  left: -2px;
+  border-bottom-right-radius: 50%;
+}
+
+.pf-ornate-border::after {
+  bottom: -2px;
+  right: -2px;
+  border-top-left-radius: 50%;
+}
+
+/* Simple decorative border */
+.pf-decorative-border {
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Medieval manuscript border with flourishes */
+.pf-manuscript-border {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-background-light);
+  position: relative;
+  padding: 2rem;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pf-manuscript-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 12px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* ===== FRAMES AND CONTAINERS ===== */
+
+/* Ornate frame for important content */
+.pf-ornate-frame {
+  background: var(--color-background-light);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 
+    0 0 0 1px var(--color-secondary),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.pf-ornate-frame::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  opacity: 0.5;
+}
+
+/* Card frame with medieval styling */
+.pf-card-frame {
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pf-card-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
+}
+
+/* Parchment-style container */
+.pf-parchment {
+  background: var(--color-background-light);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pf-parchment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.02) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(184, 134, 11, 0.02) 50%, transparent 100%);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* ===== TYPOGRAPHY COMPONENTS ===== */
+
+/* Illuminated drop cap */
+.pf-drop-cap::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 3rem;
+  padding: 0.5rem 0.5rem 0 0;
+  margin: 0.2rem 0.5rem 0 0;
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background));
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  text-align: center;
+  min-width: 4rem;
+}
+
+/* Chapter heading style */
+.pf-chapter-heading {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pf-chapter-heading::before,
+.pf-chapter-heading::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-secondary);
+  font-size: 1.5rem;
+}
+
+.pf-chapter-heading::before {
+  left: -3rem;
+}
+
+.pf-chapter-heading::after {
+  right: -3rem;
+}
+
+/* Section title with decorative underline */
+.pf-section-title {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-border);
+  position: relative;
+  font-weight: 600;
+}
+
+.pf-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--color-secondary);
+}
+
+/* Subtitle styling */
+.pf-subtitle {
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+
+/* Medieval button styling */
+.pf-button {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  color: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pf-button:hover {
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary-dark));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pf-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary button variant */
+.pf-button-secondary {
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background-dark));
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.pf-button-secondary:hover {
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent-dark));
+  color: var(--color-text);
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Text shadows for medieval feel */
+.pf-text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Aged paper texture */
+.pf-aged-texture {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(205, 133, 63, 0.05) 0%, transparent 50%);
+}
+
+/* Medieval divider */
+.pf-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: 2rem 0;
+  position: relative;
+}
+
+.pf-divider::before {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-background);
+  color: var(--color-secondary);
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+/* ===== FORM ELEMENTS ===== */
+
+/* Medieval input styling */
+.pf-input {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pf-input:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 8px rgba(184, 134, 11, 0.3);
+}
+
+.pf-input::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Medieval select styling */
+.pf-select {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%238B4513' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.pf-select:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
+}
+
+/* Medieval checkbox styling */
+.pf-checkbox {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-background-light);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pf-checkbox:checked {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.pf-checkbox:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-background-light);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ===== TOOLTIPS ===== */
+
+/* Medieval tooltip styling */
+.pf-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.pf-tooltip .pf-tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  color: var(--color-text);
+  text-align: center;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -125px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+.pf-tooltip .pf-tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color-border) transparent transparent transparent;
+}
+
+.pf-tooltip:hover .pf-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== MODAL/DIALOG STYLING ===== */
+
+/* Medieval modal backdrop */
+.pf-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Medieval modal content */
+.pf-modal {
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    0 0 0 1px var(--color-secondary),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pf-modal::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ===== ENHANCED VISUAL HIERARCHY ===== */
+
+/* Large illuminated initial letter */
+.pf-illuminated-initial::first-letter {
+  float: left;
+  font-size: 5rem;
+  line-height: 4rem;
+  padding: 0.8rem;
+  margin: 0.2rem 0.8rem 0 0;
+  color: var(--color-background-light);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  min-width: 5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Book chapter styling */
+.pf-book-chapter {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  position: relative;
+}
+
+.pf-book-chapter::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.pf-book-chapter::after {
+  content: attr(data-chapter);
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Manuscript page styling */
+.pf-manuscript-page {
+  background: var(--color-background-light);
+  background-image:
+    linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.02) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(184, 134, 11, 0.02) 50%, transparent 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem 0;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pf-manuscript-page::before {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+}
+
+/* Heraldic section divider */
+.pf-heraldic-divider {
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.pf-heraldic-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.pf-heraldic-divider .pf-heraldic-symbol {
+  display: inline-block;
+  background: var(--color-background);
+  color: var(--color-secondary);
+  font-size: 2rem;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pf-heraldic-divider .pf-heraldic-symbol::before {
+  content: '◆';
+}
+
+/* Medieval list styling */
+.pf-medieval-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.pf-medieval-list li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2rem;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.pf-medieval-list li:last-child {
+  border-bottom: none;
+}
+
+.pf-medieval-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  color: var(--color-secondary);
+  font-size: 1.2rem;
+}
+
+/* Emphasis and highlighting */
+.pf-emphasis {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pf-highlight {
+  background: linear-gradient(120deg, rgba(184, 134, 11, 0.2) 0%, rgba(184, 134, 11, 0.1) 100%);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+/* Medieval quote styling */
+.pf-quote {
+  background: var(--color-background);
+  border-left: 4px solid var(--color-secondary);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  position: relative;
+  border-radius: 0 8px 8px 0;
+}
+
+.pf-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.pf-quote::after {
+  content: '"';
+  position: absolute;
+  bottom: -20px;
+  right: 10px;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  line-height: 1;
+}

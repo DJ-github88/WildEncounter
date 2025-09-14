@@ -56,6 +56,23 @@ const lichborneAbilities = {
       scaling: 'Damage = 1d6 + INT, Healing = 50% (75% with 3+ Echoes)'
     },
     {
+      name: 'Soul Burn',
+      cost: {
+        actionPoints: 2,
+        health: '15% current HP',
+        essenceEchoes: 2
+      },
+      cooldown: '1 LR',
+      description: 'Sacrifice your own life force to unleash devastating necrotic energy.',
+      mechanics: 'Sacrifice 15% of your current hit points to deal 4d8 + Intelligence modifier necrotic damage to all enemies within 20 feet. Gain 1 Essence Echo for each enemy killed by this spell.',
+      effects: [
+        { condition: 'Self Damage', effect: '15% of current HP' },
+        { condition: 'Area Effect', effect: '20-foot radius around caster' },
+        { condition: 'Echo Generation', effect: '1 Echo per enemy killed' }
+      ],
+      scaling: 'Damage = 4d8 + INT'
+    },
+    {
       name: 'Raise Skeleton',
       cost: {
         actionPoints: 1,

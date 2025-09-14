@@ -264,6 +264,73 @@ const huntressAbilities = {
         { condition: 'Lynx Prowl Talents', effect: 'May enhance defensive effects' }
       ],
       scaling: 'No direct scaling'
+    },
+    {
+      name: 'Hunter\'s Mark',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        precisionStacks: '+1'
+      },
+      description: 'Mark a target for enhanced tracking and damage.',
+      mechanics: 'Mark target for 10 minutes. Gain +1d6 damage vs marked target and always know its location within 1 mile.',
+      effects: [
+        { condition: 'Damage Bonus', effect: 'Deal +1d6 damage to marked target' },
+        { condition: 'Tracking', effect: 'Always know marked target\'s location within 1 mile' },
+        { condition: 'Duration', effect: 'Mark lasts for 10 minutes' },
+        { condition: 'Beast Mastery Talents', effect: 'May enhance tracking effects' }
+      ],
+      scaling: 'Damage bonus = +1d6'
+    },
+    {
+      name: 'Camouflage',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        precisionStacks: '+1'
+      },
+      description: 'Blend with your surroundings to become nearly invisible.',
+      mechanics: 'Become invisible for 3 rounds or until you attack. Moving more than 10 ft per turn breaks invisibility.',
+      effects: [
+        { condition: 'Invisibility', effect: 'Become invisible for 3 rounds or until you attack' },
+        { condition: 'Movement Limit', effect: 'Moving more than 10 ft per turn breaks invisibility' },
+        { condition: 'Lynx Prowl Talents', effect: 'May enhance stealth effects' }
+      ],
+      scaling: 'Duration = 3 rounds'
+    },
+    {
+      name: 'Nature\'s Ally',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        precisionStacks: '+1'
+      },
+      description: 'Call upon a wild animal to aid you in combat.',
+      mechanics: 'Summon a wolf, hawk, or bear (your choice) that fights alongside you for 5 rounds.',
+      effects: [
+        { condition: 'Wolf', effect: 'Wolf: 25 HP, bite attack 1d8+3, pack tactics' },
+        { condition: 'Hawk', effect: 'Hawk: 15 HP, talon attack 1d6+2, flyby attack' },
+        { condition: 'Bear', effect: 'Bear: 35 HP, claw attack 1d10+4, intimidating presence' },
+        { condition: 'Beast Mastery Talents', effect: 'May enhance animal companion abilities' }
+      ],
+      scaling: 'Duration = 5 rounds'
+    },
+    {
+      name: 'Wilderness Stride',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        precisionStacks: '+1'
+      },
+      description: 'Move through natural terrain with supernatural ease.',
+      mechanics: 'Ignore difficult terrain and gain +15 ft movement speed for 4 rounds.',
+      effects: [
+        { condition: 'Terrain', effect: 'Ignore difficult terrain' },
+        { condition: 'Speed', effect: 'Gain +15 ft movement speed' },
+        { condition: 'Duration', effect: 'Lasts for 4 rounds' },
+        { condition: 'Lynx Prowl Talents', effect: 'May enhance movement effects' }
+      ],
+      scaling: 'Speed bonus = +15 ft'
     }
   ],
 
@@ -505,6 +572,75 @@ const huntressAbilities = {
       scaling: 'Teleport distance = 60 ft'
     },
     {
+      name: 'Pack Leader',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        precisionStacks: '-2'
+      },
+      description: 'Summon a pack of wolves to overwhelm your enemies.',
+      mechanics: 'Summon 3 wolves for 4 rounds. Each wolf has 20 HP and attacks for 1d6+2 damage.',
+      effects: [
+        { condition: 'Summon', effect: 'Summon 3 wolves for 4 rounds' },
+        { condition: 'Wolf Stats', effect: 'Each wolf has 20 HP and attacks for 1d6+2 damage' },
+        { condition: 'Pack Tactics', effect: 'Wolves gain advantage when attacking the same target' },
+        { condition: 'Beast Mastery Talents', effect: 'May enhance pack abilities' }
+      ],
+      scaling: 'Wolf damage = 1d6+2'
+    },
+    {
+      name: 'Phantom Shot',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        precisionStacks: '-3'
+      },
+      description: 'Fire an arrow that passes through multiple enemies.',
+      mechanics: 'Fire arrow in 60-ft line. Hits all enemies in line for 2d8 + AGI damage. Each enemy hit after the first takes +1d6 damage.',
+      effects: [
+        { condition: 'Line Attack', effect: 'Hits all enemies in 60-ft line' },
+        { condition: 'Base Damage', effect: '2d8 + AGI damage to all targets' },
+        { condition: 'Escalating Damage', effect: 'Each enemy after the first takes +1d6 damage' },
+        { condition: 'Falcon\'s Eye Talents', effect: 'May enhance piercing effects' }
+      ],
+      scaling: 'Damage = 2d8 + AGI (+1d6 per enemy after first)'
+    },
+    {
+      name: 'Apex Predator',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        precisionStacks: '-4'
+      },
+      description: 'Enter a heightened state where you become the ultimate hunter.',
+      mechanics: 'For 5 rounds: +2 to all attack rolls, +1d8 damage to all attacks, and gain tremorsense 30 ft.',
+      effects: [
+        { condition: 'Attack Bonus', effect: '+2 to all attack rolls' },
+        { condition: 'Damage Bonus', effect: '+1d8 damage to all attacks' },
+        { condition: 'Tremorsense', effect: 'Gain tremorsense 30 ft' },
+        { condition: 'Duration', effect: 'Lasts for 5 rounds' },
+        { condition: 'Beast Mastery Talents', effect: 'May enhance predator abilities' }
+      ],
+      scaling: 'Damage bonus = +1d8'
+    },
+    {
+      name: 'Rain of Arrows',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        precisionStacks: '-5'
+      },
+      description: 'Fire arrows high into the air to rain down on a large area.',
+      mechanics: 'Target 30-ft radius area within 120 ft. After 1 round, arrows rain down dealing 4d6 damage to all creatures in area.',
+      effects: [
+        { condition: 'Area', effect: 'Target 30-ft radius area within 120 ft' },
+        { condition: 'Delay', effect: 'Arrows fall after 1 round' },
+        { condition: 'Damage', effect: '4d6 damage to all creatures in area' },
+        { condition: 'Falcon\'s Eye Talents', effect: 'May enhance area effects' }
+      ],
+      scaling: 'Damage = 4d6'
+    },
+    {
       name: 'Executioner\'s Mark',
       cost: {
         actionPoints: 3,
@@ -519,7 +655,8 @@ const huntressAbilities = {
         { condition: 'Kill', effect: 'Regain 3 Focus and free Mark Swap' },
         { condition: 'Falcon\'s Eye Talents', effect: 'May enhance execution effects' }
       ],
-      scaling: 'Damage = 6d8 + DEX + (PS × 2)'
+      scaling: 'Damage = 6d8 + DEX + (PS × 2)',
+      ultimate: true
     }
   ],
 

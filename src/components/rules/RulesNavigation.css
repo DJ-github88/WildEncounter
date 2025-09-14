@@ -1,37 +1,58 @@
 .rules-navigation {
   display: flex;
   flex-direction: column;
-  background-color: #0B0F19;
-  border: 1px solid #2B3043;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px var(--color-secondary),
+    0 8px 16px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   width: 100%;
-  max-width: 280px;
+  max-width: 300px;
   height: 100%;
   position: sticky;
   top: 20px;
 }
 
 .rules-navigation-header {
-  background: linear-gradient(to bottom, #1A2033, #131A2B);
-  padding: 16px;
-  border-bottom: 1px solid #2B3043;
+  background: var(--color-background);
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(184, 134, 11, 0.08) 0%, transparent 50%);
+  padding: 18px;
+  border-bottom: 2px solid var(--color-border);
   text-align: center;
+  position: relative;
+}
+
+.rules-navigation-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--color-secondary);
 }
 
 .rules-navigation-title {
-  color: #8A60DA;
-  font-size: 1.4rem;
+  color: var(--color-primary);
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 4px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 6px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .rules-navigation-subtitle {
-  color: #8596AD;
-  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
   font-weight: 500;
+  font-style: italic;
 }
 
 .rules-navigation-menu {
@@ -60,12 +81,12 @@
 }
 
 .rules-category-header:hover {
-  background-color: #1A2033;
+  background: var(--color-background);
 }
 
 .rules-category.active > .rules-category-header {
-  background-color: #1E2539;
-  border-left-color: #8A60DA;
+  background: var(--color-background);
+  border-left-color: var(--color-secondary);
 }
 
 .rules-category-icon {
@@ -77,16 +98,16 @@
 
 .rules-category-name {
   flex: 1;
-  color: #B8C7DC;
+  color: var(--color-text);
   font-weight: 500;
 }
 
 .rules-category.active > .rules-category-header .rules-category-name {
-  color: #D7E1F2;
+  color: var(--color-primary);
 }
 
 .rules-category-toggle {
-  color: #8596AD;
+  color: var(--color-text-muted);
   font-size: 1.2rem;
   font-weight: 700;
   width: 20px;
@@ -97,7 +118,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: #0D1320;
+  background: var(--color-background);
   overflow: hidden;
 }
 
@@ -111,39 +132,39 @@
 }
 
 .rules-subcategory:hover {
-  background-color: #151E32;
+  background: var(--color-background-light);
 }
 
 .rules-subcategory.active {
-  background-color: #1A2439;
-  border-left-color: #8A60DA;
+  background: var(--color-background-light);
+  border-left-color: var(--color-primary);
 }
 
 .rules-subcategory-icon {
   margin-right: 10px;
-  color: #8596AD;
+  color: var(--color-text-muted);
   font-size: 0.8rem;
   width: 12px;
   text-align: center;
 }
 
 .rules-subcategory-name {
-  color: #A0B0C9;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
 }
 
 .rules-subcategory.active .rules-subcategory-name {
-  color: #D7E1F2;
+  color: var(--color-text);
 }
 
 .rules-navigation-footer {
   padding: 16px;
-  border-top: 1px solid #2B3043;
-  background: linear-gradient(to top, #1A2033, #131A2B);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-background);
 }
 
 .quick-links-title {
-  color: #8A60DA;
+  color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -158,12 +179,12 @@
 }
 
 .quick-links-list li {
-  color: #A0B0C9;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   padding: 6px 0;
   cursor: pointer;
   transition: color 0.2s ease;
-  border-bottom: 1px solid #1E2539;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .quick-links-list li:last-child {
@@ -171,7 +192,7 @@
 }
 
 .quick-links-list li:hover {
-  color: #D7E1F2;
+  color: var(--color-text);
 }
 
 /* Responsive adjustments */

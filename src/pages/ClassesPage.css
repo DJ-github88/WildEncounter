@@ -11,8 +11,10 @@
 
 .page-title {
   font-size: var(--font-size-4xl);
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-bottom: var(--spacing-4);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .page-description {

@@ -234,6 +234,70 @@ const titanAbilities = {
         { condition: 'With Immovable Juggernaut Talents', effect: 'Also gain temporary HP equal to GV released.' }
       ],
       scaling: 'N/A'
+    },
+    {
+      name: 'Tremor Step',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        gravitas: 1
+      },
+      description: 'Each step creates small tremors that unbalance nearby enemies.',
+      mechanics: 'Move up to 20 ft. Each 5 ft moved forces enemies within 5 ft to make AGI save or fall prone.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Save DC increases by 1.' },
+        { condition: 'Mountain Stance', effect: 'Range increases to 10 ft from your path.' },
+        { condition: 'Titanic Stance', effect: 'Prone enemies also take 1d4 bludgeoning damage.' }
+      ],
+      scaling: 'Save DC = 8 + Proficiency + STR'
+    },
+    {
+      name: 'Gravitational Pull',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        gravitas: 2
+      },
+      description: 'Use your mass to pull enemies toward you.',
+      mechanics: 'All enemies within 15 ft must make STR save or be pulled 10 ft toward you.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Range increases to 20 ft.' },
+        { condition: 'Mountain Stance', effect: 'Pull distance increases to 15 ft.' },
+        { condition: 'Titanic Stance', effect: 'Pulled enemies take 1d6 force damage.' }
+      ],
+      scaling: 'Save DC = 8 + Proficiency + STR'
+    },
+    {
+      name: 'Titan\'s Roar',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        gravitas: 1
+      },
+      description: 'Let out a thunderous roar that intimidates and disorients enemies.',
+      mechanics: 'All enemies within 20 ft must make Spirit save or be frightened for 2 rounds.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Range increases to 25 ft.' },
+        { condition: 'Mountain Stance', effect: 'Frightened enemies also have disadvantage on attacks.' },
+        { condition: 'Titanic Stance', effect: 'Duration increases to 3 rounds.' }
+      ],
+      scaling: 'Save DC = 8 + Proficiency + CON'
+    },
+    {
+      name: 'Seismic Slam',
+      cost: {
+        actionPoints: 2,
+        mana: 2,
+        gravitas: 3
+      },
+      description: 'Slam the ground with tremendous force, creating localized earthquakes.',
+      mechanics: 'Strike ground; 15-ft radius: enemies take 2d6 + STR damage and must save vs. prone.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Damage increases to 2d8 + STR.' },
+        { condition: 'Mountain Stance', effect: 'Radius increases to 20 ft.' },
+        { condition: 'Titanic Stance', effect: 'Creates difficult terrain for 3 rounds.' }
+      ],
+      scaling: 'Damage = 2d6 + STR (2d8 + STR in Stone+ stance)'
     }
   ],
 
@@ -401,6 +465,70 @@ const titanAbilities = {
         { condition: 'Titanic Stance', effect: 'Also push aside any objects or creatures smaller than you.' }
       ],
       scaling: 'N/A'
+    },
+    {
+      name: 'Tectonic Shift',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        gravitas: 6
+      },
+      description: 'Manipulate the battlefield by shifting the very ground beneath your enemies.',
+      mechanics: 'Reshape 30-ft square area: create walls (5 ft high), pits (5 ft deep), or ramps. Enemies in area take 2d8 + STR damage.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Can affect 40-ft square area.' },
+        { condition: 'Mountain Stance', effect: 'Walls/pits can be 10 ft high/deep.' },
+        { condition: 'Titanic Stance', effect: 'Damage increases to 3d8 + STR.' }
+      ],
+      scaling: 'Damage = 2d8 + STR (3d8 + STR in Titanic stance)'
+    },
+    {
+      name: 'Crushing Grip',
+      cost: {
+        actionPoints: 2,
+        mana: 2,
+        gravitas: 4
+      },
+      description: 'Grab an enemy and squeeze with titanic strength.',
+      mechanics: 'Grapple Large or smaller enemy. While grappled, target takes 1d8 + STR damage per turn and cannot breathe.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Can grapple Huge creatures.' },
+        { condition: 'Mountain Stance', effect: 'Damage increases to 1d10 + STR per turn.' },
+        { condition: 'Titanic Stance', effect: 'Can grapple up to 2 creatures at once.' }
+      ],
+      scaling: 'Damage per turn = 1d8 + STR (1d10 + STR in Mountain+ stance)'
+    },
+    {
+      name: 'Avalanche Charge',
+      cost: {
+        actionPoints: 3,
+        mana: 3,
+        gravitas: 7
+      },
+      description: 'Charge forward like a living avalanche, growing in power as you move.',
+      mechanics: 'Charge up to 40 ft in straight line. Damage starts at 2d8 + STR and increases by +1d8 for each 10 ft traveled.',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Base damage starts at 3d8 + STR.' },
+        { condition: 'Mountain Stance', effect: 'Can change direction once during charge.' },
+        { condition: 'Titanic Stance', effect: 'Leaves difficult terrain in your wake.' }
+      ],
+      scaling: 'Damage = 2d8 + STR + 1d8 per 10 ft (3d8 base in Stone+ stance)'
+    },
+    {
+      name: 'Gravitational Mastery',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        gravitas: 5
+      },
+      description: 'Manipulate gravity in a large area, affecting all creatures within.',
+      mechanics: 'Choose 30-ft radius: either double gravity (halve movement, disadvantage on AGI) or reverse gravity (creatures float upward).',
+      effects: [
+        { condition: 'Stone Stance', effect: 'Radius increases to 40 ft.' },
+        { condition: 'Mountain Stance', effect: 'Duration increases to 3 rounds.' },
+        { condition: 'Titanic Stance', effect: 'Can switch between effects as a bonus action.' }
+      ],
+      scaling: 'Duration = 2 rounds (3 in Mountain+ stance)'
     },
     {
       name: 'World-Ender',

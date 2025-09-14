@@ -120,6 +120,70 @@ const berserkerAbilities = {
         { condition: 'At Inferno', effect: 'No penalty on second attack.' }
       ],
       scaling: 'Damage = weapon + STR'
+    },
+    {
+      name: 'Primal Howl',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        fury: 0
+      },
+      description: 'Release a bestial howl that builds fury and unnerves enemies.',
+      mechanics: 'Gain +2 FP immediately. Enemies within 15 ft must make Spirit save or be frightened until end of their next turn.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Gain +3 FP instead of +2.' },
+        { condition: 'At Inferno', effect: 'Gain +4 FP and frightened enemies also take 1d4 psychic damage.' }
+      ],
+      scaling: 'FP gained = 2 (3 at Blaze, 4 at Inferno)'
+    },
+    {
+      name: 'Reckless Abandon',
+      cost: {
+        actionPoints: 1,
+        mana: 0,
+        fury: 1
+      },
+      description: 'Throw caution to the wind for increased damage potential.',
+      mechanics: 'Until end of turn, you have -2 AC but gain +1d6 damage on all attacks.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Damage bonus increases to +1d8.' },
+        { condition: 'At Inferno', effect: 'Damage bonus increases to +1d10 and you gain advantage on attack rolls.' }
+      ],
+      scaling: 'Damage bonus = +1d6 (+1d8 at Blaze, +1d10 at Inferno)'
+    },
+    {
+      name: 'Fury Surge',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        fury: 0
+      },
+      description: 'Channel raw emotion into a burst of combat prowess.',
+      mechanics: 'Gain +3 FP and your next attack deals +1d4 damage per current FP (max +5d4).',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Damage dice increase to d6s.' },
+        { condition: 'At Inferno', effect: 'Damage dice increase to d8s and attack automatically hits.' }
+      ],
+      scaling: 'Damage = +1d4 per FP (d6s at Blaze, d8s at Inferno)'
+    },
+    {
+      name: 'Battle Trance',
+      cost: {
+        actionPoints: 2,
+        mana: 1,
+        fury: 2
+      },
+      description: 'Enter a focused state where pain only feeds your rage.',
+      mechanics: 'For 3 rounds, whenever you take damage, gain +1 FP (max +2 per turn).',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 1 AP instead of 2 AP.' },
+        { condition: 'At Blaze', effect: 'Duration increases to 4 rounds.' },
+        { condition: 'At Inferno', effect: 'Duration increases to 5 rounds and you gain resistance to the damage type that triggered the FP gain.' }
+      ],
+      scaling: 'Duration = 3 rounds (4 at Blaze, 5 at Inferno)'
     }
   ],
 
@@ -203,6 +267,118 @@ const berserkerAbilities = {
       ],
       scaling: 'Damage = 5d6 + STR',
       ultimate: true
+    },
+    {
+      name: 'Berserker\'s Resilience',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        fury: 2
+      },
+      description: 'Your fury makes you resistant to debilitating effects.',
+      mechanics: 'Spend 2 FP to end one condition affecting you (stunned, charmed, frightened, etc.).',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Also gain advantage on saves vs. conditions for 2 rounds.' },
+        { condition: 'At Inferno', effect: 'Become immune to fear and charm effects for 3 rounds.' }
+      ],
+      scaling: 'N/A'
+    },
+    {
+      name: 'Savage Momentum',
+      cost: {
+        actionPoints: 1,
+        mana: 0,
+        fury: 1
+      },
+      description: 'Each successful hit builds your momentum for the next attack.',
+      mechanics: 'After hitting with a melee attack, your next attack this turn gains +1 to hit and +2 damage.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Bonus increases to +2 to hit and +4 damage.' },
+        { condition: 'At Inferno', effect: 'Bonus increases to +3 to hit and +6 damage, and crits on 19-20.' }
+      ],
+      scaling: 'Bonus = +1 hit/+2 dmg (+2/+4 at Blaze, +3/+6 at Inferno)'
+    },
+    {
+      name: 'Intimidating Presence',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        fury: 0
+      },
+      description: 'Your fury radiates outward, causing enemies to hesitate.',
+      mechanics: 'All enemies within 10 ft must make Spirit save (DC 8+Prof+CON) or have disadvantage on their next attack.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Range increases to 15 ft and also reduces enemy damage by 2.' },
+        { condition: 'At Inferno', effect: 'Range increases to 20 ft and frightens enemies for 1 round on failed save.' }
+      ],
+      scaling: 'Save DC = 8 + Proficiency + CON'
+    },
+    {
+      name: 'Fury Leech',
+      cost: {
+        actionPoints: 2,
+        mana: 2,
+        fury: 3
+      },
+      description: 'Drain the fighting spirit from your enemies to fuel your own rage.',
+      mechanics: 'Target enemy loses 1d4 from their next damage roll and you gain +2 FP.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 1 AP instead of 2 AP.' },
+        { condition: 'At Blaze', effect: 'Target loses 1d6 from damage and you gain +3 FP.' },
+        { condition: 'At Inferno', effect: 'Target loses 1d8 from damage, you gain +4 FP, and target is slowed for 1 round.' }
+      ],
+      scaling: 'Enemy penalty = 1d4 (1d6 at Blaze, 1d8 at Inferno)'
+    },
+    {
+      name: 'Rampage',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        fury: 6
+      },
+      description: 'Go on a killing spree, gaining momentum with each fallen foe.',
+      mechanics: 'For 4 rounds, each enemy you kill grants +1 AP and +2 FP (max +3 AP per turn).',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 1 AP instead of 2 AP.' },
+        { condition: 'At Blaze', effect: 'Duration increases to 5 rounds.' },
+        { condition: 'At Inferno', effect: 'Duration increases to 6 rounds and kills also heal you for 1d8 HP.' }
+      ],
+      scaling: 'Duration = 4 rounds (5 at Blaze, 6 at Inferno)'
+    },
+    {
+      name: 'Berserker\'s Last Stand',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        fury: 4
+      },
+      description: 'When near death, your fury reaches its peak.',
+      mechanics: 'Can only be used when below 25% HP. Gain +5 FP and resistance to all damage for 2 rounds.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 0 AP instead of 1 AP.' },
+        { condition: 'At Blaze', effect: 'Duration increases to 3 rounds.' },
+        { condition: 'At Inferno', effect: 'Duration increases to 4 rounds and you become immune to death effects.' }
+      ],
+      scaling: 'Duration = 2 rounds (3 at Blaze, 4 at Inferno)'
+    },
+    {
+      name: 'Explosive Fury',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        fury: 8
+      },
+      description: 'Release your pent-up rage in a devastating area attack.',
+      mechanics: 'All enemies within 15 ft take 4d6 + STR damage. You lose 3 FP but gain 1 Siege Stack equivalent effect for 2 rounds.',
+      effects: [
+        { condition: 'At Ember', effect: 'Costs 2 AP instead of 3 AP.' },
+        { condition: 'At Blaze', effect: 'Damage increases to 5d6 + STR.' },
+        { condition: 'At Inferno', effect: 'Damage increases to 6d6 + STR and radius increases to 20 ft.' }
+      ],
+      scaling: 'Damage = 4d6 + STR (5d6 at Blaze, 6d6 at Inferno)'
     }
   ],
 

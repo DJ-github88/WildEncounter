@@ -1,0 +1,1435 @@
+/* Spellbook Component - WoW Classic Style with Pathfinder Aesthetic */
+
+.spellbook-container {
+  display: flex;
+  height: 100vh;
+  max-height: 800px;
+  background: var(--color-background-light);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 
+    0 0 0 1px var(--color-secondary),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  font-family: 'Crimson Text', 'Times New Roman', 'Georgia', serif;
+  overflow: hidden;
+}
+
+/* Left Sidebar - WoW Classic Tab Style */
+.spellbook-sidebar {
+  width: 200px;
+  background: var(--color-background);
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(184, 134, 11, 0.08) 0%, transparent 50%);
+  border-right: 3px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.spellbook-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 0;
+  bottom: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px 0 0 8px;
+  opacity: 0.4;
+}
+
+.spellbook-header {
+  padding: 1.5rem 1rem;
+  border-bottom: 2px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  position: relative;
+  z-index: 1;
+}
+
+.spellbook-header h2 {
+  color: var(--color-background-light);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.spellbook-tabs {
+  flex: 1;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.spellbook-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin: 0 0.5rem;
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.spellbook-tab:hover {
+  background: var(--color-background);
+  border-color: var(--color-secondary);
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spellbook-tab.active {
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary-dark));
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  transform: translateX(4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spellbook-tab .tab-icon {
+  font-size: 1.2rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.spellbook-tab .tab-name {
+  flex: 1;
+  font-weight: 600;
+}
+
+/* Main Content Area */
+.spellbook-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background: var(--color-background);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.03) 0%, transparent 50%);
+}
+
+/* Class Mechanics Section */
+.spellbook-mechanics {
+  max-width: 800px;
+}
+
+.mechanics-header h3 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.mechanics-description {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mechanics-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Ascension Stages Grid */
+.ascension-stages {
+  margin-bottom: 2rem;
+}
+
+.ascension-stages h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.stage-card {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stage-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stage-number {
+  background: var(--color-primary);
+  color: var(--color-background-light);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.stage-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.stage-passive {
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.stage-bonus {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Musical Notes System */
+.musical-notes {
+  margin-bottom: 2rem;
+}
+
+.musical-notes h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.note-card {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
+}
+
+.note-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.note-description {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Core Mechanics List */
+.mechanics-list {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mechanics-list h4 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mechanics-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mechanics-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.mechanics-list li:last-child {
+  border-bottom: none;
+}
+
+.mechanics-list li::before {
+  content: '▶';
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Continuum Thresholds System */
+.thresholds-system {
+  margin-bottom: 2rem;
+}
+
+.thresholds-system h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.thresholds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.threshold-card {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.threshold-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
+}
+
+.threshold-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.threshold-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.threshold-value {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.threshold-description {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Passive Benefits System */
+.passive-benefits {
+  margin-bottom: 2rem;
+}
+
+.passive-benefits h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.passive-card {
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.passive-description {
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.passive-effects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.passive-effects li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.passive-effects li:last-child {
+  border-bottom: none;
+}
+
+.passive-effects li::before {
+  content: '✦';
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Talent Tree Content */
+.spellbook-tree-content {
+  max-width: 800px;
+}
+
+.tree-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tree-header h3 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tree-header p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Spell Grid Container */
+.spell-grid-container {
+  max-width: 800px;
+}
+
+/* Spell Grid Container - Clean WoW Classic Style */
+
+/* Spell Grid */
+.spell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.spell-slot {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.spell-slot:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spell-slot.procedural {
+  cursor: pointer;
+  position: relative;
+}
+
+.spell-slot.procedural:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+}
+
+.procedural-indicator {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Class-Specific Themes */
+
+/* Fire Theme - Pyrofiend */
+.spellbook-container.fire-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(220, 20, 60, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 69, 0, 0.08) 0%, transparent 50%);
+  border-color: #DC143C;
+}
+
+.fire-theme .spellbook-header {
+  background: linear-gradient(135deg, #DC143C, #B22222);
+}
+
+.fire-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #FF6347, #DC143C);
+  border-color: #FF4500;
+}
+
+.fire-theme .spell-slot.ultimate {
+  border-color: #DC143C;
+  background: linear-gradient(135deg, var(--color-background-light), rgba(220, 20, 60, 0.15));
+  box-shadow: 0 0 12px rgba(220, 20, 60, 0.4);
+}
+
+/* Time Theme - Chronarch */
+.spellbook-container.time-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(75, 0, 130, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
+  border-color: #4B0082;
+}
+
+.time-theme .spellbook-header {
+  background: linear-gradient(135deg, #4B0082, #663399);
+}
+
+.time-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #8A2BE2, #4B0082);
+  border-color: #9370DB;
+}
+
+/* Music Theme - Minstrel */
+.spellbook-container.music-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 20, 147, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(186, 85, 211, 0.08) 0%, transparent 50%);
+  border-color: #FF1493;
+}
+
+.music-theme .spellbook-header {
+  background: linear-gradient(135deg, #FF1493, #C71585);
+}
+
+.music-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #DA70D6, #FF1493);
+  border-color: #BA55D3;
+}
+
+/* Luck Theme - Gambler */
+.spellbook-container.luck-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 165, 0, 0.08) 0%, transparent 50%);
+  border-color: #FFD700;
+}
+
+.luck-theme .spellbook-header {
+  background: linear-gradient(135deg, #FFD700, #DAA520);
+}
+
+.luck-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #FFA500, #FFD700);
+  border-color: #FF8C00;
+}
+
+/* Fate Theme - Fate Weaver */
+.spellbook-container.fate-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(148, 0, 211, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(75, 0, 130, 0.08) 0%, transparent 50%);
+  border-color: #9400D3;
+}
+
+.fate-theme .spellbook-header {
+  background: linear-gradient(135deg, #9400D3, #8B008B);
+}
+
+.fate-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #BA55D3, #9400D3);
+  border-color: #DDA0DD;
+}
+
+/* Chaos Theme - Chaos Weaver */
+.spellbook-container.chaos-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 69, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
+  border-color: #FF4500;
+  animation: chaosShimmer 3s infinite;
+}
+
+@keyframes chaosShimmer {
+  0%, 100% { filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(90deg); }
+  50% { filter: hue-rotate(180deg); }
+  75% { filter: hue-rotate(270deg); }
+}
+
+.chaos-theme .spellbook-header {
+  background: linear-gradient(135deg, #FF4500, #FF6347);
+}
+
+.chaos-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #FF8C00, #FF4500);
+  border-color: #FF6347;
+}
+
+/* Death Theme - Deathcaller */
+.spellbook-container.death-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(25, 25, 25, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(105, 105, 105, 0.08) 0%, transparent 50%);
+  border-color: #2F2F2F;
+}
+
+.death-theme .spellbook-header {
+  background: linear-gradient(135deg, #2F2F2F, #1C1C1C);
+}
+
+.death-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #696969, #2F2F2F);
+  border-color: #808080;
+}
+
+/* Nature Theme - Formbender */
+.spellbook-container.nature-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(34, 139, 34, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(107, 142, 35, 0.08) 0%, transparent 50%);
+  border-color: #228B22;
+}
+
+.nature-theme .spellbook-header {
+  background: linear-gradient(135deg, #228B22, #006400);
+}
+
+.nature-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #32CD32, #228B22);
+  border-color: #90EE90;
+}
+
+/* Lunar Theme - Lunarch */
+.spellbook-container.lunar-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(192, 192, 192, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(230, 230, 250, 0.08) 0%, transparent 50%);
+  border-color: #C0C0C0;
+}
+
+.lunar-theme .spellbook-header {
+  background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+}
+
+.lunar-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #E6E6FA, #C0C0C0);
+  border-color: #D3D3D3;
+}
+
+/* Voodoo Theme - Witch Doctor */
+.spellbook-container.voodoo-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 0, 139, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(85, 107, 47, 0.08) 0%, transparent 50%);
+  border-color: #8B008B;
+}
+
+.voodoo-theme .spellbook-header {
+  background: linear-gradient(135deg, #8B008B, #556B2F);
+}
+
+.voodoo-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #9932CC, #8B008B);
+  border-color: #DA70D6;
+}
+
+/* Arcane Theme - Inscriptor */
+.spellbook-container.arcane-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(65, 105, 225, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(100, 149, 237, 0.08) 0%, transparent 50%);
+  border-color: #4169E1;
+}
+
+.arcane-theme .spellbook-header {
+  background: linear-gradient(135deg, #4169E1, #0000CD);
+}
+
+.arcane-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #6495ED, #4169E1);
+  border-color: #87CEEB;
+}
+
+/* War Theme - Dreadnaught */
+.spellbook-container.war-theme {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(160, 82, 45, 0.08) 0%, transparent 50%);
+  border-color: #8B4513;
+}
+
+.war-theme .spellbook-header {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.war-theme .spellbook-tab.active {
+  background: linear-gradient(135deg, #CD853F, #8B4513);
+  border-color: #D2691E;
+}
+
+.spell-slot.basic {
+  border-color: var(--color-border);
+}
+
+.spell-slot.advanced {
+  border-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-background-light), rgba(184, 134, 11, 0.1));
+}
+
+.spell-slot.ultimate {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-background-light), rgba(139, 69, 19, 0.1));
+  box-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
+}
+
+.spell-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  margin-top: 0.25rem;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.spell-requirement,
+.stage-requirement {
+  font-size: 0.6rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.empty-spell-grid {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Enhanced Spell Tooltip */
+.spell-tooltip {
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 350px;
+  box-shadow:
+    0 0 0 1px var(--color-secondary),
+    0 12px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 0.9rem;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tooltip-header {
+  background: linear-gradient(135deg,
+    rgba(139, 69, 19, 0.9) 0%,
+    rgba(160, 82, 45, 0.9) 50%,
+    rgba(139, 69, 19, 0.9) 100%);
+  margin: -1.25rem -1.25rem 0.75rem -1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-secondary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.tooltip-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.tooltip-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-secondary) 20%,
+    #D4AF37 50%,
+    var(--color-secondary) 80%,
+    transparent 100%);
+  border-radius: 1px;
+}
+
+.tooltip-header h4 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #F5E6A3;
+  text-align: center;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+}
+
+.stage-requirement-content {
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  background: rgba(139, 69, 19, 0.05);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Costs Footer Section */
+.tooltip-costs-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.costs-divider {
+  display: none;
+}
+
+.main-costs-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.cooldown-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.special-costs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.cost-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  background: rgba(139, 69, 19, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cost-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cost-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cost-note {
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Simple cost type colors */
+.ap-cost .cost-label {
+  color: #8B4513;
+}
+
+.mana-cost .cost-label {
+  color: #4169E1;
+}
+
+.health-cost .cost-label {
+  color: #DC143C;
+}
+
+.cooldown-cost .cost-label {
+  color: #708090;
+}
+
+.ascension-cost .cost-label {
+  color: #DC143C;
+}
+
+.lunar-cost .cost-label, .spirit-cost .cost-label {
+  color: #9370DB;
+}
+
+.cards-cost .cost-label, .dice-cost .cost-label, .coin-cost .cost-label {
+  color: #FF8C00;
+}
+
+.continuum-cost .cost-label {
+  color: #4682B4;
+}
+
+.essence-cost .cost-label {
+  color: #2F4F4F;
+}
+
+.ward-cost .cost-label {
+  color: #6495ED;
+}
+
+.soul-cost .cost-label {
+  color: #483D8B;
+}
+
+.primal-cost .cost-label {
+  color: #228B22;
+}
+
+.guard-cost .cost-label {
+  color: #B8860B;
+}
+
+.heat-cost .cost-label {
+  color: #FF4500;
+}
+
+.combo-cost .cost-label {
+  color: #FF69B4;
+}
+
+.voodoo-cost .cost-label {
+  color: #8B008B;
+}
+
+.cost-item.ap {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: var(--color-background-light);
+}
+
+.cost-item.mana {
+  background: linear-gradient(135deg, #4169E1, #6495ED);
+  color: var(--color-background-light);
+}
+
+.cost-item.note {
+  background: linear-gradient(135deg, #9932CC, #BA55D3);
+  color: var(--color-background-light);
+}
+
+.cost-item.lunar {
+  background: linear-gradient(135deg, #C0C0C0, #E6E6FA);
+  color: var(--color-text);
+}
+
+.cost-item.spirit {
+  background: linear-gradient(135deg, #20B2AA, #48D1CC);
+  color: var(--color-background-light);
+}
+
+.cost-item.cards {
+  background: linear-gradient(135deg, #DC143C, #FF6347);
+  color: var(--color-background-light);
+}
+
+.cost-item.health {
+  background: linear-gradient(135deg, #DC143C, #B22222);
+  color: var(--color-background-light);
+}
+
+.cost-item.cooldown {
+  background: linear-gradient(135deg, #708090, #778899);
+  color: var(--color-background-light);
+}
+
+.cost-item.continuum {
+  background: linear-gradient(135deg, #4682B4, #5F9EA0);
+  color: var(--color-background-light);
+}
+
+.cost-item.essence {
+  background: linear-gradient(135deg, #2F4F4F, #696969);
+  color: var(--color-background-light);
+}
+
+.cost-item.ward {
+  background: linear-gradient(135deg, #6495ED, #87CEEB);
+  color: var(--color-background-light);
+}
+
+.cost-item.soul {
+  background: linear-gradient(135deg, #483D8B, #6A5ACD);
+  color: var(--color-background-light);
+}
+
+.cost-item.primal {
+  background: linear-gradient(135deg, #228B22, #32CD32);
+  color: var(--color-background-light);
+}
+
+.cost-item.guard {
+  background: linear-gradient(135deg, #B8860B, #DAA520);
+  color: var(--color-background-light);
+}
+
+.cost-item.heat {
+  background: linear-gradient(135deg, #FF4500, #FF6347);
+  color: var(--color-background-light);
+}
+
+.cost-item.combo {
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  color: var(--color-background-light);
+}
+
+.cost-item.voodoo {
+  background: linear-gradient(135deg, #8B008B, #9932CC);
+  color: var(--color-background-light);
+}
+
+.cost-item.chaos {
+  background: linear-gradient(135deg, #FF4500, #FF8C00);
+  color: var(--color-background-light);
+}
+
+.cost-item.runes {
+  background: linear-gradient(135deg, #2E8B57, #3CB371);
+  color: var(--color-background-light);
+}
+
+.cost-item.voodoo {
+  background: linear-gradient(135deg, #8B008B, #9400D3);
+  color: var(--color-background-light);
+}
+
+.cost-item.ascension {
+  background: linear-gradient(135deg, #B22222, #DC143C);
+  color: var(--color-background-light);
+  box-shadow: 0 0 8px rgba(178, 34, 34, 0.5);
+}
+
+.cost-item.dice {
+  background: linear-gradient(135deg, #FF6347, #FF4500);
+  color: var(--color-background-light);
+}
+
+.cost-item.coin {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: var(--color-text);
+}
+
+.cost-item.luck {
+  background: linear-gradient(135deg, #32CD32, #228B22);
+  color: var(--color-background-light);
+}
+
+.cost-item.risk {
+  background: linear-gradient(135deg, #FF1493, #DC143C);
+  color: var(--color-background-light);
+}
+
+.cost-item.wager {
+  background: linear-gradient(135deg, #8B0000, #B22222);
+  color: var(--color-background-light);
+  border: 1px solid #FFD700;
+}
+
+.tooltip-description {
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.description-section {
+  margin-bottom: 1rem;
+}
+
+.description-section:last-child {
+  margin-bottom: 0;
+}
+
+.description-section strong {
+  color: var(--color-primary);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.description-section p {
+  margin: 0;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.effects-list {
+  margin: 0;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.effects-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--color-secondary);
+  font-size: 0.85rem;
+}
+
+.effects-list li:last-child {
+  margin-bottom: 0;
+}
+
+.effects-list li strong {
+  color: var(--color-secondary);
+  display: inline;
+  margin-bottom: 0;
+  text-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .spellbook-container {
+    max-height: 90vh;
+  }
+
+  .spellbook-sidebar {
+    width: 180px;
+  }
+
+  .spell-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+
+  .spell-tooltip {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spellbook-container {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+    border-radius: 8px;
+  }
+
+  .spellbook-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid var(--color-border);
+  }
+
+  .spellbook-header {
+    padding: 1rem;
+  }
+
+  .spellbook-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .spellbook-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0.5rem 1rem 1rem 1rem;
+    gap: 0.25rem;
+  }
+
+  .spellbook-tab {
+    min-width: 100px;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .spellbook-tab .tab-name {
+    font-size: 0.8rem;
+  }
+
+  .spellbook-content {
+    padding: 1rem;
+  }
+
+  .mechanics-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .stages-grid,
+  .notes-grid,
+  .thresholds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spell-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .spell-slot {
+    min-height: 80px;
+    padding: 0.25rem;
+  }
+
+  .spell-name {
+    font-size: 0.7rem;
+  }
+
+  .spell-tooltip {
+    max-width: 250px;
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+
+  .tooltip-header {
+    margin: -0.75rem -0.75rem 0.5rem -0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .stage-requirement-content {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .cost-badge {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .cost-label {
+    font-size: 0.7rem;
+  }
+
+  .cost-value {
+    font-size: 0.8rem;
+  }
+
+  .main-costs-row {
+    gap: 0.5rem;
+  }
+
+  .special-costs-row {
+    gap: 0.4rem;
+  }
+
+  .cost-note {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spellbook-container {
+    border-radius: 4px;
+    border-width: 2px;
+  }
+
+  .spellbook-header {
+    padding: 0.75rem;
+  }
+
+  .spellbook-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .spellbook-tabs {
+    padding: 0.5rem;
+  }
+
+  .spellbook-tab {
+    min-width: 80px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .spellbook-tab .tab-icon {
+    font-size: 1rem;
+  }
+
+  .spellbook-content {
+    padding: 0.75rem;
+  }
+
+  .mechanics-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .spell-grid {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .spell-slot {
+    min-height: 70px;
+    padding: 0.2rem;
+  }
+
+  .spell-name {
+    font-size: 0.65rem;
+    -webkit-line-clamp: 1;
+  }
+
+  .spell-tooltip {
+    max-width: 200px;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 0.9rem;
+  }
+
+  .stage-requirement-content {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .tooltip-header {
+    margin: -0.75rem -0.75rem 0.5rem -0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .cost-badge {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .cost-label {
+    font-size: 0.65rem;
+  }
+
+  .cost-value {
+    font-size: 0.75rem;
+  }
+
+  .main-costs-row {
+    gap: 0.4rem;
+  }
+
+  .special-costs-row {
+    gap: 0.3rem;
+  }
+
+  .cost-note {
+    font-size: 0.65rem;
+  }
+
+  .stage-card,
+  .note-card,
+  .threshold-card {
+    padding: 0.75rem;
+  }
+
+  .mechanics-list {
+    padding: 1rem;
+  }
+}

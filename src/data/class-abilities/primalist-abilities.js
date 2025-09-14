@@ -272,15 +272,15 @@ const primalistAbilities = {
       effect: 'Elemental spell damage, Mana pool.'
     },
     {
-      attribute: 'Wisdom',
-      effect: 'Healing amount, totem save DCs, number of memorised totems (+ WIS).'
+      attribute: 'Spirit',
+      effect: 'Healing amount, totem save DCs, number of memorised totems (+ Spirit).'
     },
     {
       attribute: 'Constitution',
       effect: 'HP and Earthen Buckler reduction.'
     },
     {
-      attribute: 'Dexterity',
+      attribute: 'Agility',
       effect: 'Attack rolls for whip/pebble if reflavoured as finesse.'
     }
   ],

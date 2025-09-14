@@ -629,7 +629,7 @@ const gamblerTalentTrees = [
         maxRank: 1,
         position: { row: 6, col: 2 },
         requires: ['card-mastery', 'deck-of-fate'],
-        icon: '🎭',
+        icon: 'A',
         rankDescription: [
           'Once per day, for 1d6+2 rounds, you become an Avatar of Cards. During this time, you can draw 5 cards for any Card ability and choose which one to use. Additionally, your Card Throw deals triple damage, you can use Royal Flush as a bonus action, and you can use Deck of Wonders without expending its normal uses. Finally, you are surrounded by a swirling barrier of cards that grants you +5 AC and resistance to all damage.'
         ]

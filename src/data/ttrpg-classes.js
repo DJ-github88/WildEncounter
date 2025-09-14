@@ -2,7 +2,7 @@ const ttrpgClasses = [
   {
     id: 'mystic',
     name: 'Mystic',
-    icon: '✨',
+    icon: '◊',
     description: 'Masters of arcane energies who channel mystical forces in various forms.',
     primaryAttribute: 'Intelligence',
     armorProficiency: 'Cloth',

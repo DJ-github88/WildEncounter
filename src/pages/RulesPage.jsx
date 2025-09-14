@@ -27,117 +27,109 @@ const RulesPage = () => {
     {
       id: 'core',
       name: 'Core Rules',
-      icon: '📜',
       subcategories: [
-        { id: 'overview', name: 'Game Overview', icon: '🌍' },
-        { id: 'dice', name: 'Dice System', icon: '🎲' },
-        { id: 'statistics', name: 'Character Statistics', icon: '📊' },
-        { id: 'inventory', name: 'Inventory & Encumbrance', icon: '🎒' },
-        { id: 'sessions', name: 'Game Sessions', icon: '🏆' }
+        { id: 'overview', name: 'Game Overview' },
+        { id: 'dice', name: 'Dice System' },
+        { id: 'statistics', name: 'Character Statistics' },
+        { id: 'inventory', name: 'Inventory & Encumbrance' },
+        { id: 'sessions', name: 'Game Sessions' }
       ]
     },
     {
       id: 'character',
       name: 'Character Creation',
-      icon: '👤',
       subcategories: [
-        { id: 'overview', name: 'Overview', icon: '📋' },
-        { id: 'backgrounds', name: 'Backgrounds', icon: '📜' },
-        { id: 'classes', name: 'Classes', icon: '⚔️' },
-        { id: 'attributes', name: 'Attributes', icon: '💪' },
-        { id: 'skills', name: 'Skills', icon: '🧠' },
-        { id: 'combinations', name: 'Combinations', icon: '🔄' }
+        { id: 'overview', name: 'Overview' },
+        { id: 'backgrounds', name: 'Backgrounds' },
+        { id: 'classes', name: 'Classes' },
+        { id: 'attributes', name: 'Attributes' },
+        { id: 'skills', name: 'Skills' },
+        { id: 'combinations', name: 'Combinations' }
       ]
     },
     {
       id: 'combat',
       name: 'Combat',
-      icon: '⚔️',
       subcategories: [
-        { id: 'basics', name: 'Basics', icon: '🛡️' },
-        { id: 'mechanics', name: 'Combat Mechanics', icon: '⚙️' },
-        { id: 'attacks', name: 'Attacks & Armor', icon: '🗡️' },
-        { id: 'reactions', name: 'Reactions', icon: '⚡' },
-        { id: 'proficientabilities', name: 'Proficient Abilities', icon: '🔥' },
-        { id: 'crits', name: 'Critical Hits', icon: '✨' },
-        { id: 'conditions', name: 'Conditions', icon: '🤕' },
-        { id: 'death', name: 'Death & Exhaustion', icon: '💀' },
-        { id: 'resting', name: 'Resting', icon: '🛌' },
-        { id: 'souls', name: 'Soulmonger', icon: '👻' },
-        { id: 'actionpoints', name: 'Action Points', icon: '⏱️' },
-        { id: 'monsters', name: 'Monster Rules', icon: '👹' }
+        { id: 'basics', name: 'Basics' },
+        { id: 'mechanics', name: 'Combat Mechanics' },
+        { id: 'attacks', name: 'Attacks & Armor' },
+        { id: 'reactions', name: 'Reactions' },
+        { id: 'proficientabilities', name: 'Proficient Abilities' },
+        { id: 'crits', name: 'Critical Hits' },
+        { id: 'damagemodifiers', name: 'Damage Modifiers' },
+        { id: 'conditions', name: 'Conditions' },
+        { id: 'death', name: 'Death & Exhaustion' },
+        { id: 'resting', name: 'Resting' },
+        { id: 'souls', name: 'Soulmonger' },
+        { id: 'actionpoints', name: 'Action Points' },
+        { id: 'monsters', name: 'Monster Rules' }
       ]
     },
     {
       id: 'social',
       name: 'Social Activities',
-      icon: '🍻',
       subcategories: [
-        { id: 'basics', name: 'Basics', icon: '💬' },
-        { id: 'carousing', name: 'Carousing', icon: '🍺' },
-        { id: 'wassailing', name: 'Wassailing', icon: '🎭' },
-        { id: 'reputation', name: 'Reputation', icon: '👑' }
+        { id: 'basics', name: 'Basics' },
+        { id: 'carousing', name: 'Carousing' },
+        { id: 'wassailing', name: 'Wassailing' },
+        { id: 'reputation', name: 'Reputation' }
       ]
     },
     {
       id: 'travel',
       name: 'Travel & Exploration',
-      icon: '🧭',
       subcategories: [
-        { id: 'basics', name: 'Basics', icon: '🗺️' },
-        { id: 'challenges', name: 'Challenges', icon: '🏔️' },
-        { id: 'exploration', name: 'Exploration', icon: '🔍' },
-        { id: 'environments', name: 'Environments', icon: '🌲' },
-        { id: 'pointclick', name: 'Point & Click Model', icon: '👆' }
+        { id: 'basics', name: 'Basics' },
+        { id: 'challenges', name: 'Challenges' },
+        { id: 'exploration', name: 'Exploration' },
+        { id: 'environments', name: 'Environments' },
+        { id: 'pointclick', name: 'Point & Click Model' }
       ]
     },
     {
       id: 'magic',
       name: 'Magic & Abilities',
-      icon: '✨',
       subcategories: [
-        { id: 'system', name: 'Magic System', icon: '📚' },
-        { id: 'resources', name: 'Resource Management', icon: '🔋' },
-        { id: 'reactions', name: 'Combat Reactions', icon: '⚡' },
-        { id: 'spellcasting', name: 'Spell Resolution', icon: '🔮' },
-        { id: 'talents', name: 'Talent Abilities', icon: '🌟' }
+        { id: 'system', name: 'Magic System' },
+        { id: 'resources', name: 'Resource Management' },
+        { id: 'reactions', name: 'Combat Reactions' },
+        { id: 'spellcasting', name: 'Spell Resolution' },
+        { id: 'talents', name: 'Talent Abilities' }
       ]
     },
     {
       id: 'equipment',
       name: 'Equipment',
-      icon: '🛡️',
       subcategories: [
-        { id: 'weapons', name: 'Weapons', icon: '🗡️' },
-        { id: 'armor', name: 'Armor', icon: '🛡️' },
-        { id: 'magical', name: 'Magical Items', icon: '✨' },
-        { id: 'durability', name: 'Durability & Repair', icon: '🔨' }
+        { id: 'weapons', name: 'Weapons' },
+        { id: 'armor', name: 'Armor' },
+        { id: 'magical', name: 'Magical Items' },
+        { id: 'durability', name: 'Durability & Repair' }
       ]
     },
     {
       id: 'professions',
       name: 'Professions',
-      icon: '⚒️',
       subcategories: [
-        { id: 'basics', name: 'Basics', icon: '📋' },
-        { id: 'alchemy', name: 'Alchemy', icon: '⚗️' },
-        { id: 'herbalism', name: 'Herbalism', icon: '🌿' },
-        { id: 'mining', name: 'Mining', icon: '⛏️' },
-        { id: 'blacksmithing', name: 'Blacksmithing', icon: '🔨' },
-        { id: 'enchanting', name: 'Enchanting', icon: '✨' },
-        { id: 'leatherworking', name: 'Leatherworking', icon: '🧵' },
-        { id: 'tailoring', name: 'Tailoring', icon: '🧶' }
+        { id: 'basics', name: 'Basics' },
+        { id: 'alchemy', name: 'Alchemy' },
+        { id: 'herbalism', name: 'Herbalism' },
+        { id: 'mining', name: 'Mining' },
+        { id: 'blacksmithing', name: 'Blacksmithing' },
+        { id: 'enchanting', name: 'Enchanting' },
+        { id: 'leatherworking', name: 'Leatherworking' },
+        { id: 'tailoring', name: 'Tailoring' }
       ]
     },
     {
       id: 'advancement',
       name: 'Advancement',
-      icon: '📈',
       subcategories: [
-        { id: 'experience', name: 'Experience & Levels', icon: '⭐' },
-        { id: 'talents', name: 'Talent Points', icon: '🌟' },
-        { id: 'attributes', name: 'Attribute Improvements', icon: '💪' },
-        { id: 'milestones', name: 'Milestones', icon: '🏆' }
+        { id: 'experience', name: 'Experience & Levels' },
+        { id: 'talents', name: 'Talent Points' },
+        { id: 'attributes', name: 'Attribute Improvements' },
+        { id: 'milestones', name: 'Milestones' }
       ]
     }
   ];
@@ -151,12 +143,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Game Overview",
-            icon: "🌍",
+
             content: "Our TTRPG is a fantasy role-playing game where players take on the roles of heroes in a world of magic and adventure. The game is designed to balance narrative storytelling with strategic gameplay, allowing for both combat encounters and rich character development."
           },
           {
             title: "Core Principles",
-            icon: "⚖️",
+
             content: [
               { label: "Player Agency", text: "Your choices matter and have real consequences in the game world" },
               { label: "Tactical Depth", text: "Combat and challenges reward strategic thinking and creative problem-solving" },
@@ -166,7 +158,6 @@ const RulesPage = () => {
           },
           {
             title: "Game Sessions",
-            icon: "🏆",
             content: "A typical game session consists of exploration, social interaction, and combat. The Game Master (GM) describes the environment and controls non-player characters, while players make decisions for their characters."
           }
         ]
@@ -176,12 +167,10 @@ const RulesPage = () => {
         sections: [
           {
             title: "Dice System",
-            icon: "🎲",
             content: "The game uses a d20-based system for most checks and actions. When attempting an action, roll a d20 and add relevant modifiers. The result is compared against a target number or an opposing roll to determine success."
           },
           {
             title: "Critical Results",
-            icon: "✨",
             content: [
               { label: "Critical Success", text: "Natural 20 on a d20 roll" },
               { label: "Critical Failure", text: "Natural 1 on a d20 roll" },
@@ -196,7 +185,7 @@ const RulesPage = () => {
         sections: [
           {
             title: "Primary Attributes",
-            icon: "💪",
+            icon: "◆",
             content: "Every character has six primary attributes that represent their basic capabilities:",
             importance: "high"
           }
@@ -237,7 +226,7 @@ const RulesPage = () => {
         sections: [
           {
             title: "Carrying Capacity & Encumbrance",
-            icon: "🎒",
+            icon: "◊",
             content: [
               { label: "Base Inventory Grid", text: "5×5 slots (not encumbered)" },
               { label: "Strength Bonus", text: "+1 row per point of STR modifier (e.g., STR mod +1 = 6×5 grid)" },
@@ -253,12 +242,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Game Sessions",
-            icon: "🏆",
+
             content: "A typical game session consists of exploration, social interaction, and combat. The Game Master (GM) describes the environment and controls non-player characters, while players make decisions for their characters."
           },
           {
             title: "Session Structure",
-            icon: "📝",
+
             content: [
               { label: "Session Preparation", text: "GM prepares locations, NPCs, and potential encounters" },
               { label: "Session Start", text: "Recap of previous events and setting the scene" },
@@ -276,13 +265,13 @@ const RulesPage = () => {
         sections: [
           {
             title: "Character Creation Process",
-            icon: "👤",
+            icon: "♦",
             content: "Character creation follows these steps:",
             importance: "high"
           },
           {
             title: "Creation Steps",
-            icon: "📋",
+            icon: "▪",
             content: [
               { label: "1. Choose a Background", text: "Select one of the nine background paths that provides three thematic abilities" },
               { label: "2. Select a Class", text: "Choose any class regardless of your background selection" },
@@ -293,7 +282,7 @@ const RulesPage = () => {
           },
           {
             title: "Background & Class Independence",
-            icon: "🔄",
+            icon: "※",
             content: "In our TTRPG system, backgrounds and classes are completely independent choices. This separation allows for diverse character combinations and unique playstyles. Your background provides thematic abilities while your class determines your core mechanics and resource systems.",
             importance: "high"
           }
@@ -304,12 +293,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Attribute Allocation",
-            icon: "💪",
+            icon: "◆",
             content: "During character creation, you'll assign values to your six primary attributes (Constitution, Strength, Agility, Intelligence, Spirit, and Charisma). These can be determined through several methods:"
           },
           {
             title: "Allocation Methods",
-            icon: "🎲",
+            icon: "⬢",
             content: [
               { label: "Point Buy", text: "Start with a pool of points to distribute among attributes" },
               { label: "Standard Array", text: "Use a predetermined set of values (e.g., 15, 14, 13, 12, 10, 8)" },
@@ -324,19 +313,19 @@ const RulesPage = () => {
         sections: [
           {
             title: "Backgrounds (Paths)",
-            icon: "🛤️",
+            icon: "⟐",
             content: "In our TTRPG system, the nine paths (Mystic, Trickster, Zealot, etc.) function as character backgrounds. Each background represents a different approach to power and adventure, providing three unique abilities regardless of which class a character chooses.",
             importance: "high"
           },
           {
             title: "Background Abilities",
-            icon: "✨",
+            icon: "◊",
             content: "Each background grants three thematic abilities (passive or active) that reflect the flavor of that path. These abilities complement any class and remain with your character throughout their journey.",
             importance: "high"
           },
           {
             title: "Available Backgrounds",
-            icon: "📜",
+            icon: "⟡",
             content: [
               { label: "Mystic", text: "Masters of elemental forces and cosmic energies" },
               { label: "Arcanist", text: "Scholarly practitioners of structured magical systems" },
@@ -401,18 +390,18 @@ const RulesPage = () => {
         sections: [
           {
             title: "Choosing a Class",
-            icon: "⚔️",
+            icon: "⟐",
             content: "Your character's class determines their primary abilities, available talent trees, and role in the party. Each class has unique mechanics and resource systems that define how they play."
           },
           {
             title: "Class Independence",
-            icon: "🔓",
+            icon: "◈",
             content: "Classes are completely independent from backgrounds. While classes are organized into thematic paths for lore purposes, you can choose any class regardless of your background selection. This creates unique character combinations and diverse playstyles.",
             importance: "high"
           },
           {
             title: "Available Classes",
-            icon: "🔋",
+            icon: "⬢",
             content: [
               { label: "Mystic Path Classes", text: "Chronarch (Continuum), Pyrofiend (Inferno Veil), Minstrel (Musical Notes)" },
               { label: "Trickster Path Classes", text: "Gambler (Luck Points), Fate Weaver (Card-Draw), Chaos Weaver (Chaos Dice)" },
@@ -432,12 +421,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Skill System",
-            icon: "🧠",
+            icon: "◆",
             content: "Skills represent your character's training and aptitude in various areas of expertise. Each skill is tied to one of your primary attributes and can be used to overcome challenges in the game world."
           },
           {
             title: "Skill List",
-            icon: "📋",
+            icon: "▪",
             content: [
               { label: "Athletics (STR)", text: "Climbing, jumping, swimming, and other feats of physical prowess" },
               { label: "Acrobatics (AGI)", text: "Balance, tumbling, and graceful movement" },
@@ -467,13 +456,13 @@ const RulesPage = () => {
         sections: [
           {
             title: "Character Combinations",
-            icon: "🔄",
+            icon: "※",
             content: "The separation of backgrounds and classes creates unique character combinations with diverse abilities and playstyles. Here are some examples of interesting combinations:",
             importance: "high"
           },
           {
             title: "Example Combinations",
-            icon: "⚡",
+            icon: "◊",
             content: [
               { label: "Mystic Background + Berserker Class", text: "A rage-fueled warrior who can attune to elements, creating a primal battlemage who channels elemental fury through physical might." },
               { label: "Harrow Background + Minstrel Class", text: "A bard who can speak with the dead, weaving tales of those who have passed and using spectral sight to uncover hidden truths." },
@@ -488,7 +477,7 @@ const RulesPage = () => {
           },
           {
             title: "Building Unique Characters",
-            icon: "🧩",
+            icon: "⬢",
             content: "When creating your character, consider how your background abilities might complement or contrast with your class mechanics. Look for interesting synergies or unexpected combinations that tell a compelling story.",
             importance: "medium"
           }
@@ -502,17 +491,17 @@ const RulesPage = () => {
         sections: [
           {
             title: "Rounds & Turns",
-            icon: "⏱️",
+            icon: "◐",
             content: "Combat takes place in rounds, with each round representing approximately 6 seconds of in-game time. During a round, each participant takes a turn in order of initiative."
           },
           {
             title: "Actions",
-            icon: "⚔️",
+            icon: "⟐",
             content: "On your turn, you spend Action Points (AP) to perform various actions. You also have reactions available between turns that also cost AP."
           },
           {
             title: "Initiative",
-            icon: "🎯",
+            icon: "◈",
             content: "At the start of combat, all participants roll initiative (d20 + AGI modifier + bonuses). The order of initiative determines the sequence of turns, with higher rolls going first."
           }
         ]
@@ -522,33 +511,33 @@ const RulesPage = () => {
         sections: [
           {
             title: "Movement",
-            icon: "👣",
+            icon: "◇",
             content: "Characters can move up to their movement speed (typically 30 feet) by spending 1 AP. This movement can be broken up between other actions."
           },
           {
             title: "Positioning",
-            icon: "📍",
+            icon: "◈",
             content: "Position in combat is crucial. Characters gain advantages for flanking enemies, higher ground, or cover. Positioning points can be spent for tactical advantages."
           },
           {
             title: "Standard Actions",
-            icon: "⚔️",
+            icon: "⟐",
             content: "On your turn, you can spend AP to perform various actions. Here's an example of a player's turn:",
             importance: "high"
           },
           {
             title: "Example Turn",
-            icon: "🎭",
+            icon: "◊",
             content: "Noticing a precarious patch of snow overhead, the cleric of your party, who is proficient in Nature, swiftly assesses the situation. Utilizing their expertise (Nature: Terrain Insight, 2 AP), they dislodge the snow directly onto the advancing goblins. The sudden cascade surprises the raiders, significantly disrupting their approach and giving your group a crucial moment to regroup."
           },
           {
             title: "AP Management",
-            icon: "💰",
+            icon: "◆",
             content: "Managing your AP is crucial. For example: Stepping in to shield your ally and knock out the goblin required a significant expenditure of action points, leaving you with just one AP remaining for your turn. Despite the cost, this heroic intervention was crucial, safeguarding your companion and maintaining your strategic advantage amid the snowstorm's fury."
           },
           {
             title: "Combat Maneuvers",
-            icon: "🔄",
+            icon: "※",
             content: [
               { label: "Grapple", text: "Restrain an opponent (1 AP, contested STR check)" },
               { label: "Disarm", text: "Force opponent to drop a weapon (1 AP, contested weapon roll)" },
@@ -584,13 +573,13 @@ const RulesPage = () => {
         sections: [
           {
             title: "Attack Resolution",
-            icon: "🎯",
+            icon: "◈",
             content: "When you make an attack or cast a spell, the process follows these steps:",
             importance: "high"
           },
           {
             title: "Attack Process",
-            icon: "⚔️",
+            icon: "⟐",
             content: [
               { label: "Spend AP", text: "Spend the required Action Points (typically 1-2)" },
               { label: "Roll Attack", text: "Roll your weapon die (e.g., 1d8 for longsword)" },
@@ -602,13 +591,13 @@ const RulesPage = () => {
           },
           {
             title: "Armor & Defense",
-            icon: "🛡️",
+            icon: "◇",
             content: "Armor Score determines how much damage is reduced when you're hit:",
             importance: "high"
           },
           {
             title: "Defense System",
-            icon: "🔰",
+            icon: "◈",
             content: [
               { label: "Armor Score Formula", text: "Base 10 + armor type bonus + enchantment bonus" },
               { label: "Damage Reduction", text: "Armor Score 10: 1d4, Armor Score 20: 1d6, Armor Score 30: 1d8, Armor Score 40+: 1d10" },
@@ -618,13 +607,13 @@ const RulesPage = () => {
           },
           {
             title: "Defensive Reactions",
-            icon: "⚡",
+            icon: "◊",
             content: "When attacked, you can spend AP for these defensive options:",
             importance: "high"
           },
           {
             title: "Reaction Options",
-            icon: "↩️",
+            icon: "◆",
             content: [
               { label: "Dodge (2 AP)", text: "Increases attacker's miss chance by 25% (making rolls of 1-3 on a d8 miss, for example)" },
               { label: "Parry (1 AP)", text: "Roll your weapon die vs. attacker's roll; if higher, negate the attack. Even smaller weapons can parry larger attacks through exploding dice" },
@@ -658,13 +647,13 @@ const RulesPage = () => {
         sections: [
           {
             title: "Critical Hits",
-            icon: "✨",
+            icon: "◊",
             content: "Our critical hit system is based on the weapon or spell die used:",
             importance: "high"
           },
           {
             title: "Critical Categories",
-            icon: "🎯",
+            icon: "◈",
             content: [
               { label: "Critical Hit", text: "Rolling maximum value on weapon die (e.g., 8 on d8): deals maximum damage plus attribute modifier" },
               { label: "Exploding Dice", text: "When you roll the maximum value on a die, you can roll again and add the result (useful for parrying larger weapons)" },
@@ -673,19 +662,19 @@ const RulesPage = () => {
           },
           {
             title: "Critical Hit Effects",
-            icon: "💥",
+            icon: "◆",
             content: "Critical hits can cause additional effects beyond just dealing maximum damage:",
             importance: "high"
           },
           {
             title: "Weapon-Specific Effects",
-            icon: "🗡️",
+            icon: "◇",
             content: "Different weapon types cause additional effects on critical hits:",
             importance: "medium"
           },
           {
             title: "Weapon Effects",
-            icon: "⚔️",
+            icon: "⟐",
             content: [
               { label: "Slashing", text: "Bleeding: 1d4 damage for 1d4 rounds" },
               { label: "Piercing", text: "Armor Penetration: Reduce target's armor damage reduction by 2 for 1d4 rounds" },
@@ -696,13 +685,118 @@ const RulesPage = () => {
         ],
         tables: []
       },
+      damagemodifiers: {
+        description: "Damage modifiers represent how different conditions, vulnerabilities, and resistances affect the amount of damage taken or dealt.",
+        flavorText: "\"Understanding damage modifiers,\" the battle-scarred mage explained, ice crystals forming around her fingertips, \"is the difference between a glancing blow and a devastating strike. Fire against ice, steel against flesh—every element has its weakness.\"",
+        sections: [
+          {
+            title: "Damage Modifier System",
+            icon: "◆",
+            content: "Our damage modifier system uses standardized tiers to determine how much damage is increased, reduced, or converted. These modifiers stack with other effects and are calculated after all other damage bonuses.",
+            importance: "high"
+          },
+          {
+            title: "Damage Increase Tiers",
+            icon: "▲",
+            content: "These modifiers increase the damage taken from specific sources:",
+            importance: "high"
+          },
+          {
+            title: "Increase Modifiers",
+            icon: "◈",
+            content: [
+              { label: "Susceptible", text: "Take 25% more damage from the specified type (multiply by 1.25, round up)" },
+              { label: "Exposed", text: "Take 50% more damage from the specified type (multiply by 1.5, round up)" },
+              { label: "Vulnerable", text: "Take 100% more damage from the specified type (double damage)" }
+            ]
+          },
+          {
+            title: "Damage Reduction Tiers",
+            icon: "▼",
+            content: "These modifiers reduce the damage taken from specific sources:",
+            importance: "high"
+          },
+          {
+            title: "Reduction Modifiers",
+            icon: "◇",
+            content: [
+              { label: "Guarded", text: "Take 25% less damage from the specified type (multiply by 0.75, round down)" },
+              { label: "Resistant", text: "Take 50% less damage from the specified type (multiply by 0.5, round down)" },
+              { label: "Immune", text: "Take no damage from the specified type (0 damage)" }
+            ]
+          },
+          {
+            title: "Damage Conversion Tiers",
+            icon: "※",
+            content: "These modifiers convert incoming damage into healing:",
+            importance: "high"
+          },
+          {
+            title: "Conversion Modifiers",
+            icon: "◊",
+            content: [
+              { label: "Leech", text: "25% of damage dealt heals the attacker (multiply damage by 0.25, round up)" },
+              { label: "Absorb", text: "50% of damage dealt heals the attacker (multiply damage by 0.5, round up)" },
+              { label: "Invert", text: "100% of damage dealt heals the attacker (full damage becomes healing)" }
+            ]
+          },
+          {
+            title: "Application Order",
+            icon: "▪",
+            content: "When multiple modifiers apply, calculate them in this order:",
+            importance: "medium"
+          },
+          {
+            title: "Calculation Steps",
+            icon: "◆",
+            content: [
+              { label: "1. Base Damage", text: "Calculate the initial damage (dice + modifiers)" },
+              { label: "2. Armor Reduction", text: "Apply armor damage reduction" },
+              { label: "3. Damage Modifiers", text: "Apply vulnerability/resistance modifiers" },
+              { label: "4. Conversion Effects", text: "Apply any leech/absorb/invert effects" },
+              { label: "5. Final Damage", text: "Apply the final damage to the target" }
+            ]
+          }
+        ],
+        tables: [
+          {
+            title: "Damage Modifier Quick Reference",
+            description: "Quick reference for all damage modifier tiers and their effects",
+            headers: ["Modifier Type", "Effect", "Calculation", "Example (10 damage)"],
+            rows: [
+              ["Susceptible", "25% more damage", "×1.25 (round up)", "13 damage"],
+              ["Exposed", "50% more damage", "×1.5 (round up)", "15 damage"],
+              ["Vulnerable", "100% more damage", "×2", "20 damage"],
+              ["Guarded", "25% less damage", "×0.75 (round down)", "7 damage"],
+              ["Resistant", "50% less damage", "×0.5 (round down)", "5 damage"],
+              ["Immune", "No damage", "×0", "0 damage"],
+              ["Leech", "25% heals attacker", "×0.25 (round up)", "3 healing"],
+              ["Absorb", "50% heals attacker", "×0.5 (round up)", "5 healing"],
+              ["Invert", "100% heals attacker", "×1", "10 healing"]
+            ]
+          },
+          {
+            title: "Common Damage Type Interactions",
+            description: "Examples of how different damage types interact with modifiers",
+            headers: ["Damage Type", "Common Vulnerabilities", "Common Resistances", "Special Interactions"],
+            rows: [
+              ["Fire", "Ice creatures, plants", "Fire elementals, demons", "Wet targets take +50% fire damage"],
+              ["Cold", "Fire creatures, reptiles", "Ice elementals, undead", "Wet + Cold may cause Frozen condition"],
+              ["Lightning", "Creatures in metal armor", "Air elementals", "Wet targets take +100% lightning damage"],
+              ["Psychic", "Low Intelligence creatures", "Constructs, undead", "Sleeping targets take +50% psychic damage"],
+              ["Necrotic", "Living creatures", "Undead, constructs", "Healing spells become necrotic vs undead"],
+              ["Radiant", "Undead, fiends", "Celestials, paladins", "Undead take +100% radiant damage in sunlight"]
+            ]
+          }
+        ]
+      },
       reactions: {
         description: "Reactions are special actions that can be taken outside of your turn in response to specific triggers.",
         flavorText: "\"Combat isn't just about what you do on your turn,\" the veteran warrior explained, demonstrating a swift parry with his blade. \"It's about how you respond to your opponent's moves. A well-timed reaction can turn certain defeat into victory.\"",
         sections: [
           {
             title: "Reaction Basics",
-            icon: "⚡",
+            icon: "◊",
             content: "Reactions are special actions that can be taken outside of your turn in response to specific triggers. They cost Action Points (AP) and represent your character's ability to respond quickly to changing battlefield conditions.",
             importance: "high"
           }
@@ -732,13 +826,13 @@ const RulesPage = () => {
         sections: [
           {
             title: "Proficient Ability Basics",
-            icon: "🔥",
+            icon: "◆",
             content: "Proficient abilities are special actions that can be performed by characters who are proficient in specific skills. These powerful techniques represent specialized training and expertise.",
             importance: "high"
           },
           {
             title: "Usage Limitations",
-            icon: "⚠️",
+            icon: "▲",
             content: "Only one proficient ability can be used per turn, regardless of how many AP you have available. Choose wisely based on the tactical situation.",
             importance: "high"
           }
@@ -776,12 +870,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Action Point Basics",
-            icon: "⏱️",
+            icon: "◐",
             content: "Action Points (AP) are the core resource that characters use to perform actions in combat. Unlike traditional action economy systems, our AP system allows for more fluid and tactical decision-making."
           },
           {
             title: "AP Allocation",
-            icon: "📊",
+            icon: "◈",
             content: [
               { label: "Starting AP", text: "Characters typically start with 3 AP at the beginning of combat" },
               { label: "AP Refresh", text: "AP refreshes after both sides have acted in a round" },
@@ -797,19 +891,19 @@ const RulesPage = () => {
         sections: [
           {
             title: "Monster Turn Structure",
-            icon: "👹",
+            icon: "◆",
             content: "Monsters follow standard 5e turn structure (move, action, bonus action, reaction) and do NOT use the Action Points or Heroic Reactions systems that PCs use. This allows Game Masters to use any 5e-compatible monster stat block with only two simple modifications.",
             importance: "high"
           },
           {
             title: "Attack Resolution",
-            icon: "🎯",
+            icon: "◈",
             content: "When monsters make attacks, they use a streamlined resolution system:",
             importance: "high"
           },
           {
             title: "Monster Attack Modifications",
-            icon: "⚔️",
+            icon: "⟐",
             content: [
               { label: "Damage Roll", text: "Monsters roll their damage dice + stat modifier as normal" },
               { label: "Miss", text: "Rolling a 1 on their Primary Die" },
@@ -819,13 +913,13 @@ const RulesPage = () => {
           },
           {
             title: "Monster Armor Classification",
-            icon: "🛡️",
+            icon: "◇",
             content: "Monster AC is simplified into three categories that affect how they take damage:",
             importance: "high"
           },
           {
             title: "Armor Categories",
-            icon: "📊",
+            icon: "◈",
             content: [
               { label: "Light Armor (0-13 AC)", text: "Takes full damage (damage dice + ability modifier)" },
               { label: "Medium Armor (14-17 AC)", text: "Takes damage ONLY from dice rolls, ignoring ALL positive damage modifiers (STR/DEX bonuses, agonizing blast, etc.)" },
@@ -834,19 +928,19 @@ const RulesPage = () => {
           },
           {
             title: "Important Exception",
-            icon: "⚠️",
+            icon: "▲",
             content: "PC critical hits, saving throw spells, and damage type vulnerabilities ignore monster armor effects completely.",
             importance: "high"
           },
           {
             title: "Difficulty Adjustments",
-            icon: "⚖️",
+            icon: "◊",
             content: "Game Masters can adjust the difficulty of encounters with these optional rules:",
             importance: "medium"
           },
           {
             title: "Difficulty Options",
-            icon: "🎚️",
+            icon: "◆",
             content: [
               { label: "Easier Game", text: "Limit monster exploding critical hits to 1 per attack" },
               { label: "Harder Game", text: "Add the monster's \"to hit\" bonus instead of its attribute modifier to damage" }
@@ -854,13 +948,13 @@ const RulesPage = () => {
           },
           {
             title: "Minion Rules",
-            icon: "🐺",
+            icon: "◈",
             content: "Minions are designed for quick, satisfying combat with large numbers of weaker enemies:",
             importance: "medium"
           },
           {
             title: "Minion Mechanics",
-            icon: "⚙️",
+            icon: "◆",
             content: [
               { label: "Damage Die", text: "Use a single damage die per minion (1d4 for weak, up to 1d12 for stronger minions)" },
               { label: "Group Attacks", text: "Roll all minion attacks simultaneously" },
@@ -872,13 +966,13 @@ const RulesPage = () => {
           },
           {
             title: "Tactical Considerations",
-            icon: "🧠",
+            icon: "◇",
             content: "Different weapons have strategic advantages against different armor types:",
             importance: "medium"
           },
           {
             title: "Weapon Effectiveness",
-            icon: "🗡️",
+            icon: "⟐",
             content: [
               { label: "Large weapons (d10, d12)", text: "Best against light armor (rarely miss, add powerful modifiers)" },
               { label: "Small weapons (d4, d6)", text: "Best against heavy armor (more frequent crits ignore damage reduction)" },
@@ -889,7 +983,7 @@ const RulesPage = () => {
           },
           {
             title: "Strategic Depth",
-            icon: "♟️",
+            icon: "◊",
             content: "This system creates meaningful tactical choices without breaking game balance, making each weapon type feel distinct in combat. Players will naturally discover which weapons work best against different enemy types, encouraging varied equipment and approaches to combat.",
             importance: "low"
           }
@@ -923,12 +1017,12 @@ const RulesPage = () => {
         sections: [
           {
             title: "Combat Conditions",
-            icon: "🤕",
+            icon: "◆",
             content: "Combat conditions represent various states that can affect characters during battle. These conditions can be inflicted by attacks, spells, environmental hazards, or other effects."
           },
           {
             title: "Common Conditions",
-            icon: "📋",
+            icon: "▪",
             content: [
               { label: "Blinded", text: "Cannot see, disadvantage on attacks, opponents have advantage against you" },
               { label: "Charmed", text: "Cannot attack the charmer, charmer has advantage on social checks against you" },
@@ -948,13 +1042,13 @@ const RulesPage = () => {
           },
           {
             title: "Synergistic Conditions",
-            icon: "⚡",
+            icon: "◊",
             content: "Some conditions interact with each other or with the environment to create enhanced effects:",
             importance: "high"
           },
           {
             title: "Condition Interactions",
-            icon: "🔄",
+            icon: "※",
             content: [
               { label: "Wet + Lightning", text: "Targets affected by the Wet condition take additional damage from lightning attacks" },
               { label: "Chilled + Wet", text: "Targets affected by both conditions may become Frozen" },
@@ -972,17 +1066,17 @@ const RulesPage = () => {
           {
             id: "dying",
             name: "Dying",
-            icon: "💀",
+            icon: "◼",
             sections: [
               {
                 title: "The Dying Condition",
-                icon: "💀",
+                icon: "◼",
                 content: "When a character is reduced to 0 hit points, they gain the \"Dying\" condition rather than falling unconscious. This allows them to continue fighting for survival, albeit in a severely limited capacity.",
                 importance: "high"
               },
               {
                 title: "Dying Rules",
-                icon: "📜",
+                icon: "⟡",
                 content: [
                   { label: "Limited Actions", text: "Dying characters have only 1 AP per round" },
                   { label: "Limited Movement", text: "Can only crawl 5 feet per round" },
@@ -993,19 +1087,19 @@ const RulesPage = () => {
               },
               {
                 title: "Lingering Injuries",
-                icon: "🩸",
+                icon: "◆",
                 content: "When entering the Dying state, roll on the Lingering Injury table to determine a persistent wound. Taking damage while Dying adds 2 levels of exhaustion (3 for critical hits). Actions while Dying require a DC 12 CON save to avoid gaining an additional exhaustion level.",
                 importance: "high"
               },
               {
                 title: "Actions While Dying",
-                icon: "⚔️",
+                icon: "⟐",
                 content: "With their limited 1 AP, dying characters can still attempt to save themselves or contribute to the battle:",
                 importance: "medium"
               },
               {
                 title: "Dying Action Options",
-                icon: "🎯",
+                icon: "◈",
                 content: [
                   { label: "Stabilize Self", text: "Make a DC 10 Medicine check to stabilize yourself (removes Dying condition but leaves you at 0 HP and Unconscious)" },
                   { label: "Drink Potion", text: "Consume a healing potion to regain hit points (removes Dying condition)" },
@@ -1016,13 +1110,13 @@ const RulesPage = () => {
               },
               {
                 title: "Helping Dying Characters",
-                icon: "🤝",
+                icon: "◇",
                 content: "Allies can assist dying characters in several ways:",
                 importance: "medium"
               },
               {
                 title: "Assistance Options",
-                icon: "🧪",
+                icon: "◊",
                 content: [
                   { label: "Healing", text: "Any healing effect removes the Dying condition if it brings the character above 0 HP" },
                   { label: "Stabilization", text: "A DC 10 Medicine check stabilizes the character (removes Dying condition but leaves them Unconscious at 0 HP)" },
@@ -1032,7 +1126,7 @@ const RulesPage = () => {
               },
               {
                 title: "Example Scenario",
-                icon: "🎭",
+                icon: "◆",
                 content: "Thorne, a dwarven fighter, is struck by a troll's club and reduced to 0 HP. Instead of falling unconscious, he gains the Dying condition and 1 level of exhaustion. On his turn, with only 1 AP available, he chooses to crawl behind a nearby boulder for cover. On his next turn, still Dying, he uses his 1 AP to drink a healing potion, regaining 7 HP and removing the Dying condition, though he still has 1 level of exhaustion that will persist until he takes a long rest.",
                 importance: "low"
               }
@@ -1207,7 +1301,7 @@ const RulesPage = () => {
               },
               {
                 title: "Unconscious Effects",
-                icon: "😴",
+                icon: "◐",
                 content: [
                   { label: "Incapacitated", text: "Cannot take actions, bonus actions, or reactions" },
                   { label: "Unaware", text: "Unaware of surroundings and events" },
@@ -1219,7 +1313,7 @@ const RulesPage = () => {
               },
               {
                 title: "Regaining Consciousness",
-                icon: "🔄",
+                icon: "※",
                 content: "Characters can regain consciousness through several methods:",
                 importance: "medium"
               },
@@ -1337,7 +1431,7 @@ const RulesPage = () => {
               },
               {
                 title: "Post-Resurrection Effects",
-                icon: "🔄",
+                icon: "※",
                 content: [
                   { label: "Exhaustion", text: "Return with 2 levels of exhaustion" },
                   { label: "Mental Trauma", text: "Suffer from nightmares or flashbacks for 1d6 days" },
@@ -1348,7 +1442,7 @@ const RulesPage = () => {
               },
               {
                 title: "The Devil's Bargain",
-                icon: "😈",
+                icon: "◼",
                 content: "When traditional resurrection fails or is unavailable, characters may be offered a deal with dark powers:",
                 importance: "low"
               },
@@ -1789,7 +1883,7 @@ const RulesPage = () => {
           },
           {
             title: "Common Resources",
-            icon: "💎",
+            icon: "◊",
             content: [
               { label: "Mana", text: "Used by many spellcasting classes, regenerates slowly during combat and fully during rest" },
               { label: "Rage", text: "Built up through taking and dealing damage, decays when out of combat" },
@@ -1802,13 +1896,13 @@ const RulesPage = () => {
           },
           {
             title: "Class-Specific Resources",
-            icon: "⚡",
+            icon: "◆",
             content: "Many classes have unique resource systems that define their playstyle:",
             importance: "high"
           },
           {
             title: "Unique Resources",
-            icon: "🌟",
+            icon: "◈",
             content: [
               { label: "Continuum (Chronarch)", text: "Time energy that builds up to thresholds, enabling powerful temporal effects" },
               { label: "Cards (Fate Weaver)", text: "Deck of fate cards drawn and played for various effects" },
@@ -1884,7 +1978,7 @@ const RulesPage = () => {
           },
           {
             title: "Component Types",
-            icon: "📋",
+            icon: "▪",
             content: [
               { label: "Verbal", text: "Must be able to speak clearly" },
               { label: "Somatic", text: "Must have at least one hand free for gestures" },
@@ -1895,7 +1989,7 @@ const RulesPage = () => {
           },
           {
             title: "Spell Disruption",
-            icon: "❌",
+            icon: "✕",
             content: "Spells can be disrupted in several ways:",
             importance: "medium"
           },
@@ -2071,7 +2165,7 @@ const RulesPage = () => {
           },
           {
             title: "Potential Benefits",
-            icon: "✨",
+            icon: "◊",
             content: [
               { label: "Community Favor", text: "Gain advantage on social checks with locals for 1d4 days" },
               { label: "Seasonal Blessing", text: "Gain resistance to cold damage for 24 hours" },
@@ -2082,7 +2176,7 @@ const RulesPage = () => {
           },
           {
             title: "Regional Variations",
-            icon: "🗺️",
+            icon: "◈",
             content: "Different regions have their own Wassailing customs:",
             importance: "low"
           },
@@ -2308,7 +2402,7 @@ const RulesPage = () => {
           },
           {
             title: "Common Hazards",
-            icon: "🌡️",
+            icon: "◆",
             content: [
               { label: "Extreme Cold", text: "Constitution save (DC 10) every hour or gain one level of exhaustion" },
               { label: "Extreme Heat", text: "Constitution save (DC 5 + hours exposed) or gain one level of exhaustion" },
@@ -2319,7 +2413,7 @@ const RulesPage = () => {
           },
           {
             title: "Weather Effects",
-            icon: "🌦️",
+            icon: "◇",
             content: "Weather can dramatically affect travel and exploration:",
             importance: "medium"
           },

@@ -1,0 +1,222 @@
+/* Performance Optimizations for Scroll Lag Issues */
+
+/* ===== CRITICAL PERFORMANCE FIXES ===== */
+
+/* 1. Enable hardware acceleration for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Optimize rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Reduce repaints */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 2. Optimize transitions - reduce expensive properties */
+*, *::before, *::after {
+  /* Only animate transform and opacity for best performance */
+  transition-property: transform, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+/* 3. Disable expensive transitions during scroll */
+.scrolling * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 4. Optimize hover effects - use transform instead of layout changes */
+.card:hover,
+.pf-card-frame:hover {
+  /* Use transform instead of changing layout properties */
+  transform: translateY(-2px) translateZ(0);
+  /* Reduce box-shadow complexity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.pf-button:hover {
+  transform: translateY(-1px) translateZ(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. Optimize complex gradients and backgrounds */
+.card {
+  /* Simplify background gradients */
+  background: var(--color-background-light);
+  /* Remove expensive radial gradients during scroll */
+  background-image: none;
+}
+
+/* 6. Optimize scrollbar for better performance */
+::-webkit-scrollbar {
+  width: 8px; /* Reduce width */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-dark);
+  /* Remove expensive borders and gradients */
+  border: none;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+  /* Remove expensive gradients and shadows */
+  border: none;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* 7. Optimize pseudo-elements */
+.section-title::after,
+.pf-chapter-heading::before,
+.pf-chapter-heading::after {
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 8. Optimize animations */
+@keyframes medieval-glow {
+  0%, 100% {
+    box-shadow: 0 0 2px rgba(139, 69, 19, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 4px rgba(139, 69, 19, 0.4);
+  }
+}
+
+/* 9. Optimize large content areas */
+.class-abilities,
+.talent-tree,
+.rules-content {
+  /* Enable hardware acceleration */
+  transform: translateZ(0);
+  /* Optimize rendering */
+  contain: layout style paint;
+  /* Reduce repaints */
+  will-change: scroll-position;
+}
+
+/* 10. Optimize collapsible sections */
+.threshold,
+.spell,
+.ability {
+  /* Optimize rendering */
+  contain: layout style;
+  /* Reduce layout thrashing */
+  transform: translateZ(0);
+}
+
+/* 11. Disable expensive effects during interaction */
+.no-transitions * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 12. Optimize text rendering */
+h1, h2, h3, h4, h5, h6 {
+  /* Optimize text rendering */
+  text-rendering: optimizeSpeed;
+  /* Reduce repaints */
+  contain: layout style;
+}
+
+/* 13. Optimize images and icons */
+img, svg {
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  /* Optimize rendering */
+  image-rendering: optimizeSpeed;
+}
+
+/* 14. Critical performance class for scroll optimization */
+.performance-mode {
+  /* Disable all animations and transitions */
+  animation: none !important;
+  transition: none !important;
+}
+
+.performance-mode * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* 15. Optimize layout containers */
+.main-content,
+.container {
+  /* Optimize rendering */
+  contain: layout style;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+}
+
+/* ===== RESPONSIVE PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Reduce complexity on smaller screens */
+@media (max-width: 768px) {
+  /* Disable expensive effects on mobile */
+  .card:hover,
+  .btn:hover,
+  .pf-button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Simplify backgrounds */
+  body {
+    background-image: none;
+  }
+  
+  /* Optimize scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== UTILITY CLASSES FOR PERFORMANCE ===== */
+
+/* Force hardware acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize for animations */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Optimize for scrolling */
+.scroll-optimized {
+  -webkit-overflow-scrolling: touch;
+  contain: layout style paint;
+}
+
+/* Disable animations */
+.no-animations {
+  animation: none !important;
+  transition: none !important;
+}
+
+.no-animations * {
+  animation: none !important;
+  transition: none !important;
+}

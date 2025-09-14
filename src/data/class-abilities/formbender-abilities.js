@@ -281,7 +281,7 @@ const formbenderAbilities = {
       {
         name: 'Avatar of Nature',
         description: 'Transform into a powerful elemental form.',
-        mechanics: 'Spend 5 WI & 3 Mana to grow Huge for 1 min; +2 AC, +10 ft reach, attacks deal extra 1d8 elemental.',
+        mechanics: 'Spend 5 WI & 3 Mana to grow Huge for 1 min; +2 Armor, +10 ft reach, attacks deal extra 1d8 elemental.',
         requirements: 'Requires points in the Elemental Aspect talent tree. (Capstone)'
       }
     ]
@@ -290,7 +290,7 @@ const formbenderAbilities = {
   // Attribute Scaling
   attributeScaling: [
     {
-      attribute: 'Strength / Dexterity',
+      attribute: 'Strength / Agility',
       effect: 'Melee/ranged hit & damage in beast forms.'
     },
     {
@@ -298,7 +298,7 @@ const formbenderAbilities = {
       effect: 'Damage of elemental Instinct Moves; increases Mana pool.'
     },
     {
-      attribute: 'Wisdom',
+      attribute: 'Spirit',
       effect: 'Form save DCs, number of memorised forms, Elemental Aspect bonuses.'
     },
     {

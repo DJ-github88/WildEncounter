@@ -26,37 +26,37 @@ const arcanoneerAbilities = {
     },
     elementRunes: [
       {
-        name: 'Fire 🔥',
+        name: 'Fire',
         tag: 'F',
         description: 'Adds Burn (1d6/rd). 2+ F = explosion (radius +5 ft per extra F).',
         volatility: true
       },
       {
-        name: 'Water 💧',
+        name: 'Water',
         tag: 'W',
         description: 'Applies Wet; doubles Lightning dmg; cancels Burn.',
         volatility: false
       },
       {
-        name: 'Ice ❄️',
+        name: 'Ice',
         tag: 'I',
         description: 'Slow 10 ft; W + I = Freeze (Con save or Stunned 1 rd).',
         volatility: false
       },
       {
-        name: 'Lightning ⚡',
+        name: 'Lightning',
         tag: 'L',
         description: 'Chains 2 targets per extra L; +1 V each.',
         volatility: true
       },
       {
-        name: 'Earth 🪨',
+        name: 'Earth',
         tag: 'E',
         description: '+1 die; if 2+ E in Mine, knock prone.',
         volatility: false
       },
       {
-        name: 'Arcane ✨',
+        name: 'Arcane',
         tag: 'A',
         description: 'Pierces cover; if mixed with ≥3 different runes becomes Prismatic Burst (random extra d6 type).',
         volatility: false

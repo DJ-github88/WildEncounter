@@ -1,0 +1,306 @@
+/* SpellTooltip - Reusable spell tooltip component styles */
+
+.spell-tooltip {
+  background: #f4f1e8;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid #8b4513;
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 350px;
+  box-shadow:
+    0 0 0 1px #b8860b,
+    0 12px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 0.9rem;
+  animation: tooltipFadeIn 0.2s ease-out;
+  z-index: 9999;
+  position: fixed;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tooltip-header {
+  background: linear-gradient(135deg,
+    rgba(139, 69, 19, 0.9) 0%,
+    rgba(160, 82, 45, 0.9) 50%,
+    rgba(139, 69, 19, 0.9) 100%);
+  margin: -1.25rem -1.25rem 0.75rem -1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-secondary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.tooltip-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.tooltip-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-secondary) 20%,
+    #D4AF37 50%,
+    var(--color-secondary) 80%,
+    transparent 100%);
+  border-radius: 1px;
+}
+
+.tooltip-header h4 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #F5E6A3;
+  text-align: center;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+}
+
+.stage-requirement-content {
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  background: rgba(139, 69, 19, 0.05);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 4px 4px 0;
+}
+
+.description-section {
+  margin-bottom: 0.75rem;
+}
+
+.description-section strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.effects-list {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.effects-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Costs Footer Section */
+.tooltip-costs-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.costs-divider {
+  display: none;
+}
+
+.main-costs-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.cooldown-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.special-costs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.cost-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  background: rgba(139, 69, 19, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cost-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cost-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cost-note {
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Cost type colors */
+.ap-cost .cost-label { color: #8B4513; }
+.mana-cost .cost-label { color: #4169E1; }
+.health-cost .cost-label { color: #DC143C; }
+.cooldown-cost .cost-label { color: #708090; }
+.ascension-cost .cost-label { color: #DC143C; }
+.lunar-cost .cost-label, .spirit-cost .cost-label { color: #9370DB; }
+.cards-cost .cost-label, .dice-cost .cost-label, .coin-cost .cost-label { color: #FF8C00; }
+.continuum-cost .cost-label { color: #4682B4; }
+.essence-cost .cost-label { color: #2F4F4F; }
+.ward-cost .cost-label { color: #6495ED; }
+.soul-cost .cost-label { color: #483D8B; }
+.primal-cost .cost-label { color: #228B22; }
+.guard-cost .cost-label { color: #B8860B; }
+.heat-cost .cost-label { color: #FF4500; }
+.combo-cost .cost-label { color: #FF69B4; }
+.voodoo-cost .cost-label { color: #8B008B; }
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .spell-tooltip {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spell-tooltip {
+    max-width: 250px;
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+
+  .tooltip-header {
+    margin: -0.75rem -0.75rem 0.5rem -0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .stage-requirement-content {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .cost-badge {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .cost-label {
+    font-size: 0.7rem;
+  }
+
+  .cost-value {
+    font-size: 0.8rem;
+  }
+
+  .main-costs-row {
+    gap: 0.5rem;
+  }
+
+  .special-costs-row {
+    gap: 0.4rem;
+  }
+
+  .cost-note {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spell-tooltip {
+    max-width: 200px;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 0.9rem;
+  }
+
+  .stage-requirement-content {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .tooltip-header {
+    margin: -0.75rem -0.75rem 0.5rem -0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .tooltip-header h4 {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .cost-badge {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .cost-label {
+    font-size: 0.65rem;
+  }
+
+  .cost-value {
+    font-size: 0.75rem;
+  }
+
+  .main-costs-row {
+    gap: 0.4rem;
+  }
+
+  .special-costs-row {
+    gap: 0.3rem;
+  }
+
+  .cost-note {
+    font-size: 0.65rem;
+  }
+}

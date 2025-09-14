@@ -1,27 +1,34 @@
-/* Base styling with dark theme */
+/* Base styling with Pathfinder medieval theme */
 .class-abilities {
   padding: 30px;
   max-width: 1000px;
   margin: 0 auto;
-  color: #e0e0e0;
-  background-color: #1a1a2e;
-  background-image: linear-gradient(to bottom, #1a1a2e, #16213e);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: var(--color-text);
+  background: var(--color-background-light);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 
+    0 0 0 1px var(--color-secondary),
+    0 8px 16px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Crimson Text', 'Times New Roman', 'Georgia', serif;
 }
 
-/* Add a subtle pattern overlay */
+/* Add decorative border */
 .class-abilities::before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232a2a4a' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  opacity: 0.4;
   pointer-events: none;
   z-index: 1;
 }
@@ -31,2136 +38,238 @@
   z-index: 2;
 }
 
-/* Class-specific themes */
-.class-abilities.pyrofiend {
-  background-image: linear-gradient(to bottom, #2a0b0b, #3d1a1a);
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
-}
-
-.class-abilities.chronarch {
-  background-image: linear-gradient(to bottom, #0b152a, #1a2a3d);
-  box-shadow: 0 10px 30px rgba(0, 100, 255, 0.2);
-}
-
-.class-abilities.minstrel {
-  background-image: linear-gradient(to bottom, #1a0b2a, #2a1a3d);
-  box-shadow: 0 10px 30px rgba(100, 0, 255, 0.2);
-}
-
-.class-abilities.inscriptor {
-  background-image: linear-gradient(to bottom, #0b1a2a, #1a2a3d);
-  box-shadow: 0 10px 30px rgba(0, 150, 255, 0.2);
-}
-
-.class-abilities.spellguard {
-  background-image: linear-gradient(to bottom, #0a1a2a, #1a2a3d);
-  box-shadow: 0 10px 30px rgba(0, 100, 200, 0.2);
-}
-
-/* Headings */
+/* Headings - Medieval manuscript style */
 .class-abilities h2 {
-  color: #ffffff;
-  border-bottom: none;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-border);
   padding-bottom: 15px;
   margin-bottom: 30px;
   font-size: 2.5rem;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
 .class-abilities h2::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  height: 3px;
-  background: linear-gradient(to right, transparent, #6a93cb, transparent);
-}
-
-.class-abilities.pyrofiend h2::after {
-  background: linear-gradient(to right, transparent, #cb6a6a, transparent);
-}
-
-.class-abilities.chronarch h2::after {
-  background: linear-gradient(to right, transparent, #6a9ecb, transparent);
-}
-
-.class-abilities.minstrel h2::after {
-  background: linear-gradient(to right, transparent, #a66acb, transparent);
-}
-
-.class-abilities.inscriptor h2::after {
-  background: linear-gradient(to right, transparent, #6aafcb, transparent);
-}
-
-.class-abilities.spellguard h2::after {
-  background: linear-gradient(to right, transparent, #4a8bc8, transparent);
+  width: 80px;
+  height: 2px;
+  background: var(--color-secondary);
 }
 
 .class-abilities h3 {
-  color: #ffffff;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  border-bottom: none;
-  padding-bottom: 10px;
+  color: var(--color-primary);
   font-size: 1.8rem;
-  position: relative;
-  display: inline-block;
-}
-
-.class-abilities h3::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #6a93cb, transparent);
-}
-
-.class-abilities.pyrofiend h3::before {
-  background: linear-gradient(to right, #cb6a6a, transparent);
-}
-
-.class-abilities.chronarch h3::before {
-  background: linear-gradient(to right, #6a9ecb, transparent);
-}
-
-.class-abilities.minstrel h3::before {
-  background: linear-gradient(to right, #a66acb, transparent);
-}
-
-.class-abilities.inscriptor h3::before {
-  background: linear-gradient(to right, #6aafcb, transparent);
-}
-
-.class-abilities.spellguard h3::before {
-  background: linear-gradient(to right, #4a8bc8, transparent);
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--color-secondary);
+  padding-left: 15px;
 }
 
 .class-abilities h4 {
-  color: #ffffff;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  color: var(--color-text);
   font-size: 1.4rem;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .class-abilities h5 {
-  color: #ffffff;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  color: var(--color-text-muted);
   font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-style: italic;
 }
 
 /* Resource System */
 .resource-system {
-  background-color: rgba(20, 30, 60, 0.5);
-  padding: 25px;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
   border-radius: 12px;
-  margin-bottom: 35px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(106, 147, 203, 0.3);
+  padding: 20px;
+  margin-bottom: 25px;
   position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .resource-system::before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at top right, rgba(106, 147, 203, 0.2), transparent 70%);
-  pointer-events: none;
-}
-
-.class-abilities.pyrofiend .resource-system {
-  background-color: rgba(60, 20, 20, 0.5);
-  border: 1px solid rgba(203, 106, 106, 0.3);
-}
-
-.class-abilities.pyrofiend .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(203, 106, 106, 0.2), transparent 70%);
-}
-
-.class-abilities.chronarch .resource-system {
-  background-color: rgba(20, 40, 60, 0.5);
-  border: 1px solid rgba(106, 158, 203, 0.3);
-}
-
-.class-abilities.chronarch .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(106, 158, 203, 0.2), transparent 70%);
-}
-
-.class-abilities.minstrel .resource-system {
-  background-color: rgba(40, 20, 60, 0.5);
-  border: 1px solid rgba(166, 106, 203, 0.3);
-}
-
-.class-abilities.minstrel .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(166, 106, 203, 0.2), transparent 70%);
-}
-
-.class-abilities.inscriptor .resource-system {
-  background-color: rgba(20, 40, 60, 0.5);
-  border: 1px solid rgba(106, 175, 203, 0.3);
-}
-
-.class-abilities.inscriptor .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(106, 175, 203, 0.2), transparent 70%);
-}
-
-.class-abilities.spellguard .resource-system {
-  background-color: rgba(20, 35, 60, 0.5);
-  border: 1px solid rgba(74, 139, 200, 0.3);
-}
-
-.class-abilities.spellguard .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(74, 139, 200, 0.2), transparent 70%);
-}
-
-/* Thresholds */
-.thresholds {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.threshold {
-  flex: 1;
-  min-width: 200px;
-  background-color: rgba(30, 40, 70, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(106, 147, 203, 0.4);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.threshold::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, #6a93cb, transparent);
-}
-
-.threshold:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.class-abilities.pyrofiend .threshold {
-  background-color: rgba(70, 30, 30, 0.6);
-  border: 1px solid rgba(203, 106, 106, 0.4);
-}
-
-.class-abilities.pyrofiend .threshold::before {
-  background: linear-gradient(to right, #cb6a6a, transparent);
-}
-
-.class-abilities.chronarch .threshold {
-  background-color: rgba(30, 50, 70, 0.6);
-  border: 1px solid rgba(106, 158, 203, 0.4);
-}
-
-.class-abilities.chronarch .threshold::before {
-  background: linear-gradient(to right, #6a9ecb, transparent);
-}
-
-.class-abilities.minstrel .threshold {
-  background-color: rgba(50, 30, 70, 0.6);
-  border: 1px solid rgba(166, 106, 203, 0.4);
-}
-
-.class-abilities.minstrel .threshold::before {
-  background: linear-gradient(to right, #a66acb, transparent);
-}
-
-.class-abilities.chaos-weaver {
-  background-image: linear-gradient(to bottom, #2a1a2a, #3d2a3d);
-  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);
-}
-
-.class-abilities.chaos-weaver h2::after {
-  background: linear-gradient(to right, transparent, #cb6acb, transparent);
-}
-
-.class-abilities.chaos-weaver h3::before {
-  background: linear-gradient(to right, #cb6acb, transparent);
-}
-
-.class-abilities.chaos-weaver .resource-system {
-  background-color: rgba(60, 30, 60, 0.5);
-  border: 1px solid rgba(203, 106, 203, 0.3);
-}
-
-.class-abilities.chaos-weaver .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(203, 106, 203, 0.2), transparent 70%);
-}
-
-.class-abilities.chaos-weaver .threshold {
-  background-color: rgba(70, 40, 70, 0.6);
-  border: 1px solid rgba(203, 106, 203, 0.4);
-}
-
-.class-abilities.chaos-weaver .threshold::before {
-  background: linear-gradient(to right, #cb6acb, transparent);
-}
-
-.class-abilities.chaos-weaver .spell,
-.class-abilities.chaos-weaver .ability {
-  background-color: rgba(70, 40, 70, 0.6);
-  border: 1px solid rgba(203, 106, 203, 0.4);
-}
-
-.class-abilities.chaos-weaver .spell::before,
-.class-abilities.chaos-weaver .ability::before {
-  background: linear-gradient(to bottom, #cb6acb, transparent);
-}
-
-.class-abilities.chaos-weaver .spell-cost span,
-.class-abilities.chaos-weaver .ability-cost span {
-  background-color: rgba(80, 50, 80, 0.7);
-  border: 1px solid rgba(203, 106, 203, 0.4);
-}
-
-.class-abilities.chaos-weaver li::before {
-  color: #cb6acb;
-}
-
-/* Chaos Weaver-specific effects */
-.class-abilities.chaos-weaver .spell:hover::after,
-.class-abilities.chaos-weaver .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #ff6b6b, #6bffff, #ff6bdb, #ffff6b, #6bff6b, #6b6bff);
-  background-size: 600% 100%;
-  animation: chaosGlow 2s infinite linear;
-}
-
-@keyframes chaosGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Fate Weaver Styles */
-.class-abilities.fate-weaver {
-  background-image: linear-gradient(to bottom, #2a1a0a, #3d2a1a);
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-}
-
-.class-abilities.fate-weaver h2::after {
-  background: linear-gradient(to right, transparent, #ffd700, transparent);
-}
-
-.class-abilities.fate-weaver h3::before {
-  background: linear-gradient(to right, #ffd700, transparent);
-}
-
-.class-abilities.fate-weaver .resource-system {
-  background-color: rgba(60, 40, 20, 0.5);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.class-abilities.fate-weaver .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(255, 215, 0, 0.2), transparent 70%);
-}
-
-.class-abilities.fate-weaver .threshold {
-  background-color: rgba(70, 50, 30, 0.6);
-  border: 1px solid rgba(255, 215, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.fate-weaver .threshold::before {
-  background: linear-gradient(to right, #ffd700, transparent);
-}
-
-.class-abilities.fate-weaver .spell,
-.class-abilities.fate-weaver .ability {
-  background-color: rgba(70, 50, 30, 0.6);
-  border: 1px solid rgba(255, 215, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.fate-weaver .spell::before,
-.class-abilities.fate-weaver .ability::before {
-  background: linear-gradient(to bottom, #ffd700, transparent);
-}
-
-.class-abilities.fate-weaver .spell-cost span,
-.class-abilities.fate-weaver .ability-cost span {
-  background-color: rgba(80, 60, 40, 0.7);
-  border: 1px solid rgba(255, 215, 0, 0.4);
-}
-
-.class-abilities.fate-weaver li::before {
-  color: #ffd700;
-}
-
-.class-abilities.fate-weaver .suit-effects,
-.class-abilities.fate-weaver .value-effects,
-.class-abilities.fate-weaver .combo-effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(60, 40, 20, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(255, 215, 0, 0.6);
-}
-
-.class-abilities.fate-weaver .suit-effects h5,
-.class-abilities.fate-weaver .value-effects h5,
-.class-abilities.fate-weaver .combo-effects h5 {
-  color: #ffd700;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Card suit symbols */
-.class-abilities.fate-weaver .suit-effects li:nth-child(1)::before {
-  content: "♥";
-  color: #dc143c;
-}
-
-.class-abilities.fate-weaver .suit-effects li:nth-child(2)::before {
-  content: "♦";
-  color: #dc143c;
-}
-
-.class-abilities.fate-weaver .suit-effects li:nth-child(3)::before {
-  content: "♣";
-  color: #ffd700;
-}
-
-.class-abilities.fate-weaver .suit-effects li:nth-child(4)::before {
-  content: "♠";
-  color: #ffd700;
-}
-
-/* Fate Weaver-specific effects */
-.class-abilities.fate-weaver .spell:hover::after,
-.class-abilities.fate-weaver .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #ffd700, #ff8c00, #dc143c, #8b0000);
-  background-size: 400% 100%;
-  animation: cardGlow 3s infinite linear;
-}
-
-@keyframes cardGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Gambler Styles */
-.class-abilities.gambler {
-  background-image: linear-gradient(to bottom, #1a2a1a, #2a3d2a);
-  box-shadow: 0 10px 30px rgba(0, 128, 0, 0.2);
-}
-
-.class-abilities.gambler h2::after {
-  background: linear-gradient(to right, transparent, #00a000, transparent);
-}
-
-.class-abilities.gambler h3::before {
-  background: linear-gradient(to right, #00a000, transparent);
-}
-
-.class-abilities.gambler .resource-system {
-  background-color: rgba(30, 60, 30, 0.5);
-  border: 1px solid rgba(0, 160, 0, 0.3);
-}
-
-.class-abilities.gambler .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(0, 160, 0, 0.2), transparent 70%);
-}
-
-.class-abilities.gambler .threshold {
-  background-color: rgba(40, 70, 40, 0.6);
-  border: 1px solid rgba(0, 160, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.gambler .threshold::before {
-  background: linear-gradient(to right, #00a000, transparent);
-}
-
-.class-abilities.gambler .spell,
-.class-abilities.gambler .ability {
-  background-color: rgba(40, 70, 40, 0.6);
-  border: 1px solid rgba(0, 160, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.gambler .spell::before,
-.class-abilities.gambler .ability::before {
-  background: linear-gradient(to bottom, #00a000, transparent);
-}
-
-.class-abilities.gambler .spell-cost span,
-.class-abilities.gambler .ability-cost span {
-  background-color: rgba(50, 80, 50, 0.7);
-  border: 1px solid rgba(0, 160, 0, 0.4);
-}
-
-.class-abilities.gambler li::before {
-  color: #00a000;
-}
-
-.class-abilities.gambler .outcomes {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 60, 30, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(0, 160, 0, 0.6);
-}
-
-.class-abilities.gambler .outcomes h5 {
-  color: #00a000;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Gambler-specific effects */
-.class-abilities.gambler .spell:hover::after,
-.class-abilities.gambler .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #008000, #00a080, #00b0b0, #009060);
-  background-size: 400% 100%;
-  animation: diceGlow 2s infinite linear;
-}
-
-@keyframes diceGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Martyr Styles */
-.class-abilities.martyr {
-  background-image: linear-gradient(to bottom, #2a1a1a, #3d2a2a);
-  box-shadow: 0 10px 30px rgba(128, 0, 0, 0.2);
-}
-
-.class-abilities.martyr h2::after {
-  background: linear-gradient(to right, transparent, #a00000, transparent);
-}
-
-.class-abilities.martyr h3::before {
-  background: linear-gradient(to right, #a00000, transparent);
-}
-
-.class-abilities.martyr .resource-system {
-  background-color: rgba(60, 30, 30, 0.5);
-  border: 1px solid rgba(160, 0, 0, 0.3);
-}
-
-.class-abilities.martyr .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(160, 0, 0, 0.2), transparent 70%);
-}
-
-.class-abilities.martyr .threshold {
-  background-color: rgba(70, 40, 40, 0.6);
-  border: 1px solid rgba(160, 0, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.martyr .threshold::before {
-  background: linear-gradient(to right, #a00000, transparent);
-}
-
-.class-abilities.martyr .spell,
-.class-abilities.martyr .ability {
-  background-color: rgba(70, 40, 40, 0.6);
-  border: 1px solid rgba(160, 0, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.martyr .spell::before,
-.class-abilities.martyr .ability::before {
-  background: linear-gradient(to bottom, #a00000, transparent);
-}
-
-.class-abilities.martyr .spell-cost span,
-.class-abilities.martyr .ability-cost span {
-  background-color: rgba(80, 50, 50, 0.7);
-  border: 1px solid rgba(160, 0, 0, 0.4);
-}
-
-.class-abilities.martyr li::before {
-  color: #a00000;
-}
-
-.class-abilities.martyr .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(60, 30, 30, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(160, 0, 0, 0.6);
-}
-
-.class-abilities.martyr .effects h5 {
-  color: #a00000;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Martyr-specific effects */
-.class-abilities.martyr .spell:hover::after,
-.class-abilities.martyr .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #8b0000, #dc143c, #800080, #4b0082);
-  background-size: 400% 100%;
-  animation: bloodGlow 1.5s infinite linear;
-}
-
-@keyframes bloodGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* False Prophet Styles */
-.class-abilities.false-prophet {
-  background-image: linear-gradient(to bottom, #2a1a0a, #3d2a1a);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-.class-abilities.false-prophet h2::after {
-  background: linear-gradient(to right, transparent, #d4af37, transparent);
-}
-
-.class-abilities.false-prophet h3::before {
-  background: linear-gradient(to right, #d4af37, transparent);
-}
-
-.class-abilities.false-prophet .resource-system {
-  background-color: rgba(60, 40, 20, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.class-abilities.false-prophet .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.2), transparent 70%);
-}
-
-.class-abilities.false-prophet .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(70, 50, 30, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(212, 175, 55, 0.6);
-}
-
-.class-abilities.false-prophet .resource-details h5 {
-  color: #d4af37;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.false-prophet .threshold {
-  background-color: rgba(70, 50, 30, 0.6);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.false-prophet .threshold::before {
-  background: linear-gradient(to right, #d4af37, transparent);
-}
-
-.class-abilities.false-prophet .spell,
-.class-abilities.false-prophet .ability {
-  background-color: rgba(70, 50, 30, 0.6);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.false-prophet .spell::before,
-.class-abilities.false-prophet .ability::before {
-  background: linear-gradient(to bottom, #d4af37, transparent);
-}
-
-.class-abilities.false-prophet .spell-cost span,
-.class-abilities.false-prophet .ability-cost span {
-  background-color: rgba(80, 60, 40, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.class-abilities.false-prophet li::before {
-  color: #d4af37;
-}
-
-.class-abilities.false-prophet .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(60, 40, 20, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(212, 175, 55, 0.6);
-}
-
-.class-abilities.false-prophet .effects h5 {
-  color: #d4af37;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* False Prophet-specific effects */
-.class-abilities.false-prophet .spell:hover::after,
-.class-abilities.false-prophet .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #d4af37, #ffd700, #b8860b, #daa520);
-  background-size: 400% 100%;
-  animation: divineGlow 2s infinite linear;
-}
-
-@keyframes divineGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Exorcist Styles */
-.class-abilities.exorcist {
-  background-image: linear-gradient(to bottom, #1a1a2a, #2a2a3d);
-  box-shadow: 0 10px 30px rgba(135, 206, 235, 0.2);
-}
-
-.class-abilities.exorcist h2::after {
-  background: linear-gradient(to right, transparent, #87ceeb, transparent);
-}
-
-.class-abilities.exorcist h3::before {
-  background: linear-gradient(to right, #87ceeb, transparent);
-}
-
-.class-abilities.exorcist .resource-system {
-  background-color: rgba(30, 30, 60, 0.5);
-  border: 1px solid rgba(135, 206, 235, 0.3);
-}
-
-.class-abilities.exorcist .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(135, 206, 235, 0.2), transparent 70%);
-}
-
-.class-abilities.exorcist .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(40, 40, 70, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(135, 206, 235, 0.6);
-}
-
-.class-abilities.exorcist .resource-details h5 {
-  color: #87ceeb;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.exorcist .spell,
-.class-abilities.exorcist .ability {
-  background-color: rgba(40, 40, 70, 0.6);
-  border: 1px solid rgba(135, 206, 235, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.exorcist .spell::before,
-.class-abilities.exorcist .ability::before {
-  background: linear-gradient(to bottom, #87ceeb, transparent);
-}
-
-.class-abilities.exorcist .spell-cost span,
-.class-abilities.exorcist .ability-cost span {
-  background-color: rgba(50, 50, 80, 0.7);
-  border: 1px solid rgba(135, 206, 235, 0.4);
-}
-
-.class-abilities.exorcist li::before {
-  color: #87ceeb;
-}
-
-.class-abilities.exorcist .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 30, 60, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(135, 206, 235, 0.6);
-}
-
-.class-abilities.exorcist .effects h5 {
-  color: #87ceeb;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Exorcist-specific effects */
-.class-abilities.exorcist .spell:hover::after,
-.class-abilities.exorcist .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #c0c0c0, #87ceeb, #e0ffff, #ffffff);
-  background-size: 400% 100%;
-  animation: holyGlow 2s infinite linear;
-}
-
-@keyframes holyGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Deathcaller Styles */
-.class-abilities.deathcaller {
-  background-image: linear-gradient(to bottom, #1a1a2a, #2a1a3a);
-  box-shadow: 0 10px 30px rgba(128, 0, 128, 0.2);
-}
-
-.class-abilities.deathcaller h2::after {
-  background: linear-gradient(to right, transparent, #800080, transparent);
-}
-
-.class-abilities.deathcaller h3::before {
-  background: linear-gradient(to right, #800080, transparent);
-}
-
-.class-abilities.deathcaller .resource-system {
-  background-color: rgba(30, 20, 40, 0.5);
-  border: 1px solid rgba(128, 0, 128, 0.3);
-}
-
-.class-abilities.deathcaller .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(128, 0, 128, 0.2), transparent 70%);
-}
-
-.class-abilities.deathcaller .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(40, 30, 50, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(128, 0, 128, 0.6);
-}
-
-.class-abilities.deathcaller .resource-details h5 {
-  color: #9370db;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.deathcaller .spell,
-.class-abilities.deathcaller .ability {
-  background-color: rgba(40, 30, 50, 0.6);
-  border: 1px solid rgba(128, 0, 128, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.deathcaller .spell::before,
-.class-abilities.deathcaller .ability::before {
-  background: linear-gradient(to bottom, #800080, transparent);
-}
-
-.class-abilities.deathcaller .spell-cost span,
-.class-abilities.deathcaller .ability-cost span {
-  background-color: rgba(50, 40, 60, 0.7);
-  border: 1px solid rgba(128, 0, 128, 0.4);
-}
-
-.class-abilities.deathcaller li::before {
-  color: #9370db;
-}
-
-.class-abilities.deathcaller .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 20, 40, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(128, 0, 128, 0.6);
-}
-
-.class-abilities.deathcaller .effects h5 {
-  color: #9370db;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Deathcaller-specific effects */
-.class-abilities.deathcaller .spell:hover::after,
-.class-abilities.deathcaller .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #4b0082, #800080, #9370db, #483d8b);
-  background-size: 400% 100%;
-  animation: necroGlow 2s infinite linear;
-}
-
-@keyframes necroGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Plaguebringer Styles */
-.class-abilities.plaguebringer {
-  background-image: linear-gradient(to bottom, #1a2a1a, #2a3a2a);
-  box-shadow: 0 10px 30px rgba(173, 255, 47, 0.2);
-}
-
-.class-abilities.plaguebringer h2::after {
-  background: linear-gradient(to right, transparent, #adff2f, transparent);
-}
-
-.class-abilities.plaguebringer h3::before {
-  background: linear-gradient(to right, #adff2f, transparent);
-}
-
-.class-abilities.plaguebringer .resource-system {
-  background-color: rgba(30, 40, 30, 0.5);
-  border: 1px solid rgba(173, 255, 47, 0.3);
-}
-
-.class-abilities.plaguebringer .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(173, 255, 47, 0.2), transparent 70%);
-}
-
-.class-abilities.plaguebringer .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(40, 50, 40, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(173, 255, 47, 0.6);
-}
-
-.class-abilities.plaguebringer .resource-details h5 {
-  color: #adff2f;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.plaguebringer .spell,
-.class-abilities.plaguebringer .ability {
-  background-color: rgba(40, 50, 40, 0.6);
-  border: 1px solid rgba(173, 255, 47, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.plaguebringer .spell::before,
-.class-abilities.plaguebringer .ability::before {
-  background: linear-gradient(to bottom, #adff2f, transparent);
-}
-
-.class-abilities.plaguebringer .spell-cost span,
-.class-abilities.plaguebringer .ability-cost span {
-  background-color: rgba(50, 60, 50, 0.7);
-  border: 1px solid rgba(173, 255, 47, 0.4);
-}
-
-.class-abilities.plaguebringer li::before {
-  color: #adff2f;
-}
-
-.class-abilities.plaguebringer .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 40, 30, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(173, 255, 47, 0.6);
-}
-
-.class-abilities.plaguebringer .effects h5 {
-  color: #adff2f;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Plaguebringer-specific effects */
-.class-abilities.plaguebringer .spell:hover::after,
-.class-abilities.plaguebringer .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #adff2f, #9acd32, #6b8e23, #556b2f);
-  background-size: 400% 100%;
-  animation: plagueGlow 2s infinite linear;
-}
-
-@keyframes plagueGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Lichborne Styles */
-.class-abilities.lichborne {
-  background-image: linear-gradient(to bottom, #0a0a1a, #1a1a2a);
-  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-}
-
-.class-abilities.lichborne h2::after {
-  background: linear-gradient(to right, transparent, #00ffff, transparent);
-}
-
-.class-abilities.lichborne h3::before {
-  background: linear-gradient(to right, #00ffff, transparent);
-}
-
-.class-abilities.lichborne .resource-system {
-  background-color: rgba(20, 20, 40, 0.5);
-  border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.class-abilities.lichborne .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(0, 255, 255, 0.2), transparent 70%);
-}
-
-.class-abilities.lichborne .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 30, 50, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(0, 255, 255, 0.6);
-}
-
-.class-abilities.lichborne .resource-details h5 {
-  color: #00ffff;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.lichborne .spell,
-.class-abilities.lichborne .ability {
-  background-color: rgba(30, 30, 50, 0.6);
-  border: 1px solid rgba(0, 255, 255, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.lichborne .spell::before,
-.class-abilities.lichborne .ability::before {
-  background: linear-gradient(to bottom, #00ffff, transparent);
-}
-
-.class-abilities.lichborne .spell-cost span,
-.class-abilities.lichborne .ability-cost span {
-  background-color: rgba(40, 40, 60, 0.7);
-  border: 1px solid rgba(0, 255, 255, 0.4);
-}
-
-.class-abilities.lichborne li::before {
-  color: #00ffff;
-}
-
-.class-abilities.lichborne .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(20, 20, 40, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(0, 255, 255, 0.6);
-}
-
-.class-abilities.lichborne .effects h5 {
-  color: #00ffff;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-/* Lichborne-specific effects */
-.class-abilities.lichborne .spell:hover::after,
-.class-abilities.lichborne .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #00ffff, #00bfff, #1e90ff, #0000ff);
-  background-size: 400% 100%;
-  animation: lichGlow 2s infinite linear;
-}
-
-@keyframes lichGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Spells and Abilities */
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+/* Abilities and Spells */
 .spell, .ability {
-  background-color: rgba(30, 40, 70, 0.6);
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  border: 1px solid rgba(106, 147, 203, 0.4);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-}
-
-.spell::before, .ability::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, #6a93cb, transparent);
 }
 
 .spell:hover, .ability:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
 }
 
-.class-abilities.pyrofiend .spell,
-.class-abilities.pyrofiend .ability {
-  background-color: rgba(70, 30, 30, 0.6);
-  border: 1px solid rgba(203, 106, 106, 0.4);
+.spell-name, .ability-name {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.class-abilities.pyrofiend .spell::before,
-.class-abilities.pyrofiend .ability::before {
-  background: linear-gradient(to bottom, #cb6a6a, transparent);
-}
-
-.class-abilities.chronarch .spell,
-.class-abilities.chronarch .ability {
-  background-color: rgba(30, 50, 70, 0.6);
-  border: 1px solid rgba(106, 158, 203, 0.4);
-}
-
-.class-abilities.chronarch .spell::before,
-.class-abilities.chronarch .ability::before {
-  background: linear-gradient(to bottom, #6a9ecb, transparent);
-}
-
-.class-abilities.minstrel .spell,
-.class-abilities.minstrel .ability {
-  background-color: rgba(50, 30, 70, 0.6);
-  border: 1px solid rgba(166, 106, 203, 0.4);
-}
-
-.class-abilities.minstrel .spell::before,
-.class-abilities.minstrel .ability::before {
-  background: linear-gradient(to bottom, #a66acb, transparent);
-}
-
-/* Spell and Ability Costs */
 .spell-cost, .ability-cost {
   display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .spell-cost span, .ability-cost span {
-  background-color: rgba(40, 50, 80, 0.7);
-  color: #ffffff;
-  padding: 8px 15px;
-  border-radius: 20px;
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 4px 8px;
   font-size: 0.9rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(106, 147, 203, 0.4);
-  transition: all 0.2s ease;
+  font-weight: 500;
+  color: var(--color-text);
 }
 
-.spell-cost span:hover, .ability-cost span:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.class-abilities.pyrofiend .spell-cost span,
-.class-abilities.pyrofiend .ability-cost span {
-  background-color: rgba(80, 40, 40, 0.7);
-  border: 1px solid rgba(203, 106, 106, 0.4);
-}
-
-.class-abilities.chronarch .spell-cost span,
-.class-abilities.chronarch .ability-cost span {
-  background-color: rgba(40, 60, 80, 0.7);
-  border: 1px solid rgba(106, 158, 203, 0.4);
-}
-
-.class-abilities.minstrel .spell-cost span,
-.class-abilities.minstrel .ability-cost span {
-  background-color: rgba(60, 40, 80, 0.7);
-  border: 1px solid rgba(166, 106, 203, 0.4);
-}
-
-/* Sections */
-.base-spells, .threshold-abilities, .advanced-abilities {
-  margin-bottom: 50px;
-  position: relative;
-}
-
-/* Pyrofiend-specific effects */
-.class-abilities.pyrofiend .spell:hover::after,
-.class-abilities.pyrofiend .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #ff6b6b, #ff9d6b);
-  animation: fireGlow 1.5s infinite alternate;
-}
-
-@keyframes fireGlow {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
-}
-
-/* Chronarch-specific effects */
-.class-abilities.chronarch .spell:hover::after,
-.class-abilities.chronarch .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #6b9fff, #6bffff);
-  animation: timeGlow 1.5s infinite alternate;
-}
-
-@keyframes timeGlow {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
-}
-
-/* Minstrel-specific effects */
-.class-abilities.minstrel .spell:hover::after,
-.class-abilities.minstrel .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #c16bff, #ff6bdb);
-  animation: musicGlow 1.5s infinite alternate;
-}
-
-@keyframes musicGlow {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .class-abilities {
-    padding: 20px;
-  }
-
-  .thresholds {
-    flex-direction: column;
-  }
-
-  .spell-cost, .ability-cost {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .class-abilities h2 {
-    font-size: 2rem;
-  }
-
-  .class-abilities h3 {
-    font-size: 1.5rem;
-  }
-}
-
-/* Additional styling for paragraphs and lists */
-.class-abilities p {
+.spell-description, .ability-description {
+  color: var(--color-text);
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
+.spell-mechanics, .ability-mechanics {
+  color: var(--color-text);
+  line-height: 1.6;
+  font-style: italic;
+  background: var(--color-background-light);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid var(--color-secondary);
+  margin: 10px 0;
+}
+
+/* Lists */
 .class-abilities ul {
-  padding-left: 20px;
-  margin-bottom: 20px;
+  list-style: none;
+  padding-left: 0;
 }
 
 .class-abilities li {
-  margin-bottom: 8px;
   position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  line-height: 1.6;
 }
 
 .class-abilities li::before {
-  content: "•";
-  color: #6a93cb;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
-.class-abilities.pyrofiend li::before {
-  color: #cb6a6a;
-}
-
-.class-abilities.chronarch li::before {
-  color: #6a9ecb;
-}
-
-.class-abilities.minstrel li::before {
-  color: #a66acb;
-}
-
-/* Highlight important text */
-.class-abilities strong {
-  color: #ffffff;
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
   font-weight: bold;
 }
 
-/* Spell header with icon */
-.spell-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+/* Special sections */
+.threshold, .effects, .scaling {
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 10px 0;
+  border-left: 3px solid var(--color-accent);
 }
 
-.spell-header h4 {
-  margin: 0;
+.threshold h5, .effects h5, .scaling h5 {
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
 }
 
-@media (max-width: 600px) {
-  .thresholds {
-    flex-direction: column;
+/* Talent tree sections */
+.talent-tree-section {
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.talent-tree-section::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+.talent-ability {
+  background: var(--color-background-light);
+  border-left: 4px solid var(--color-secondary);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .class-abilities {
+    padding: 20px;
+    margin: 10px;
   }
-
+  
+  .class-abilities h2 {
+    font-size: 2rem;
+  }
+  
+  .class-abilities h3 {
+    font-size: 1.5rem;
+  }
+  
   .spell-cost, .ability-cost {
     flex-direction: column;
     gap: 5px;
   }
 }
 
-/* Inscriptor Styles */
-.class-abilities.inscriptor .spell,
-.class-abilities.inscriptor .ability {
-  background-color: rgba(30, 50, 70, 0.6);
-  border: 1px solid rgba(106, 175, 203, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.inscriptor .spell::before,
-.class-abilities.inscriptor .ability::before {
-  background: linear-gradient(to bottom, #6aafcb, transparent);
-}
-
-.class-abilities.inscriptor .spell-cost span,
-.class-abilities.inscriptor .ability-cost span {
-  background-color: rgba(40, 60, 80, 0.7);
-  border: 1px solid rgba(106, 175, 203, 0.4);
-}
-
-.class-abilities.inscriptor li::before {
-  color: #6aafcb;
-}
-
-/* Talent Tree Sections */
-.talent-tree-section {
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: rgba(30, 40, 60, 0.4);
-  border-radius: 10px;
-  border: 1px solid rgba(106, 147, 203, 0.3);
-}
-
-.class-abilities.inscriptor .talent-tree-section {
-  background-color: rgba(30, 50, 70, 0.4);
-  border: 1px solid rgba(106, 175, 203, 0.3);
-}
-
-.talent-tree-section h4 {
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.talent-ability {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: rgba(40, 50, 70, 0.5);
-  border-radius: 8px;
-  border-left: 3px solid rgba(106, 147, 203, 0.6);
-}
-
-.class-abilities.inscriptor .talent-ability {
-  background-color: rgba(40, 60, 80, 0.5);
-  border-left: 3px solid rgba(106, 175, 203, 0.6);
-}
-
-.talent-ability h5 {
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.talent-ability p {
-  margin-bottom: 8px;
-}
-
-.effects {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: rgba(30, 40, 60, 0.4);
-  border-radius: 5px;
-}
-
-.class-abilities.inscriptor .effects {
-  background-color: rgba(30, 50, 70, 0.4);
-  border-left: 3px solid rgba(106, 175, 203, 0.4);
-}
-
-/* Inscriptor-specific effects */
-.class-abilities.inscriptor .spell:hover::after,
-.class-abilities.inscriptor .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #6aafcb, #00d0ff, #6aafcb);
-  background-size: 200% 100%;
-  animation: runeGlow 2s infinite linear;
-}
-
-@keyframes runeGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
+/* Print styles */
+@media print {
+  .class-abilities {
+    box-shadow: none;
+    border: 1px solid #000;
+    background: white;
   }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Spellguard Styles */
-.class-abilities.spellguard .spell,
-.class-abilities.spellguard .ability {
-  background-color: rgba(25, 40, 70, 0.6);
-  border: 1px solid rgba(74, 139, 200, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.class-abilities.spellguard .spell::before,
-.class-abilities.spellguard .ability::before {
-  background: linear-gradient(to bottom, #4a8bc8, transparent);
-}
-
-.class-abilities.spellguard .spell-cost span,
-.class-abilities.spellguard .ability-cost span {
-  background-color: rgba(35, 50, 80, 0.7);
-  border: 1px solid rgba(74, 139, 200, 0.4);
-}
-
-.class-abilities.spellguard li::before {
-  color: #4a8bc8;
-}
-
-.class-abilities.spellguard .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(25, 40, 70, 0.4);
-  border-radius: 5px;
-  border-left: 3px solid rgba(74, 139, 200, 0.6);
-}
-
-.class-abilities.spellguard .effects h5 {
-  color: #4a8bc8;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.spellguard .resource-details {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(25, 40, 70, 0.6);
-  border-radius: 5px;
-  border-left: 3px solid rgba(74, 139, 200, 0.6);
-}
-
-.class-abilities.spellguard .resource-details h5 {
-  color: #4a8bc8;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.spellguard .talent-tree-section {
-  background-color: rgba(25, 40, 70, 0.4);
-  border: 1px solid rgba(74, 139, 200, 0.3);
-}
-
-.class-abilities.spellguard .talent-ability {
-  background-color: rgba(35, 50, 80, 0.5);
-  border-left: 3px solid rgba(74, 139, 200, 0.6);
-}
-
-/* Spellguard-specific effects */
-.class-abilities.spellguard .spell:hover::after,
-.class-abilities.spellguard .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #4a8bc8, #00a0ff, #4a8bc8);
-  background-size: 200% 100%;
-  animation: wardGlow 2s infinite linear;
-}
-
-@keyframes wardGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Huntress Styles */
-.class-abilities.huntress {
-  background-image: linear-gradient(to bottom, #1a2a1a, #2a3d2a);
-  box-shadow: 0 10px 30px rgba(76, 187, 23, 0.2);
-}
-
-.class-abilities.huntress h2::after {
-  background: linear-gradient(to right, transparent, #4cbb17, transparent);
-}
-
-.class-abilities.huntress h3::before {
-  background: linear-gradient(to right, #4cbb17, transparent);
-}
-
-.class-abilities.huntress .resource-system {
-  background-color: rgba(30, 60, 30, 0.5);
-  border: 1px solid rgba(76, 187, 23, 0.3);
-}
-
-.class-abilities.huntress .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(76, 187, 23, 0.2), transparent 70%);
-}
-
-.class-abilities.huntress .spell,
-.class-abilities.huntress .ability {
-  background-color: rgba(30, 60, 30, 0.6);
-  border: 1px solid rgba(76, 187, 23, 0.4);
-}
-
-.class-abilities.huntress .spell::before,
-.class-abilities.huntress .ability::before {
-  background: linear-gradient(to bottom, #4cbb17, transparent);
-}
-
-.class-abilities.huntress .spell-cost span,
-.class-abilities.huntress .ability-cost span {
-  background-color: rgba(40, 70, 40, 0.7);
-  border: 1px solid rgba(76, 187, 23, 0.4);
-}
-
-.class-abilities.huntress li::before {
-  color: #4cbb17;
-}
-
-.class-abilities.huntress .talent-ability {
-  background-color: rgba(40, 70, 40, 0.5);
-  border-left: 3px solid rgba(76, 187, 23, 0.6);
-}
-
-.class-abilities.huntress .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 60, 30, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(76, 187, 23, 0.6);
-}
-
-.class-abilities.huntress .effects h5 {
-  color: #4cbb17;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.huntress .talent-tree-section {
-  background-color: rgba(30, 60, 30, 0.4);
-  border: 1px solid rgba(76, 187, 23, 0.3);
-}
-
-/* Huntress-specific effects */
-.class-abilities.huntress .spell:hover::after,
-.class-abilities.huntress .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #4cbb17, #a4de02, #76b947);
-  background-size: 300% 100%;
-  animation: hunterGlow 2s infinite linear;
-}
-
-@keyframes hunterGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Warden Styles */
-.class-abilities.warden {
-  background-image: linear-gradient(to bottom, #1a2a3a, #2a3d4d);
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.2);
-}
-
-.class-abilities.warden h2::after {
-  background: linear-gradient(to right, transparent, #4682b4, transparent);
-}
-
-.class-abilities.warden h3::before {
-  background: linear-gradient(to right, #4682b4, transparent);
-}
-
-.class-abilities.warden .resource-system {
-  background-color: rgba(30, 50, 70, 0.5);
-  border: 1px solid rgba(70, 130, 180, 0.3);
-}
-
-.class-abilities.warden .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(70, 130, 180, 0.2), transparent 70%);
-}
-
-.class-abilities.warden .spell,
-.class-abilities.warden .ability {
-  background-color: rgba(30, 50, 70, 0.6);
-  border: 1px solid rgba(70, 130, 180, 0.4);
-}
-
-.class-abilities.warden .spell::before,
-.class-abilities.warden .ability::before {
-  background: linear-gradient(to bottom, #4682b4, transparent);
-}
-
-.class-abilities.warden .spell-cost span,
-.class-abilities.warden .ability-cost span {
-  background-color: rgba(40, 60, 80, 0.7);
-  border: 1px solid rgba(70, 130, 180, 0.4);
-}
-
-.class-abilities.warden li::before {
-  color: #4682b4;
-}
-
-.class-abilities.warden .talent-ability {
-  background-color: rgba(40, 60, 80, 0.5);
-  border-left: 3px solid rgba(70, 130, 180, 0.6);
-}
-
-.class-abilities.warden .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 50, 70, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(70, 130, 180, 0.6);
-}
-
-.class-abilities.warden .effects h5 {
-  color: #4682b4;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.warden .talent-tree-section {
-  background-color: rgba(30, 50, 70, 0.4);
-  border: 1px solid rgba(70, 130, 180, 0.3);
-}
-
-/* Warden-specific effects */
-.class-abilities.warden .spell:hover::after,
-.class-abilities.warden .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #4682b4, #87ceeb, #b0e0e6);
-  background-size: 300% 100%;
-  animation: wardenGlow 2s infinite linear;
-}
-
-@keyframes wardenGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Toxicologist Styles */
-.class-abilities.toxicologist {
-  background-image: linear-gradient(to bottom, #1a2a1a, #2a3d2a);
-  box-shadow: 0 10px 30px rgba(0, 128, 0, 0.2);
-}
-
-.class-abilities.toxicologist h2::after {
-  background: linear-gradient(to right, transparent, #4caf50, transparent);
-}
-
-.class-abilities.toxicologist h3::before {
-  background: linear-gradient(to right, #4caf50, transparent);
-}
-
-.class-abilities.toxicologist .resource-system {
-  background-color: rgba(30, 50, 30, 0.5);
-  border: 1px solid rgba(0, 128, 0, 0.3);
-}
-
-.class-abilities.toxicologist .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(0, 128, 0, 0.2), transparent 70%);
-}
-
-.class-abilities.toxicologist .spell,
-.class-abilities.toxicologist .ability {
-  background-color: rgba(30, 50, 30, 0.6);
-  border: 1px solid rgba(0, 128, 0, 0.4);
-}
-
-.class-abilities.toxicologist .spell::before,
-.class-abilities.toxicologist .ability::before {
-  background: linear-gradient(to bottom, #4caf50, transparent);
-}
-
-.class-abilities.toxicologist .spell-cost span,
-.class-abilities.toxicologist .ability-cost span {
-  background-color: rgba(40, 60, 40, 0.7);
-  border: 1px solid rgba(0, 128, 0, 0.4);
-}
-
-.class-abilities.toxicologist li::before {
-  color: #4caf50;
-}
-
-.class-abilities.toxicologist .talent-ability {
-  background-color: rgba(40, 60, 40, 0.5);
-  border-left: 3px solid rgba(0, 128, 0, 0.6);
-}
-
-.class-abilities.toxicologist .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 50, 30, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(0, 128, 0, 0.6);
-}
-
-.class-abilities.toxicologist .effects h5 {
-  color: #4caf50;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.toxicologist .talent-tree-section {
-  background-color: rgba(30, 50, 30, 0.4);
-  border: 1px solid rgba(0, 128, 0, 0.3);
-}
-
-/* Toxicologist-specific effects */
-.class-abilities.toxicologist .spell:hover::after,
-.class-abilities.toxicologist .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #4caf50, #8bc34a, #cddc39);
-  background-size: 300% 100%;
-  animation: toxicologistGlow 2s infinite linear;
-}
-
-@keyframes toxicologistGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Covenbane Styles */
-.class-abilities.covenbane {
-  background-image: linear-gradient(to bottom, #1a1a2a, #2a2a3d);
-  box-shadow: 0 10px 30px rgba(128, 0, 128, 0.2);
-}
-
-.class-abilities.covenbane h2::after {
-  background: linear-gradient(to right, transparent, #8a2be2, transparent);
-}
-
-.class-abilities.covenbane h3::before {
-  background: linear-gradient(to right, #8a2be2, transparent);
-}
-
-.class-abilities.covenbane .resource-system {
-  background-color: rgba(30, 30, 50, 0.5);
-  border: 1px solid rgba(128, 0, 128, 0.3);
-}
-
-.class-abilities.covenbane .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(128, 0, 128, 0.2), transparent 70%);
-}
-
-.class-abilities.covenbane .spell,
-.class-abilities.covenbane .ability {
-  background-color: rgba(30, 30, 50, 0.6);
-  border: 1px solid rgba(128, 0, 128, 0.4);
-}
-
-.class-abilities.covenbane .spell::before,
-.class-abilities.covenbane .ability::before {
-  background: linear-gradient(to bottom, #8a2be2, transparent);
-}
-
-.class-abilities.covenbane .spell-cost span,
-.class-abilities.covenbane .ability-cost span {
-  background-color: rgba(40, 40, 60, 0.7);
-  border: 1px solid rgba(128, 0, 128, 0.4);
-}
-
-.class-abilities.covenbane li::before {
-  color: #8a2be2;
-}
-
-.class-abilities.covenbane .talent-ability {
-  background-color: rgba(40, 40, 60, 0.5);
-  border-left: 3px solid rgba(128, 0, 128, 0.6);
-}
-
-.class-abilities.covenbane .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 30, 50, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(128, 0, 128, 0.6);
-}
-
-.class-abilities.covenbane .effects h5 {
-  color: #8a2be2;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.covenbane .talent-tree-section {
-  background-color: rgba(30, 30, 50, 0.4);
-  border: 1px solid rgba(128, 0, 128, 0.3);
-}
-
-/* Covenbane-specific effects */
-.class-abilities.covenbane .spell:hover::after,
-.class-abilities.covenbane .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #8a2be2, #9370db, #ba55d3);
-  background-size: 300% 100%;
-  animation: covenbaneGlow 2s infinite linear;
-}
-
-@keyframes covenbaneGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-}
-
-/* Bladedancer Styles */
-.class-abilities.bladedancer {
-  background-image: linear-gradient(to bottom, #1a1a2a, #2a2a3d);
-  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
-}
-
-.class-abilities.bladedancer h2::after {
-  background: linear-gradient(to right, transparent, #00bfff, transparent);
-}
-
-.class-abilities.bladedancer h3::before {
-  background: linear-gradient(to right, #00bfff, transparent);
-}
-
-.class-abilities.bladedancer .resource-system {
-  background-color: rgba(30, 30, 50, 0.5);
-  border: 1px solid rgba(0, 191, 255, 0.3);
-}
-
-.class-abilities.bladedancer .resource-system::before {
-  background: radial-gradient(circle at top right, rgba(0, 191, 255, 0.2), transparent 70%);
-}
-
-.class-abilities.bladedancer .spell,
-.class-abilities.bladedancer .ability {
-  background-color: rgba(30, 30, 50, 0.6);
-  border: 1px solid rgba(0, 191, 255, 0.4);
-}
-
-.class-abilities.bladedancer .spell::before,
-.class-abilities.bladedancer .ability::before {
-  background: linear-gradient(to bottom, #00bfff, transparent);
-}
-
-.class-abilities.bladedancer .spell-cost span,
-.class-abilities.bladedancer .ability-cost span {
-  background-color: rgba(40, 40, 60, 0.7);
-  border: 1px solid rgba(0, 191, 255, 0.4);
-}
-
-.class-abilities.bladedancer li::before {
-  color: #00bfff;
-}
-
-.class-abilities.bladedancer .talent-ability {
-  background-color: rgba(40, 40, 60, 0.5);
-  border-left: 3px solid rgba(0, 191, 255, 0.6);
-}
-
-.class-abilities.bladedancer .effects {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(30, 30, 50, 0.5);
-  border-radius: 5px;
-  border-left: 3px solid rgba(0, 191, 255, 0.6);
-}
-
-.class-abilities.bladedancer .effects h5 {
-  color: #00bfff;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.class-abilities.bladedancer .talent-tree-section {
-  background-color: rgba(30, 30, 50, 0.4);
-  border: 1px solid rgba(0, 191, 255, 0.3);
-}
-
-.class-abilities.bladedancer .ultimate-abilities {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-/* Bladedancer-specific effects */
-.class-abilities.bladedancer .spell:hover::after,
-.class-abilities.bladedancer .ability:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #00bfff, #87cefa, #1e90ff);
-  background-size: 300% 100%;
-  animation: bladedancerGlow 2s infinite linear;
-}
-
-@keyframes bladedancerGlow {
-  0% {
-    background-position: 0% 50%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.6;
+  
+  .class-abilities::before {
+    display: none;
   }
 }

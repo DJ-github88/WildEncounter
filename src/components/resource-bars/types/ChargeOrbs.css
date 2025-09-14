@@ -1,0 +1,362 @@
+/* ChargeOrbs - Styling for charge-based resource bars */
+
+.charge-orbs-container {
+  padding: 16px;
+  background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+  border: 2px solid #ffc107;
+  border-radius: 10px;
+  position: relative;
+}
+
+.charges-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #f57f17;
+  font-family: 'Cinzel', serif;
+}
+
+.charges-title {
+  font-weight: 600;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.charges-count {
+  font-size: 0.9em;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Charges grid */
+.charges-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  min-height: 50px;
+}
+
+/* Individual charge orb */
+.charge-orb {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: chargeFloat 3s infinite ease-in-out;
+  animation-delay: var(--animation-delay, 0s);
+}
+
+.charge-orb.size-small {
+  width: 24px;
+  height: 24px;
+}
+
+.charge-orb.size-large {
+  width: 40px;
+  height: 40px;
+}
+
+.charge-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.charge-core {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.8) 0%,
+    var(--charge-color, #FFD700) 30%,
+    rgba(255, 193, 7, 0.8) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 2px 8px rgba(255, 193, 7, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.charge-glow {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    var(--charge-glow, rgba(255, 215, 0, 0.6)) 0%,
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.charge-sparkle {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg,
+    var(--charge-color, #FFD700) 45deg,
+    transparent 90deg,
+    var(--charge-color, #FFD700) 135deg,
+    transparent 180deg,
+    var(--charge-color, #FFD700) 225deg,
+    transparent 270deg,
+    var(--charge-color, #FFD700) 315deg,
+    transparent 360deg
+  );
+  animation: sparkleRotate 2s linear infinite;
+  opacity: 0.6;
+}
+
+/* Charge states */
+.charge-orb.inactive .charge-core {
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.2) 0%,
+    #9e9e9e 30%,
+    rgba(158, 158, 158, 0.6) 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.charge-orb.active .charge-glow {
+  opacity: 0.8;
+}
+
+.charge-orb.hovered {
+  transform: scale(1.15);
+}
+
+.charge-orb.hovered .charge-glow {
+  opacity: 1;
+}
+
+.charge-orb.interactive:hover {
+  transform: scale(1.1);
+}
+
+/* Charge actions */
+.charges-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.charge-button {
+  background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+  color: #f57f17;
+  border: 1px solid #ff8f00;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.charge-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffb300 0%, #ffc107 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(255, 193, 7, 0.4);
+}
+
+.charge-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(255, 193, 7, 0.3);
+}
+
+.charge-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.charge-button.gain {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: white;
+  border-color: #2e7d32;
+}
+
+.charge-button.gain:hover:not(:disabled) {
+  background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%);
+}
+
+.charge-button.spend {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+  border-color: #c62828;
+}
+
+.charge-button.spend:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
+}
+
+/* Charge benefits section */
+.charge-benefits {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  color: #f57f17;
+}
+
+.benefits-header h4 {
+  margin: 0 0 8px 0;
+  color: #ff8f00;
+  font-size: 1em;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 143, 0, 0.3);
+  padding-bottom: 4px;
+}
+
+.benefits-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.passive-benefits,
+.charge-usage {
+  font-size: 0.9em;
+}
+
+.passive-benefits strong,
+.charge-usage strong {
+  color: #ff8f00;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.passive-list,
+.usage-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.benefit-tag {
+  background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+  color: #f57f17;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(245, 127, 23, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.usage-tag {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.empowered-state {
+  background: rgba(255, 215, 0, 0.3);
+  border: 1px solid #ffd700;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 0.85em;
+  margin-top: 4px;
+  animation: holyGlow 2s infinite ease-in-out;
+}
+
+.empowered-state strong {
+  color: #ffd700;
+}
+
+@keyframes holyGlow {
+  0%, 100% {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: #ffd700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    background: rgba(255, 215, 0, 0.5);
+    border-color: #ffeb3b;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* Animations */
+@keyframes chargeFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .charges-grid {
+    gap: 6px;
+  }
+  
+  .charge-orb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .charges-actions {
+    gap: 8px;
+  }
+  
+  .charge-button {
+    padding: 4px 8px;
+    font-size: 0.8em;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .charge-orb,
+  .charge-sparkle {
+    animation: none;
+  }
+  
+  .charge-orb,
+  .charge-core,
+  .charge-glow {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .charge-core {
+    border-width: 3px;
+  }
+  
+  .charge-button {
+    border-width: 2px;
+  }
+}

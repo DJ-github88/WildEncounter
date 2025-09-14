@@ -2,7 +2,7 @@ const classes = [
   {
     id: 'warrior',
     name: 'Warrior',
-    icon: '⚔️',
+    icon: '⟐',
     description: 'Masters of martial combat who rely on physical strength and battlefield prowess.',
     primaryAttribute: 'Strength',
     armorProficiency: 'All armor types',
@@ -226,7 +226,7 @@ const classes = [
   {
     id: 'mage',
     name: 'Mage',
-    icon: '🔮',
+    icon: 'crystal',
     description: 'Masters of the arcane who harness magical energies to devastating effect.',
     primaryAttribute: 'Intelligence',
     armorProficiency: 'Cloth',
@@ -240,7 +240,7 @@ const classes = [
         id: 'arcane',
         name: 'Arcane',
         description: 'Harness pure magical energy for devastating single-target damage.',
-        icon: '✨',
+        icon: 'A',
         talents: [
           {
             id: 'arcane-concentration',
@@ -248,7 +248,7 @@ const classes = [
             description: 'Reduces the chance your spells will be interrupted by damage by 4%.',
             maxRank: 5,
             position: { row: 0, col: 1 },
-            icon: '🧠',
+            icon: 'C',
           },
           {
             id: 'arcane-focus',

@@ -1,0 +1,212 @@
+/* BaseResourceBar - Foundation styles for all resource bars */
+
+.base-resource-bar {
+  position: relative;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  outline: none;
+  user-select: none;
+}
+
+/* Size variants */
+.base-resource-bar.size-small {
+  min-height: 30px;
+  font-size: 0.8em;
+}
+
+.base-resource-bar.size-medium {
+  min-height: 40px;
+  font-size: 1em;
+}
+
+.base-resource-bar.size-large {
+  min-height: 60px;
+  font-size: 1.2em;
+}
+
+/* Interactive states */
+.base-resource-bar.interactive {
+  cursor: pointer;
+}
+
+.base-resource-bar.interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.base-resource-bar.interactive:focus {
+  box-shadow: 
+    0 0 0 2px var(--resource-color, #8b4513),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.base-resource-bar.interactive:active {
+  transform: translateY(0);
+}
+
+.base-resource-bar.readonly {
+  cursor: default;
+}
+
+/* Animation states */
+.base-resource-bar.resource-animating {
+  animation: resourceBarPulse 0.5s ease-in-out;
+}
+
+@keyframes resourceBarPulse {
+  0% { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% { 
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+  100% { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* Resource type specific styling */
+.base-resource-bar.type-stages {
+  background: linear-gradient(90deg, 
+    rgba(139, 69, 19, 0.1) 0%, 
+    rgba(139, 69, 19, 0.05) 100%);
+  border: 2px solid rgba(139, 69, 19, 0.3);
+}
+
+.base-resource-bar.type-gauge {
+  background: linear-gradient(90deg, 
+    rgba(25, 118, 210, 0.1) 0%, 
+    rgba(25, 118, 210, 0.05) 100%);
+  border: 2px solid rgba(25, 118, 210, 0.3);
+}
+
+.base-resource-bar.type-charges {
+  background: linear-gradient(90deg, 
+    rgba(255, 193, 7, 0.1) 0%, 
+    rgba(255, 193, 7, 0.05) 100%);
+  border: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.base-resource-bar.type-combo {
+  background: linear-gradient(90deg, 
+    rgba(123, 31, 162, 0.1) 0%, 
+    rgba(123, 31, 162, 0.05) 100%);
+  border: 2px solid rgba(123, 31, 162, 0.3);
+}
+
+.base-resource-bar.type-fury {
+  background: linear-gradient(90deg, 
+    rgba(216, 67, 21, 0.1) 0%, 
+    rgba(216, 67, 21, 0.05) 100%);
+  border: 2px solid rgba(216, 67, 21, 0.3);
+}
+
+.base-resource-bar.type-vials {
+  background: linear-gradient(90deg, 
+    rgba(56, 142, 60, 0.1) 0%, 
+    rgba(56, 142, 60, 0.05) 100%);
+  border: 2px solid rgba(56, 142, 60, 0.3);
+}
+
+/* Common visual elements */
+.resource-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-bar-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.resource-bar-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #2c1810;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.resource-bar-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.resource-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(44, 24, 16, 0.4);
+  z-index: 1;
+}
+
+.resource-marker.threshold {
+  background: rgba(244, 67, 54, 0.6);
+  width: 3px;
+}
+
+.resource-marker.threshold::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid rgba(244, 67, 54, 0.8);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .base-resource-bar,
+  .resource-bar-fill,
+  .base-resource-bar.resource-animating {
+    animation: none;
+    transition: none;
+  }
+  
+  .resource-bar-fill::before {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .base-resource-bar {
+    border-width: 3px;
+  }
+  
+  .resource-bar-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}

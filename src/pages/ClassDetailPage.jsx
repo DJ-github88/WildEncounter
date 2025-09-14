@@ -1,12 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import TalentTree from '../components/talent-tree/TalentTree';
-import ClassAbilities from '../components/ClassAbilities.jsx';
+import Spellbook from '../components/Spellbook';
 import EssenceOfHumanity from '../components/EssenceOfHumanity';
 import classData from '../data/class-data';
 import paths from '../data/paths';
 import talentTreeRegistry from '../data/talent-trees';
 import classGuides from '../data/class-guides';
+// Import class abilities
+import chronarchAbilities from '../data/class-abilities/chronarch-abilities';
+import minstrelAbilities from '../data/class-abilities/minstrel-abilities';
+import pyrofiendAbilities from '../data/class-abilities/pyrofiend-abilities';
+import chaosWeaverAbilities from '../data/class-abilities/chaos-weaver-abilities';
+import fateWeaverAbilities from '../data/class-abilities/fate-weaver-abilities';
+import gamblerAbilities from '../data/class-abilities/gambler-abilities';
+import martyrAbilities from '../data/class-abilities/martyr-abilities';
+import falseProphetAbilities from '../data/class-abilities/false-prophet-abilities';
+import exorcistAbilities from '../data/class-abilities/exorcist-abilities';
+import deathcallerAbilities from '../data/class-abilities/deathcaller-abilities';
+import plaguebringerAbilities from '../data/class-abilities/plaguebringer-abilities';
+import lichborneAbilities from '../data/class-abilities/lichborne-abilities';
+import inscriptorAbilities from '../data/class-abilities/inscriptor-abilities';
+import spellguardAbilities from '../data/class-abilities/spellguard-abilities';
+import arcanoneerAbilities from '../data/class-abilities/arcanoneer-abilities';
+import witchDoctorAbilities from '../data/class-abilities/witch-doctor-abilities';
+import formbenderAbilities from '../data/class-abilities/formbender-abilities';
+import primalistAbilities from '../data/class-abilities/primalist-abilities';
+import berserkerAbilities from '../data/class-abilities/berserker-abilities';
+import dreadnaughtAbilities from '../data/class-abilities/dreadnaught-abilities';
+import titanAbilities from '../data/class-abilities/titan-abilities';
+import lunarchAbilities from '../data/class-abilities/lunarch-abilities';
+import huntressAbilities from '../data/class-abilities/huntress-abilities';
+import wardenAbilities from '../data/class-abilities/warden-abilities';
+import toxicologistAbilities from '../data/class-abilities/toxicologist-abilities';
+import covenbaneAbilities from '../data/class-abilities/covenbane-abilities';
+import bladedancerAbilities from '../data/class-abilities/bladedancer-abilities';
 import './ClassDetailPage.css';
 
 const ClassDetailPage = () => {
@@ -17,7 +45,43 @@ const ClassDetailPage = () => {
   const [talentPoints, setTalentPoints] = useState(31); // Default to 31 talent points (not level-based)
   const [pointsSpent, setPointsSpent] = useState({});
   const [talentTrees, setTalentTrees] = useState([]);
+  const [classAbilities, setClassAbilities] = useState(null);
   const [showEssenceInfo, setShowEssenceInfo] = useState(false);
+
+  // Get abilities data for the current class
+  const getClassAbilities = (classId) => {
+    const abilitiesMap = {
+      'chronarch': chronarchAbilities,
+      'minstrel': minstrelAbilities,
+      'pyrofiend': pyrofiendAbilities,
+      'chaos-weaver': chaosWeaverAbilities,
+      'fate-weaver': fateWeaverAbilities,
+      'gambler': gamblerAbilities,
+      'martyr': martyrAbilities,
+      'false-prophet': falseProphetAbilities,
+      'exorcist': exorcistAbilities,
+      'deathcaller': deathcallerAbilities,
+      'plaguebringer': plaguebringerAbilities,
+      'lichborne': lichborneAbilities,
+      'inscriptor': inscriptorAbilities,
+      'spellguard': spellguardAbilities,
+      'arcanoneer': arcanoneerAbilities,
+      'witch-doctor': witchDoctorAbilities,
+      'formbender': formbenderAbilities,
+      'primalist': primalistAbilities,
+      'berserker': berserkerAbilities,
+      'dreadnaught': dreadnaughtAbilities,
+      'titan': titanAbilities,
+      'lunarch': lunarchAbilities,
+      'huntress': huntressAbilities,
+      'warden': wardenAbilities,
+      'toxicologist': toxicologistAbilities,
+      'covenbane': covenbaneAbilities,
+      'bladedancer': bladedancerAbilities
+    };
+
+    return abilitiesMap[classId] || null;
+  };
 
   useEffect(() => {
     // Get the class data from our class-data object
@@ -29,6 +93,10 @@ const ClassDetailPage = () => {
       // Get talent trees for this class from the registry
       const classTalentTrees = talentTreeRegistry[classId] || [];
       setTalentTrees(classTalentTrees);
+
+      // Get abilities data for this class
+      const abilities = getClassAbilities(classId);
+      setClassAbilities(abilities);
 
       // Set the first talent tree as active if available
       if (classTalentTrees.length > 0) {
@@ -99,7 +167,7 @@ const ClassDetailPage = () => {
           className={`tab-button ${activeTab === 'abilities' ? 'active' : ''}`}
           onClick={() => handleTabChange('abilities')}
         >
-          Abilities
+          Spellbook
         </button>
         <button
           className={`tab-button ${activeTab === 'talents' ? 'active' : ''}`}
@@ -143,30 +211,27 @@ const ClassDetailPage = () => {
             </div>
 
             <div className="overview-card background-info-card">
-              <h2 className="card-title">Background Compatibility</h2>
+              <h2 className="card-title">Backgrounds</h2>
               <p className="background-info-text">
-                In our TTRPG system, classes are independent of backgrounds. While this {selectedClass.name} is traditionally
-                associated with the {pathInfo ? pathInfo.name : 'various paths'}, you can combine it with any background
-                to create unique character concepts.
+                Your character's background represents their past experiences and training before embracing this class.
+                Backgrounds provide three thematic abilities that complement your class abilities, creating unique character concepts.
               </p>
-              <div className="background-benefits">
-                <h3>Character Creation</h3>
-                <ol className="creation-steps">
-                  <li>Choose any <Link to="/paths" className="background-link">background</Link> to gain 3 thematic abilities</li>
-                  <li>Select this class for your core mechanics and resource system</li>
-                  <li>Customize with talent trees and abilities</li>
-                </ol>
-              </div>
-              <div className="suggested-backgrounds">
-                <h3>Suggested Backgrounds</h3>
-                <p>While any background works, these combinations offer interesting synergies:</p>
-                <ul className="background-suggestions">
-                  {pathInfo ? (
-                    <li><strong>{pathInfo.name}:</strong> Traditional pairing with established lore</li>
-                  ) : null}
-                  <li><strong>Any Background:</strong> Create unique character concepts by mixing and matching</li>
-                </ul>
-              </div>
+              <p className="background-info-text">
+                While {selectedClass.name} traditionally aligns with {pathInfo ? pathInfo.name : 'certain paths'},
+                any background can create interesting combinations. <Link to="/paths" className="background-link">Explore all backgrounds</Link> to find your perfect match.
+              </p>
+            </div>
+
+            <div className="overview-card races-info-card">
+              <h2 className="card-title">Races</h2>
+              <p className="races-info-text">
+                Your character's race determines their heritage and provides unique racial abilities, stat modifiers, and cultural traits.
+                Each race offers distinct advantages and disadvantages that can synergize with your class choice.
+              </p>
+              <p className="races-info-text">
+                From resilient mountain folk to mystically-attuned forest dwellers, each race brings its own flavor to the {selectedClass.name} class.
+                <Link to="/races" className="races-link">Discover all races</Link> and their unique traits.
+              </p>
             </div>
 
             <div className="overview-card">
@@ -207,7 +272,12 @@ const ClassDetailPage = () => {
       )}
 
       {activeTab === 'abilities' && (
-        <ClassAbilities />
+        <Spellbook
+          classId={classId}
+          classData={selectedClass}
+          talentTrees={talentTrees}
+          abilities={classAbilities}
+        />
       )}
 
       {activeTab === 'talents' && (

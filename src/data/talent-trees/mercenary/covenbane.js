@@ -91,7 +91,7 @@ const covenbaneTalentTrees = [
         maxRank: 1,
         position: { row: 2, col: 0 },
         requires: ['spell-breaker'],
-        icon: '🗡️',
+        icon: 'sword',
         rankDescription: [
           'When you hit a spellcaster with a weapon attack, you can spend 1 Seal Token to dispel one magical effect of your choice on the target.'
         ]
@@ -103,7 +103,7 @@ const covenbaneTalentTrees = [
         maxRank: 1,
         position: { row: 2, col: 2 },
         requires: ['spell-breaker', 'unerring-mark'],
-        icon: '🔮',
+        icon: 'focus',
         rankDescription: [
           'Your abilities deal +1d4 damage per die against targets marked by your Mark Hex ability.'
         ]

@@ -193,6 +193,70 @@ const chaosWeaverAbilities = {
       scaling: 'Damage per projectile = 1d6 + (INT / 3)'
     },
     {
+      name: 'Dice of Destiny',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        chaosRoll: '3d6'
+      },
+      description: 'Roll three dice of fate, each determining a different chaotic effect.',
+      mechanics: 'Roll 3d6. Each die triggers a different effect: First die (Elemental Chaos Table), Second die (Shield effect on ally), Third die (Flux effect in small area). Generates 2 EP.',
+      entropyInteractions: [
+        'Spend 2 EP: Reroll any one of the three dice',
+        'Spend 4 EP: Reroll all three dice',
+        'Spend 6 EP: Choose the result of one die instead of rolling'
+      ],
+      scaling: 'All effects scale with INT modifier'
+    },
+    {
+      name: 'Entropy Storm',
+      cost: {
+        actionPoints: 4,
+        mana: 6,
+        chaosRoll: '1d100'
+      },
+      description: 'Unleash a massive storm of chaotic energy with wildly unpredictable effects.',
+      mechanics: 'Roll d100 for catastrophic chaos effects: 1-10 (Backfire massively), 11-30 (Minor chaos), 31-70 (Major area chaos), 71-90 (Devastating enemy effects), 91-99 (Reality-warping effects), 100 (Ascend to chaos god temporarily). Generates 3 EP.',
+      entropyInteractions: [
+        'Spend 5 EP: Reroll the d100 once',
+        'Spend 8 EP: Add or subtract 10 from the d100 roll',
+        'Spend 10 EP: Roll twice and choose which result to use'
+      ],
+      scaling: 'Effects scale dramatically with level and INT'
+    },
+    {
+      name: 'Chaos Cascade',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        chaosRoll: 'Variable'
+      },
+      description: 'Each chaos effect triggers another smaller chaos effect in a cascading chain.',
+      mechanics: 'Roll on any chaos table. If the result is 7 or higher, roll again on a different table with -2 to the roll. Continue until you roll 6 or lower. Generates 1 EP per roll.',
+      entropyInteractions: [
+        'Spend 1 EP: Continue the cascade even if you roll 6 or lower',
+        'Spend 3 EP: Each cascade roll gains +1 instead of -2',
+        'Spend 5 EP: Choose which table to roll on for each cascade'
+      ],
+      scaling: 'Maximum cascades = 1 + (INT / 4)'
+    },
+    {
+      name: 'Quantum Leap',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        chaosRoll: 'd20'
+      },
+      description: 'Teleport through chaotic space-time, with unpredictable side effects.',
+      mechanics: 'Roll d20: 1-5 (Teleport fails, take 1d6 force damage), 6-10 (Teleport 15 feet), 11-15 (Teleport 30 feet), 16-19 (Teleport 45 feet + gain 1 EP), 20 (Teleport anywhere within 100 feet + become invisible for 1 round). Generates 1 EP.',
+      entropyInteractions: [
+        'Spend 1 EP: Reroll the d20 once',
+        'Spend 2 EP: Add +3 to the d20 roll',
+        'Spend 3 EP: Teleport an ally with you'
+      ],
+      scaling: 'Teleport distance increases by 5 feet per 2 levels'
+    },
+    {
       name: 'Reality Distortion',
       cost: {
         actionPoints: 2,
@@ -381,6 +445,201 @@ const chaosWeaverAbilities = {
       mechanics: 'Spend all EP (minimum 5). Create a 50-foot radius zone of entropy that lasts for 1d4 rounds. Within this zone: all creatures take 2d10 force damage per round; all spells cast have a 50% chance to trigger a roll on the Flux Effect Table; teleportation and planar travel are impossible; and reality itself becomes malleable (the DM determines random reality shifts each round).',
       entropyInteractions: 'The more EP spent to activate this ability, the larger the area (add 10 feet to the radius for every 2 EP spent above 5).',
       requirements: 'Level 50, 8 points in Tactical Disruption'
+    }
+  ],
+
+  // Order in Chaos Specialization Spells
+  orderInChaosSpells: [
+    {
+      name: 'Probability Anchor',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        entropyPoints: 1
+      },
+      description: 'Stabilize probability around a target to control outcomes.',
+      mechanics: 'Target gains advantage on their next roll. Spend 1 EP to guarantee they roll 15 or higher.',
+      specialization: 'order-in-chaos',
+      scaling: 'Can affect additional targets with higher INT'
+    },
+    {
+      name: 'Chaos Lens',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        entropyPoints: 2
+      },
+      description: 'Focus chaotic energy into a precise beam of controlled destruction.',
+      mechanics: 'Roll d12 on Elemental Chaos Table. Deal damage of that type. Spend 2 EP to choose the element instead.',
+      specialization: 'order-in-chaos',
+      scaling: 'Damage increases with INT modifier'
+    },
+    {
+      name: 'Entropy Weave',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        entropyPoints: 1
+      },
+      description: 'Weave chaotic energy into a protective pattern.',
+      mechanics: 'Create a shield that absorbs the next 3 attacks. Each absorbed attack generates 1 EP.',
+      specialization: 'order-in-chaos',
+      scaling: 'Shield absorbs additional attacks with higher level'
+    },
+    {
+      name: 'Controlled Chaos',
+      cost: {
+        actionPoints: 3,
+        mana: 5,
+        entropyPoints: 3
+      },
+      description: 'Create a zone where you control all random effects.',
+      mechanics: '20 ft radius. For 1 minute, you choose all dice roll results within the zone.',
+      specialization: 'order-in-chaos',
+      scaling: 'Area increases with INT modifier'
+    }
+  ],
+
+  // Cataclysmic Surges Specialization Spells
+  cataclysmicSurgesSpells: [
+    {
+      name: 'Chaos Eruption',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        chaosRoll: 'Elemental Chaos Table (d12)'
+      },
+      description: 'Unleash a violent eruption of chaotic energy.',
+      mechanics: 'Roll d12 on Elemental Chaos Table. All enemies in 15 ft take 3d6 damage of that type.',
+      specialization: 'cataclysmic-surges',
+      scaling: 'Damage and area increase with level'
+    },
+    {
+      name: 'Entropy Storm',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        entropyPoints: 2
+      },
+      description: 'Create a storm of pure entropy that devastates the battlefield.',
+      mechanics: '30 ft radius. Each creature rolls d6: 1-2 takes 2d8 force, 3-4 takes 2d8 random element, 5-6 heals 2d8.',
+      specialization: 'cataclysmic-surges',
+      scaling: 'Damage increases with INT modifier'
+    },
+    {
+      name: 'Reality Bomb',
+      cost: {
+        actionPoints: 4,
+        mana: 6,
+        entropyPoints: 4
+      },
+      description: 'Detonate a sphere of compressed chaos energy.',
+      mechanics: 'Target point explodes in 25 ft radius. Roll d20 for each creature: 1-5 no effect, 6-15 take 4d10 damage, 16-20 take 8d10 damage.',
+      specialization: 'cataclysmic-surges',
+      scaling: 'Explosion radius increases with level'
+    },
+    {
+      name: 'Cascade Reaction',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        entropyPoints: 1
+      },
+      description: 'Start a chain reaction of chaotic energy.',
+      mechanics: 'Target takes 2d6 damage. If killed, explosion deals same damage to all adjacent enemies.',
+      specialization: 'cataclysmic-surges',
+      scaling: 'Chain reaction can spread further with higher INT'
+    }
+  ],
+
+  // Tactical Disruption Specialization Spells
+  tacticalDisruptionSpells: [
+    {
+      name: 'Chaos Bind',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        entropyPoints: 1
+      },
+      description: 'Bind an enemy with chaotic energy that disrupts their actions.',
+      mechanics: 'Target is restrained. Each turn they can attempt to break free, but failure generates 1 EP for you.',
+      specialization: 'tactical-disruption',
+      scaling: 'Can bind additional targets with higher INT'
+    },
+    {
+      name: 'Entropy Field',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        entropyPoints: 2
+      },
+      description: 'Create a field that disrupts enemy abilities.',
+      mechanics: '20 ft radius. Enemies have disadvantage on spell attacks and saves. Lasts 1 minute.',
+      specialization: 'tactical-disruption',
+      scaling: 'Field size increases with level'
+    },
+    {
+      name: 'Chaos Swap',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        entropyPoints: 1
+      },
+      description: 'Swap positions of two creatures through chaotic teleportation.',
+      mechanics: 'Two creatures within 60 ft instantly swap positions. Both take 1d6 force damage.',
+      specialization: 'tactical-disruption',
+      scaling: 'Range increases with INT modifier'
+    },
+    {
+      name: 'Probability Maze',
+      cost: {
+        actionPoints: 3,
+        mana: 5,
+        entropyPoints: 3
+      },
+      description: 'Trap enemies in a maze of shifting probabilities.',
+      mechanics: 'Enemies in 30 ft radius must roll d20 each turn: 1-10 they are lost and skip their turn.',
+      specialization: 'tactical-disruption',
+      scaling: 'Maze becomes more confusing with higher level'
+    }
+  ],
+
+  // Universal Chaos Weaver Spells
+  universalSpells: [
+    {
+      name: 'Entropy Sight',
+      cost: {
+        actionPoints: 1,
+        mana: 1
+      },
+      description: 'See the chaotic patterns underlying reality.',
+      mechanics: 'For 10 minutes, you can see all random effects before they happen.',
+      specialization: 'universal',
+      scaling: 'Duration increases with INT modifier'
+    },
+    {
+      name: 'Chaos Infusion',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        entropyPoints: 1
+      },
+      description: 'Infuse your weapon with chaotic energy.',
+      mechanics: 'Next weapon attack rolls on Elemental Chaos Table for damage type and +1d6 damage.',
+      specialization: 'universal',
+      scaling: 'Bonus damage increases with level'
+    },
+    {
+      name: 'Reality Ripple',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        entropyPoints: 2
+      },
+      description: 'Send ripples through reality to disrupt enemy actions.',
+      mechanics: 'All enemies within 30 ft must reroll their next attack or save.',
+      specialization: 'universal',
+      scaling: 'Can force multiple rerolls with higher INT'
     }
   ]
 };

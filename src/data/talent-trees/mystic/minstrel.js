@@ -2,8 +2,8 @@
 const minstrelTalentTrees = [
   {
     id: 'path-of-leadership',
-    name: 'Path of Leadership',
-    description: 'Focus on support and morale buffs. Boost allies\' stats and provide team-wide protection.',
+    name: 'Leadership',
+    description: 'Support and morale buffs that inspire allies to greatness.',
     icon: '🎵',
     talents: [
       // Tier 1 (Level 10)
@@ -258,8 +258,8 @@ const minstrelTalentTrees = [
   },
   {
     id: 'path-of-rhythm',
-    name: 'Path of Rhythm',
-    description: 'Emphasizes beat and tempo control. Use loud, percussive songs to manage large groups of enemies.',
+    name: 'Rhythm',
+    description: 'Beat and tempo control with percussive power.',
     icon: '🥁',
     talents: [
       // Tier 1 (Level 10)
@@ -514,9 +514,9 @@ const minstrelTalentTrees = [
   },
   {
     id: 'path-of-emotion',
-    name: 'Path of Emotion',
-    description: 'Focuses on Charisma/Performance and mental effects. Enchant, charm, or terrify enemies.',
-    icon: '🎭',
+    name: 'Emotion',
+    description: 'Charisma and mental effects that manipulate hearts and minds.',
+    icon: 'E',
     talents: [
       // Tier 1 (Level 10)
       {
@@ -525,7 +525,7 @@ const minstrelTalentTrees = [
         description: 'Your songs can instill fear in enemies.',
         maxRank: 5,
         position: { row: 0, col: 0 },
-        icon: '👻',
+        icon: 'F',
         rankDescription: [
           'Roll 1d20 when casting an emotional spell. On a 19-20, the target becomes frightened for 1 round.',
           'Roll 1d20 when casting an emotional spell. On an 18-20, the target becomes frightened for 1 round.',
@@ -601,7 +601,7 @@ const minstrelTalentTrees = [
         maxRank: 3,
         position: { row: 1, col: 4 },
         requires: ['charismatic-presence'],
-        icon: '🧠',
+        icon: 'M',
         rankDescription: [
           'Roll 1d20 when casting an emotional spell. On a 19-20, charm the target for 1 round, making them fight for you.',
           'Roll 1d20 when casting an emotional spell. On an 18-20, charm the target for 1d4 rounds, making them fight for you.',
@@ -643,7 +643,7 @@ const minstrelTalentTrees = [
         maxRank: 5,
         position: { row: 2, col: 4 },
         requires: ['mind-control'],
-        icon: '😵',
+        icon: 'C',
         rankDescription: [
           'Your emotional spells can inflict one of the following conditions: frightened, charmed, or confused for 1 round.',
           'Your emotional spells can inflict one of the following conditions: frightened, charmed, or confused for 1d4 rounds.',
@@ -661,7 +661,7 @@ const minstrelTalentTrees = [
         maxRank: 3,
         position: { row: 3, col: 1 },
         requires: ['siren-song', 'subdominant-mastery'],
-        icon: '🎭',
+        icon: 'E',
         rankDescription: [
           'Roll 1d8 when casting any spell. On a 7-8, gain an additional Subdominant note.',
           'Roll 1d8 when casting any spell. On a 6-8, gain an additional Subdominant note.',
@@ -731,7 +731,7 @@ const minstrelTalentTrees = [
         maxRank: 3,
         position: { row: 5, col: 1 },
         requires: ['charismatic-virtuoso', 'symphony-of-emotion'],
-        icon: '🎯',
+        icon: 'T',
         rankDescription: [
           'Roll 1d10 when casting an emotional spell. On a 10, the target automatically fails their save against the effect.',
           'Roll 1d10 when casting an emotional spell. On a 9-10, the target automatically fails their save against the effect.',

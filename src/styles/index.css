@@ -1,28 +1,30 @@
 :root {
-  /* Color palette - dark fantasy theme */
-  --color-primary: #6d28d9;
-  --color-primary-light: #8b5cf6;
-  --color-primary-dark: #5b21b6;
-  --color-secondary: #1e40af;
-  --color-secondary-light: #3b82f6;
-  --color-secondary-dark: #1e3a8a;
-  --color-accent: #f59e0b;
-  --color-accent-light: #fbbf24;
-  --color-accent-dark: #d97706;
+  /* Pathfinder Color Palette - Medieval Fantasy Theme */
+  --color-primary: #8B4513; /* Saddle Brown - main theme color */
+  --color-primary-light: #A0522D; /* Sienna - lighter brown */
+  --color-primary-dark: #654321; /* Dark Brown */
+  --color-secondary: #B8860B; /* Dark Goldenrod - secondary accent */
+  --color-secondary-light: #DAA520; /* Goldenrod */
+  --color-secondary-dark: #9A7B0A; /* Darker gold */
+  --color-accent: #CD853F; /* Peru - warm accent */
+  --color-accent-light: #DEB887; /* Burlywood */
+  --color-accent-dark: #A0522D; /* Sienna */
 
-  --color-background: #0f172a;
-  --color-background-light: #1e293b;
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-border: #334155;
+  /* Parchment and manuscript backgrounds */
+  --color-background: #F5F5DC; /* Beige - main parchment */
+  --color-background-light: #FDF5E6; /* Old Lace - lighter parchment */
+  --color-background-dark: #F0E68C; /* Khaki - aged parchment */
+  --color-text: #2F1B14; /* Dark Brown - main text */
+  --color-text-muted: #8B4513; /* Saddle Brown - muted text */
+  --color-border: #CD853F; /* Peru - decorative borders */
 
-  /* Talent tree specific colors */
-  --color-talent-available: #4ade80;
-  --color-talent-unavailable: #64748b;
-  --color-talent-active: #f59e0b;
-  --color-talent-maxed: #f43f5e;
-  --color-talent-connection: #94a3b8;
-  --color-talent-connection-active: #f59e0b;
+  /* Talent tree specific colors - medieval themed */
+  --color-talent-available: #228B22; /* Forest Green - available */
+  --color-talent-unavailable: #696969; /* Dim Gray - unavailable */
+  --color-talent-active: #B8860B; /* Dark Goldenrod - active */
+  --color-talent-maxed: #DC143C; /* Crimson - maxed */
+  --color-talent-connection: #8B4513; /* Saddle Brown - connections */
+  --color-talent-connection-active: #B8860B; /* Dark Goldenrod - active connections */
 
   /* Font sizes */
   --font-size-xs: 0.75rem;
@@ -60,10 +62,12 @@
 }
 
 html, body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Crimson Text', 'Times New Roman', 'Georgia', serif;
   background-color: var(--color-background);
   color: var(--color-text);
-  line-height: 1.5;
+  line-height: 1.6;
+  /* Simplified background - remove expensive gradients and fixed attachment */
+  /* background-attachment: fixed causes scroll lag */
 }
 
 a {
@@ -85,20 +89,24 @@ img {
   height: auto;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - Medieval theme */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background-light);
+  background: var(--color-background-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-dark);
-  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-primary-dark));
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: linear-gradient(180deg, var(--color-secondary-light), var(--color-secondary-dark));
 }

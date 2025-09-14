@@ -4,7 +4,7 @@ const martyrTalentTrees = [
     id: 'redemption',
     name: 'Redemption',
     description: 'Focus on protecting and healing allies at any cost, channeling pain into care.',
-    icon: '💉',
+    icon: 'R',
     talents: [
       // Tier 1 (Level 10) - Cross/Plus-shaped layout
       {
@@ -13,7 +13,7 @@ const martyrTalentTrees = [
         description: 'Sacrifice 1d6 hit points to heal an ally for 2d6 hit points.',
         maxRank: 5,
         position: { row: 0, col: 2 }, // Center position
-        icon: '🩸',
+        icon: 'B',
         rankDescription: [
           'Sacrifice 1d6 hit points to heal an ally for 2d6 hit points.',
           'Sacrifice 1d6 hit points to heal an ally for 2d6+1 hit points.',
@@ -464,7 +464,7 @@ const martyrTalentTrees = [
         maxRank: 1,
         position: { row: 6, col: 4 },
         requires: ['bloodstorm'],
-        icon: '🎭',
+        icon: 'A',
         rankDescription: [
           'Once per day, for 1d6+2 rounds, you become an Avatar of Pain. During this time, you gain 1 Pain Charge at the start of each of your turns, all damage you deal is increased by 1d10 per Pain Charge you possess, and whenever you take damage, all enemies within 30 feet take damage equal to half the damage you took. Additionally, you gain resistance to all damage, but cannot be healed by any means.'
         ]

@@ -28,50 +28,88 @@
 .section-title {
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-6);
-  color: var(--color-accent);
+  color: var(--color-primary);
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--spacing-2);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--color-secondary);
 }
 
 .section-subtitle {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-4);
-  color: var(--color-primary-light);
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-weight: 500;
 }
 
-/* Card styles */
+/* Card styles - Medieval manuscript theme */
 .card {
-  background-color: var(--color-background-light);
-  border-radius: var(--radius-lg);
+  background: var(--color-background-light);
+  /* Simplified background - remove expensive gradients */
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
   padding: var(--spacing-6);
   margin-bottom: var(--spacing-6);
-  border: 1px solid var(--color-border);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Optimized transition - only transform and opacity */
+  transition: transform 0.2s ease-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Force hardware acceleration */
+  transform: translateZ(0);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  /* Optimized hover - smaller transform, simpler shadow */
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* Button styles */
+/* Button styles - Medieval theme */
 .btn {
   display: inline-block;
   padding: var(--spacing-2) var(--spacing-4);
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-  border-radius: var(--radius-md);
+  /* Simplified background - remove expensive gradient */
+  background: var(--color-primary);
+  color: var(--color-background-light);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  font-family: inherit;
+  cursor: pointer;
+  /* Optimized transition */
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Force hardware acceleration */
+  transform: translateZ(0);
 }
 
 .btn:hover {
-  background-color: var(--color-primary-dark);
+  /* Simplified hover - solid color instead of gradient */
+  background: var(--color-secondary);
+  transform: translateY(-1px) translateZ(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-background-light), var(--color-background-dark));
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent-dark));
 }
 
 .btn-secondary:hover {

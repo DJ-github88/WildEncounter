@@ -34,10 +34,10 @@ const GamblerGuide = () => {
             <li><strong>Dice Rolls:</strong> More nuanced than coins, dice (d6, d20, or multiple dice) provide a range of outcomes from critical failure to jackpot success.</li>
             <li><strong>Card Draws:</strong> The most complex system, drawing from a special deck where suits determine effect types:
               <ul>
-                <li>♥️ Hearts: Healing and protection</li>
-                <li>♦️ Diamonds: Resource generation and special effects</li>
-                <li>♣️ Clubs: Buffs and enhancements</li>
-                <li>♠️ Spades: Damage and debuffs</li>
+                <li>Hearts: Healing and protection</li>
+                <li>Diamonds: Resource generation and special effects</li>
+                <li>Clubs: Buffs and enhancements</li>
+                <li>Spades: Damage and debuffs</li>
               </ul>
             </li>
             <li><strong>Luck Points:</strong> A pool of points that can be spent to influence chance outcomes (re-flip coins, re-roll dice, or draw additional cards).</li>

@@ -28,24 +28,24 @@
   padding: 12px 20px;
   background: transparent;
   border: none;
-  color: #8596AD;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
-  border-right: 1px solid #2B3043;
+  border-right: 1px solid var(--color-border);
 }
 
 .rules-tab-button:hover {
-  background-color: #1E2539;
-  color: #B8C7DC;
+  background: var(--color-background);
+  color: var(--color-text);
 }
 
 .rules-tab-button.active {
-  background-color: #1E2539;
-  color: #8A60DA;
+  background: var(--color-background);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -56,20 +56,20 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(to right, #6A3CBF, #8A60DA);
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
 }
 
 .rules-tab-button.first-tab {
-  background-color: #6A3CBF;
-  color: #FFFFFF;
+  background: var(--color-primary);
+  color: var(--color-background-light);
 }
 
 .rules-tab-button.first-tab:hover {
-  background-color: #7A4DCF;
+  background: var(--color-primary-light);
 }
 
 .rules-tab-button.first-tab.active {
-  background-color: #8A60DA;
+  background: var(--color-secondary);
 }
 
 .rules-tab-icon {
@@ -77,13 +77,13 @@
   font-size: 1rem;
 }
 
-/* Subtabs navigation */
+/* Subtabs navigation - Medieval theme */
 .rules-subtabs-navigation {
   display: flex;
   overflow-x: auto;
-  background-color: #0F1525;
+  background: var(--color-background-light);
   padding: 8px 16px;
-  border-bottom: 1px solid #2B3043;
+  border-bottom: 1px solid var(--color-border);
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
@@ -98,24 +98,24 @@
   padding: 8px 16px;
   background: transparent;
   border: none;
-  color: #8596AD;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   white-space: nowrap;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-right: 8px;
 }
 
 .rules-subtab-button:hover {
-  background-color: #1A2033;
-  color: #B8C7DC;
+  background: var(--color-background);
+  color: var(--color-text);
 }
 
 .rules-subtab-button.active {
-  background-color: #6A3CBF;
-  color: #FFFFFF;
+  background: var(--color-primary);
+  color: var(--color-background-light);
 }
 
 .rules-subtab-icon {
@@ -126,7 +126,7 @@
 /* Tab content */
 .rules-tab-content {
   padding: 24px;
-  background-color: #0F1525;
+  background: var(--color-background);
 }
 
 /* Tab flavor text */
@@ -205,11 +205,11 @@
 }
 
 .rules-tab-table tr:nth-child(even) {
-  background-color: #131A2B;
+  background: rgba(139, 69, 19, 0.05);
 }
 
 .rules-tab-table tr:nth-child(odd) {
-  background-color: #0F1525;
+  background: var(--color-background);
 }
 
 .rules-tab-table tr:last-child td {
@@ -217,7 +217,7 @@
 }
 
 .rules-tab-table tr:hover {
-  background-color: #1A2033;
+  background: rgba(184, 134, 11, 0.1);
 }
 
 /* Responsive adjustments */

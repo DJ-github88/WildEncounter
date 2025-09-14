@@ -52,36 +52,36 @@ const ClassGuidesNav = () => {
 
   const getClassIcon = (classId) => {
     const icons = {
-      'spellguard': '🔷',
-      'inscriptor': '📜',
-      'arcanoneer': '⚗️',
-      'pyrofiend': '🔥',
-      'minstrel': '🎵',
-      'chronarch': '⏳',
-      'chaos-weaver': '🎲',
-      'fate-weaver': '🃏',
-      'gambler': '🎯',
-      'martyr': '💉',
-      'false-prophet': '👑',
-      'exorcist': '✝️',
-      'plaguebringer': '☣️',
-      'lichborne': '📿',
-      'deathcaller': '👻',
-      'witch-doctor': '🪄',
-      'formbender': '🐺',
-      'primalist': '🌪️',
-      'berserker': '😡',
-      'dreadnaught': '🛡️',
-      'titan': '🏔️',
-      'toxicologist': '⚗️',
-      'covenbane': '🔍',
-      'bladedancer': '⚔️',
-      'lunarch': '🌙',
-      'huntress': '🏹',
-      'warden': '🧿'
+      'spellguard': '◆',
+      'inscriptor': '◇',
+      'arcanoneer': '◈',
+      'pyrofiend': '◉',
+      'minstrel': '◎',
+      'chronarch': '★',
+      'chaos-weaver': '♠',
+      'fate-weaver': '♣',
+      'gambler': '♥',
+      'martyr': '♦',
+      'false-prophet': '◊',
+      'exorcist': '◆',
+      'plaguebringer': '◇',
+      'lichborne': '◈',
+      'deathcaller': '◉',
+      'witch-doctor': '◎',
+      'formbender': '★',
+      'primalist': '♠',
+      'berserker': '♣',
+      'dreadnaught': '♥',
+      'titan': '♦',
+      'toxicologist': '◊',
+      'covenbane': '◆',
+      'bladedancer': '◇',
+      'lunarch': '◈',
+      'huntress': '◉',
+      'warden': '◎'
     };
 
-    return icons[classId] || '📖';
+    return icons[classId] || '◆';
   };
 
   return (

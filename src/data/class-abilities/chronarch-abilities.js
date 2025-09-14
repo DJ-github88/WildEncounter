@@ -44,6 +44,19 @@ const chronarchAbilities = {
       scaling: 'Damage = 1d6 + (INT modifier)'
     },
     {
+      name: 'Temporal Overload',
+      cost: {
+        actionPoints: 3,
+        mana: 25,
+        continuum: '-10',
+        health: '10 HP'
+      },
+      cooldown: '3 rounds',
+      description: 'Overcharge your temporal abilities at great personal cost.',
+      mechanics: 'Sacrifice 10 hit points and drain 10 Continuum to gain an extra turn immediately after this one. During the extra turn, all spells cost 1 less AP (minimum 1).',
+      scaling: 'Extra turn benefits scale with INT modifier'
+    },
+    {
       name: 'Temporal Shield',
       cost: {
         actionPoints: 1,
@@ -179,6 +192,201 @@ const chronarchAbilities = {
       },
       description: 'Venting Explosion that releases all stored temporal energy.',
       mechanics: 'The Chronarch vents their entire Continuum bar in one action. Roll 3d6 for the attack: if any die shows a 1, that target can make a Constitution save (DC = 8 + Prof + INT) to take half damage. If any die shows the maximum value (6), that target is also stunned for 1 round. Every enemy in 15 ft suffers the total of the dice rolled plus Continuum spent as force/temporal damage and is knocked prone as time destabilizes under their feet.'
+    }
+  ],
+
+  // Temporal Dominance Specialization Spells
+  temporalDominanceSpells: [
+    {
+      name: 'Time Lock',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        continuum: '+2'
+      },
+      description: 'Lock an enemy in a temporal prison, preventing all actions.',
+      mechanics: 'Target is paralyzed for 1d4 rounds. Each round they can attempt CON save to break free.',
+      specialization: 'temporal-dominance',
+      scaling: 'Save DC increases with INT modifier'
+    },
+    {
+      name: 'Temporal Mastery',
+      cost: {
+        actionPoints: 3,
+        mana: 6,
+        continuum: '+3'
+      },
+      description: 'Control the flow of time in a large area.',
+      mechanics: '30 ft radius. You control initiative order and can delay or advance any creature\'s turn.',
+      specialization: 'temporal-dominance',
+      scaling: 'Area increases with level'
+    },
+    {
+      name: 'Chrono Shackles',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        continuum: '+2'
+      },
+      description: 'Bind multiple enemies with temporal chains.',
+      mechanics: 'Up to 3 enemies within 40 ft are restrained by time. They move at half speed.',
+      specialization: 'temporal-dominance',
+      scaling: 'Can affect additional targets with higher INT'
+    },
+    {
+      name: 'Time Spiral',
+      cost: {
+        actionPoints: 4,
+        mana: 8,
+        continuum: '+4'
+      },
+      description: 'Create a massive temporal vortex that controls the battlefield.',
+      mechanics: '40 ft radius. All creatures are pulled toward center and take 2d8 temporal damage per turn.',
+      specialization: 'temporal-dominance',
+      scaling: 'Damage and pull strength increase with level'
+    }
+  ],
+
+  // Chronal Stride Specialization Spells
+  chronalStrideSpells: [
+    {
+      name: 'Phase Step',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        continuum: '+1'
+      },
+      description: 'Step partially out of time to avoid attacks.',
+      mechanics: 'Become incorporeal until start of next turn. Move through enemies and walls.',
+      specialization: 'chronal-stride',
+      scaling: 'Duration can be extended with higher INT'
+    },
+    {
+      name: 'Temporal Sprint',
+      cost: {
+        actionPoints: 1,
+        mana: 3,
+        continuum: '+2'
+      },
+      description: 'Accelerate your personal timeline for incredible speed.',
+      mechanics: 'Triple movement speed and gain +2 AP this turn. Take 1d4 temporal damage.',
+      specialization: 'chronal-stride',
+      scaling: 'Speed bonus increases with level'
+    },
+    {
+      name: 'Blink Assault',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        continuum: '+2'
+      },
+      description: 'Teleport to an enemy and strike before they can react.',
+      mechanics: 'Teleport to enemy within 60 ft and make attack with advantage. +2d6 temporal damage.',
+      specialization: 'chronal-stride',
+      scaling: 'Damage and range increase with level'
+    },
+    {
+      name: 'Chrono Dash',
+      cost: {
+        actionPoints: 2,
+        mana: 5,
+        continuum: '+3'
+      },
+      description: 'Dash through time, hitting multiple enemies in a line.',
+      mechanics: 'Move 60 ft in straight line. Attack each enemy you pass through for 1d8 + INT damage.',
+      specialization: 'chronal-stride',
+      scaling: 'Distance and damage increase with level'
+    }
+  ],
+
+  // Time Ward Specialization Spells
+  timeWardSpells: [
+    {
+      name: 'Temporal Barrier',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        continuum: '+1'
+      },
+      description: 'Create a wall of slowed time that blocks attacks.',
+      mechanics: 'Create 20 ft wall. Attacks through it have disadvantage and deal half damage.',
+      specialization: 'time-ward',
+      scaling: 'Wall size and duration increase with INT'
+    },
+    {
+      name: 'Healing Rewind',
+      cost: {
+        actionPoints: 2,
+        mana: 5,
+        continuum: '+2'
+      },
+      description: 'Rewind an ally\'s wounds to heal them.',
+      mechanics: 'Target regains 3d8 + INT HP. If they took damage this round, heal additional 2d8.',
+      specialization: 'time-ward',
+      scaling: 'Healing increases with INT modifier'
+    },
+    {
+      name: 'Protective Stasis',
+      cost: {
+        actionPoints: 1,
+        mana: 3,
+        continuum: '+1'
+      },
+      description: 'Place an ally in protective temporal stasis.',
+      mechanics: 'Ally becomes immune to damage but cannot act for 1 round. Heals 1d6 per round.',
+      specialization: 'time-ward',
+      scaling: 'Healing per round increases with level'
+    },
+    {
+      name: 'Temporal Sanctuary',
+      cost: {
+        actionPoints: 3,
+        mana: 7,
+        continuum: '+3'
+      },
+      description: 'Create a zone where time flows differently to protect allies.',
+      mechanics: '25 ft radius. Allies gain resistance to all damage and advantage on saves.',
+      specialization: 'time-ward',
+      scaling: 'Area and duration increase with level'
+    }
+  ],
+
+  // Universal Chronarch Spells
+  universalSpells: [
+    {
+      name: 'Temporal Sense',
+      cost: {
+        actionPoints: 1,
+        mana: 1
+      },
+      description: 'Sense disturbances in the timestream.',
+      mechanics: 'Detect all creatures within 60 ft and predict their next action.',
+      specialization: 'universal',
+      scaling: 'Range increases with INT modifier'
+    },
+    {
+      name: 'Continuum Surge',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        continuum: '+3'
+      },
+      description: 'Rapidly build temporal energy.',
+      mechanics: 'Gain additional Continuum points equal to your INT modifier.',
+      specialization: 'universal',
+      scaling: 'Continuum gained increases with level'
+    },
+    {
+      name: 'Time Echo',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        continuum: '-2'
+      },
+      description: 'Repeat your last action as a temporal echo.',
+      mechanics: 'Immediately repeat your last spell or attack at half effectiveness.',
+      specialization: 'universal',
+      scaling: 'Echo effectiveness increases with level'
     }
   ]
 };

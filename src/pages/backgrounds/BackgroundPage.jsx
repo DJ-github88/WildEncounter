@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import paths from '../../data/paths';
+import backgroundAbilities from '../../data/background-abilities';
 import './BackgroundPage.css';
 
 const BackgroundPage = () => {
@@ -8,6 +9,14 @@ const BackgroundPage = () => {
   const navigate = useNavigate();
   const path = paths.find(p => p.id === pathId);
   const [activeSection, setActiveSection] = useState('overview');
+  const [selectedSubBackground, setSelectedSubBackground] = useState(null);
+  const [selectedAbilities, setSelectedAbilities] = useState([]);
+
+  // Reset selected abilities when sub-background changes
+  const handleSubBackgroundChange = (subBgKey) => {
+    setSelectedSubBackground(selectedSubBackground === subBgKey ? null : subBgKey);
+    setSelectedAbilities([]); // Clear abilities when changing sub-background
+  };
 
   // Scroll to section when activeSection changes
   useEffect(() => {
@@ -77,9 +86,9 @@ const BackgroundPage = () => {
 
   return (
     <div className="background-page">
-      <div className="background-header" style={headerStyle}>
-        <div className="background-icon">{path.icon}</div>
+      <div className="background-header">
         <h1 className="background-title">{path.name}</h1>
+        <p className="background-subtitle">Character Background Path</p>
       </div>
 
       <div className="background-navigation">
@@ -122,25 +131,136 @@ const BackgroundPage = () => {
         </section>
 
         <section id="abilities" className="background-section">
-          <h2>Path Abilities</h2>
-          <p className="ability-intro">Characters who choose the {path.name.replace(' Path', '')} background gain access to the following unique abilities, regardless of their class:</p>
-          <div className="abilities-list">
-            {getPathAbilities(pathId).map((ability, index) => (
-              <div className="ability-item" key={index}>
-                <div className="ability-header">
-                  <h3 className="ability-name">{ability.name}</h3>
-                  <div className="ability-type">{ability.type}</div>
-                </div>
-                <p className="ability-description">{ability.description}</p>
-                {ability.mechanics && (
-                  <div className="ability-mechanics">
-                    <h4>Mechanics:</h4>
-                    <p>{ability.mechanics}</p>
+          <h2>Sub-Backgrounds & Abilities</h2>
+          <p className="ability-intro">
+            Characters who choose the {path.name.replace(' Path', '')} background first select a specialization,
+            then choose <strong>2 abilities</strong> from the available pool. This allows for meaningful customization
+            while maintaining thematic coherence.
+          </p>
+
+          {/* Sub-backgrounds section */}
+          {backgroundAbilities[pathId]?.subBackgrounds && (
+            <div className="sub-backgrounds-section">
+              <h3>Choose Your Specialization</h3>
+              <div className="sub-backgrounds-grid">
+                {Object.entries(backgroundAbilities[pathId].subBackgrounds).map(([key, subBg]) => (
+                  <div
+                    className={`sub-background-card ${selectedSubBackground === key ? 'selected' : ''}`}
+                    key={key}
+                    onClick={() => handleSubBackgroundChange(key)}
+                  >
+                    <h4 className="sub-background-name">{subBg.name}</h4>
+                    <p className="sub-background-description">{subBg.description}</p>
+                    <div className="sub-background-theme">
+                      <strong>Theme:</strong> {subBg.theme}
+                    </div>
+                    {selectedSubBackground === key && (
+                      <div className="selection-indicator">✓ Selected</div>
+                    )}
                   </div>
-                )}
+                ))}
               </div>
-            ))}
+            </div>
+          )}
+
+          {/* Ability pool section */}
+          <div className="ability-pool-section">
+            <h3>Available Abilities (Choose 2)</h3>
+            {selectedSubBackground ? (
+              <>
+                <p className="pool-description">
+                  Select any 2 abilities from the <strong>{backgroundAbilities[pathId].subBackgrounds[selectedSubBackground].name}</strong> specialization pool below.
+                </p>
+                <div className="abilities-list">
+                  {getSubBackgroundAbilities(pathId, selectedSubBackground).map((ability, index) => {
+                    const isSelected = selectedAbilities.includes(index);
+                    const canSelect = selectedAbilities.length < 2 || isSelected;
+
+                    return (
+                      <div
+                        className={`ability-item selectable ${isSelected ? 'selected' : ''} ${!canSelect ? 'disabled' : ''}`}
+                        key={index}
+                        onClick={() => {
+                          if (!canSelect) return;
+
+                          if (isSelected) {
+                            setSelectedAbilities(selectedAbilities.filter(i => i !== index));
+                          } else if (selectedAbilities.length < 2) {
+                            setSelectedAbilities([...selectedAbilities, index]);
+                          }
+                        }}
+                      >
+                        <div className="ability-header">
+                          <h4 className="ability-name">{ability.name}</h4>
+                          <div className="ability-meta">
+                            <span className="ability-type">{ability.type}</span>
+                            {ability.apCost && ability.apCost !== 'None' && (
+                              <span className="ability-ap-cost">AP: {ability.apCost}</span>
+                            )}
+                            {isSelected && <span className="selected-indicator">✓ Selected</span>}
+                          </div>
+                        </div>
+                        <p className="ability-description">{ability.description}</p>
+                        {ability.mechanics && (
+                          <div className="ability-mechanics">
+                            <h5>Mechanics:</h5>
+                            <p>{ability.mechanics}</p>
+                          </div>
+                        )}
+                        {ability.synergies && (
+                          <div className="ability-synergies">
+                            <h5>Synergies:</h5>
+                            <p>{ability.synergies}</p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Selection Summary */}
+                <div className="selection-summary">
+                  <h4>Your Selection ({selectedAbilities.length}/2)</h4>
+                  {selectedAbilities.length === 0 && (
+                    <p>Choose 2 abilities from the {backgroundAbilities[pathId].subBackgrounds[selectedSubBackground].name} pool above to complete your background.</p>
+                  )}
+                  {selectedAbilities.length > 0 && (
+                    <div className="selected-abilities">
+                      {selectedAbilities.map(index => {
+                        const ability = getSubBackgroundAbilities(pathId, selectedSubBackground)[index];
+                        return (
+                          <div key={index} className="selected-ability-summary">
+                            <strong>{ability.name}</strong> ({ability.type})
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {selectedAbilities.length === 2 && (
+                    <div className="completion-message">
+                      ✓ Background selection complete! You have chosen your specialization and abilities.
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div className="no-selection-message">
+                <p>Please select a specialization above to view available abilities.</p>
+              </div>
+            )}
           </div>
+
+          {/* Add restrictions section if available */}
+          {backgroundAbilities[pathId]?.restrictions && (
+            <div className="ability-restrictions">
+              <h3>Restrictions & Considerations</h3>
+              <ul>
+                {backgroundAbilities[pathId].restrictions.map((restriction, index) => (
+                  <li key={index}>{restriction}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </section>
 
         <section id="roleplaying" className="background-section">
@@ -177,8 +297,25 @@ const BackgroundPage = () => {
   );
 };
 
-// Helper function to get path-specific abilities
+// Helper function to get sub-background specific abilities
+function getSubBackgroundAbilities(pathId, subBackgroundKey) {
+  if (backgroundAbilities[pathId] &&
+      backgroundAbilities[pathId].subBackgrounds &&
+      backgroundAbilities[pathId].subBackgrounds[subBackgroundKey] &&
+      backgroundAbilities[pathId].subBackgrounds[subBackgroundKey].abilityPool) {
+    return backgroundAbilities[pathId].subBackgrounds[subBackgroundKey].abilityPool;
+  }
+  return [];
+}
+
+// Helper function to get path-specific abilities (fallback)
 function getPathAbilities(pathId) {
+  // Use the enhanced background abilities data if available
+  if (backgroundAbilities[pathId] && backgroundAbilities[pathId].abilityPool) {
+    return backgroundAbilities[pathId].abilityPool;
+  }
+
+  // Fallback to default abilities for paths not yet in the enhanced data
   const pathAbilities = {
     'mystic': [
       {
@@ -389,6 +526,39 @@ function getPathAbilities(pathId) {
 
 // Helper function to get background-specific content
 function getBackgroundContent(pathId) {
+  // Use enhanced background data if available
+  if (backgroundAbilities[pathId]) {
+    const enhancedData = backgroundAbilities[pathId];
+    return {
+      description: enhancedData.description,
+      benefits: enhancedData.benefits.map(benefit => ({
+        title: 'Background Benefit',
+        description: benefit
+      })),
+      roleplayingTips: {
+        description: `Characters following the ${pathId.charAt(0).toUpperCase() + pathId.slice(1)} path embody the themes and philosophies of their chosen background.`,
+        tips: [
+          'Consider how your background shapes your worldview and motivations',
+          'Think about how your abilities manifest and what they mean to your character',
+          'Explore the relationship between your background and your class choice',
+          'Use your background abilities creatively in both combat and roleplay situations'
+        ]
+      },
+      characterDevelopment: `The ${pathId.charAt(0).toUpperCase() + pathId.slice(1)} background significantly influences how your character approaches challenges and interacts with the world. Your unique abilities provide both mechanical benefits and rich roleplay opportunities.`,
+      thematicElements: [
+        {
+          title: 'Core Philosophy',
+          description: enhancedData.description
+        },
+        {
+          title: 'Mechanical Integration',
+          description: 'Your background abilities are designed to work seamlessly with the Action Point system and complement any class choice.'
+        }
+      ]
+    };
+  }
+
+  // Fallback to original content structure
   const backgroundContent = {
     'mystic': {
       description: 'Mystics draw power from the fundamental forces of the universe, channeling raw energy through their bodies and minds. They are masters of elemental manipulation and cosmic forces, often walking a dangerous line between control and chaos. Those who follow the Mystic path have an innate connection to the primal energies that flow through all things. They might be born with this gift, discover it through meditation and study, or awaken to it after a traumatic or transcendent experience.',

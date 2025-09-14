@@ -4,7 +4,7 @@ const witchDoctorTalentTrees = [
     id: 'curse-binder',
     name: 'Curse-Binder',
     description: 'Master the art of hexes and curses to weaken and control individual targets.',
-    icon: '🔮',
+    icon: 'crystal',
     talents: [
       // Tier 1 (Level 10) - Voodoo Doll Pattern (head)
       {
@@ -13,7 +13,7 @@ const witchDoctorTalentTrees = [
         description: 'Your gaze carries malevolent power, allowing you to hex enemies with a mere glance.',
         maxRank: 3,
         position: { row: 0, col: 0 }, // Left side of head
-        icon: '👁️',
+        icon: 'eye',
         rankDescription: [
           'Reduce the AP cost of your Hex ability by 1 (minimum 1).',
           'Reduce the AP cost of your Hex ability by 1 (minimum 1) and its mana cost by 1.',

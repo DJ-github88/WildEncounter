@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import chronarchAbilities from '../data/class-abilities/chronarch-abilities';
 import minstrelAbilities from '../data/class-abilities/minstrel-abilities';
@@ -29,6 +29,7 @@ import covenbaneAbilities from '../data/class-abilities/covenbane-abilities';
 import bladedancerAbilities from '../data/class-abilities/bladedancer-abilities';
 import SpellIcon from './SpellIcon';
 import ClassBackground from './ClassBackground';
+import ResourceBarManager from './resource-bars/ResourceBarManager';
 import './ClassAbilities.css';
 
 const ClassAbilities = () => {
@@ -944,6 +945,15 @@ const ClassAbilities = () => {
           <h3>{abilities.resourceSystem.name} System</h3>
           <p>{abilities.resourceSystem.description}</p>
 
+          {/* Interactive Resource Bar */}
+          <ResourceBarManager
+            classId="chronarch"
+            initialValues={{ currentValue: 0 }}
+            interactive={true}
+            size="medium"
+            showTooltips={true}
+          />
+
           <h4>Thresholds</h4>
           <div className="thresholds">
             {abilities.resourceSystem.thresholds.map((threshold, index) => (
@@ -1308,6 +1318,15 @@ const ClassAbilities = () => {
         <div className="resource-system">
           <h3>{abilities.resourceSystem.name}</h3>
           <p>{abilities.resourceSystem.description}</p>
+
+          {/* Interactive Resource Bar */}
+          <ResourceBarManager
+            classId="exorcist"
+            initialValues={{ currentCharges: 0 }}
+            interactive={true}
+            size="medium"
+            showTooltips={true}
+          />
 
           <h4>Passive Benefits</h4>
           <div className="resource-details">
@@ -3483,6 +3502,77 @@ const ClassAbilities = () => {
   }
 
   // For Pyrofiend
+  const [expandedSections, setExpandedSections] = useState({
+    ascensionStages: false,
+    mechanics: false,
+    spellRestrictions: false,
+    uniqueSpells: false,
+    baseSpells: false,
+    intermediateSpells: false,
+    highTierSpells: false,
+    ventingAbilities: false
+  });
+
+  const toggleSection = useCallback((section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  }, []);
+
+  // Memoize heavy computations
+  const ascensionStagesCount = useMemo(() => abilities.resourceSystem.ascensionStages?.length || 0, [abilities.resourceSystem.ascensionStages]);
+  const mechanicsCount = useMemo(() => abilities.resourceSystem.ascensionMechanics?.length || 0, [abilities.resourceSystem.ascensionMechanics]);
+  const baseSpellsCount = useMemo(() => abilities.baseSpells?.length || 0, [abilities.baseSpells]);
+  const intermediateSpellsCount = useMemo(() => abilities.intermediateTierSpells?.length || 0, [abilities.intermediateTierSpells]);
+  const highTierSpellsCount = useMemo(() => abilities.highTierSpells?.length || 0, [abilities.highTierSpells]);
+  const ventingAbilitiesCount = useMemo(() => abilities.ventingAbilities?.length || 0, [abilities.ventingAbilities]);
+
+  // Memoized spell component to prevent unnecessary re-renders
+  const SpellComponent = React.memo(({ spell, classId, showStageRequirement = true }) => (
+    <div className="spell">
+      <div className="spell-header">
+        <SpellIcon classId={classId} spellName={spell.name} />
+        <h4>{spell.name}</h4>
+      </div>
+      <div className="spell-cost">
+        <span>AP: {spell.cost.actionPoints}</span>
+        <span>Mana: {spell.cost.mana}</span>
+        <span>Ascension: {spell.cost.ascension}</span>
+      </div>
+      <p><strong>Description:</strong> {spell.description}</p>
+      <p><strong>Mechanics:</strong> {spell.mechanics}</p>
+      <p><strong>Scaling:</strong> {spell.scaling}</p>
+      {showStageRequirement && spell.stageRequirement && (
+        <p><strong>Stage Requirement:</strong> {spell.stageRequirement}</p>
+      )}
+      {spell.restriction && (
+        <p><strong>Restriction:</strong> {spell.restriction}</p>
+      )}
+    </div>
+  ));
+
+  // Memoized ability component
+  const AbilityComponent = React.memo(({ ability, classId }) => (
+    <div className="ability">
+      <div className="spell-header">
+        <SpellIcon classId={classId} spellName={ability.name} />
+        <h4>{ability.name}</h4>
+      </div>
+      <div className="ability-cost">
+        <span>AP: {ability.cost.actionPoints}</span>
+        <span>Mana: {ability.cost.mana}</span>
+        <span>Ascension: {ability.cost.ascension}</span>
+      </div>
+      <p><strong>Description:</strong> {ability.description}</p>
+      <p><strong>Mechanics:</strong> {ability.mechanics}</p>
+      <p><strong>Scaling:</strong> {ability.scaling}</p>
+      {ability.stageRequirement && (
+        <p><strong>Stage Requirement:</strong> {ability.stageRequirement}</p>
+      )}
+    </div>
+  ));
+
   return (
     <div className={`class-abilities pyrofiend`}>
       <ClassBackground classId={classId} />
@@ -3493,86 +3583,149 @@ const ClassAbilities = () => {
         <h3>{abilities.resourceSystem.name} System</h3>
         <p>{abilities.resourceSystem.description}</p>
 
-        <h4>Inferno Levels</h4>
-        <div className="thresholds">
-          {abilities.resourceSystem.levels.map((level, index) => (
-            <div key={index} className="threshold">
-              <h5>Level {level.level}</h5>
-              <p><strong>Bonus:</strong> {level.bonus}</p>
-              <p><strong>Drawback:</strong> {level.drawback}</p>
-            </div>
-          ))}
-        </div>
+        {/* Interactive Resource Bar */}
+        <ResourceBarManager
+          classId="pyrofiend"
+          initialValues={{ currentStage: 0 }}
+          interactive={true}
+          size="medium"
+          showTooltips={true}
+        />
 
-        <h4>Mechanics</h4>
-        <ul>
-          {abilities.resourceSystem.mechanics.map((mechanic, index) => (
-            <li key={index}>{mechanic}</li>
-          ))}
-        </ul>
+        <h4
+          onClick={() => toggleSection('ascensionStages')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.ascensionStages ? '▼' : '▶'} Ascension Stages ({ascensionStagesCount} stages)
+        </h4>
+        {expandedSections.ascensionStages && (
+          <div className="thresholds">
+            {abilities.resourceSystem.ascensionStages?.map((stage, index) => (
+              <div key={index} className="threshold">
+                <h5>Stage {stage.stage}: {stage.name}</h5>
+                <p><strong>Passive:</strong> {stage.passive}</p>
+                <p><strong>Bonus:</strong> {stage.bonus}</p>
+                <p><strong>Drawback:</strong> {stage.drawback}</p>
+                <p><strong>Description:</strong> {stage.description}</p>
+                {stage.auraEffect !== 'None' && (
+                  <p><strong>Aura:</strong> {stage.auraEffect}</p>
+                )}
+                <p><strong>Resistances:</strong> {stage.resistances}</p>
+                <p><strong>Vulnerabilities:</strong> {stage.vulnerabilities}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <h4
+          onClick={() => toggleSection('mechanics')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.mechanics ? '▼' : '▶'} Ascension Mechanics ({mechanicsCount} rules)
+        </h4>
+        {expandedSections.mechanics && (
+          <ul>
+            {abilities.resourceSystem.ascensionMechanics?.map((mechanic, index) => (
+              <li key={index}>{mechanic}</li>
+            ))}
+          </ul>
+        )}
+
+        <h4
+          onClick={() => toggleSection('spellRestrictions')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.spellRestrictions ? '▼' : '▶'} Spell Restrictions by Stage
+        </h4>
+        {expandedSections.spellRestrictions && (
+          <div className="spell-restrictions">
+            {Object.entries(abilities.resourceSystem.spellRestrictions || {}).map(([stage, spells]) => (
+              <div key={stage} className="stage-restrictions">
+                <h5>{stage.replace('stage', 'Stage ')}</h5>
+                <ul>
+                  {spells.map((spell, index) => (
+                    <li key={index}>{spell}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Base Spells */}
       <div className="base-spells">
-        <h3>Base Spells</h3>
-        {abilities.baseSpells.map((spell, index) => (
-          <div key={index} className="spell">
-            <div className="spell-header">
-              <SpellIcon classId={classId} spellName={spell.name} />
-              <h4>{spell.name}</h4>
-            </div>
-            <div className="spell-cost">
-              <span>AP: {spell.cost.actionPoints}</span>
-              <span>Mana: {spell.cost.mana}</span>
-              <span>Inferno: {spell.cost.inferno}</span>
-            </div>
-            <p><strong>Description:</strong> {spell.description}</p>
-            <p><strong>Mechanics:</strong> {spell.mechanics}</p>
-            <p><strong>Scaling:</strong> {spell.scaling}</p>
+        <h3
+          onClick={() => toggleSection('baseSpells')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.baseSpells ? '▼' : '▶'} Base Spells ({baseSpellsCount} spells)
+        </h3>
+        {expandedSections.baseSpells && abilities.baseSpells?.map((spell, index) => (
+          <SpellComponent key={`base-${index}`} spell={spell} classId={classId} />
+        ))}
+      </div>
+
+      {/* Unique Spells by Stage */}
+      <div className="unique-spells">
+        <h3
+          onClick={() => toggleSection('uniqueSpells')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.uniqueSpells ? '▼' : '▶'} Unique Spells by Ascension Stage (9 exclusive spells)
+        </h3>
+        {expandedSections.uniqueSpells && Object.entries(abilities.resourceSystem.uniqueSpellsByStage || {}).map(([stage, spells]) => (
+          <div key={stage} className="stage-spells">
+            <h4>{stage.replace('stage', 'Stage ')}</h4>
+            {spells.map((spell, index) => (
+              <SpellComponent key={`unique-${stage}-${index}`} spell={spell} classId={classId} showStageRequirement={false} />
+            ))}
           </div>
         ))}
       </div>
 
       {/* Intermediate Tier Spells */}
       <div className="advanced-abilities">
-        <h3>Intermediate Tier Spells (Inferno Level 4-6)</h3>
-        {abilities.intermediateTierSpells.map((spell, index) => (
-          <div key={index} className="ability">
-            <div className="spell-header">
-              <SpellIcon classId={classId} spellName={spell.name} />
-              <h4>{spell.name}</h4>
-            </div>
-            <div className="ability-cost">
-              <span>AP: {spell.cost.actionPoints}</span>
-              <span>Mana: {spell.cost.mana}</span>
-              <span>Inferno: {spell.cost.inferno}</span>
-            </div>
-            <p><strong>Description:</strong> {spell.description}</p>
-            <p><strong>Mechanics:</strong> {spell.mechanics}</p>
-            <p><strong>Scaling:</strong> {spell.scaling}</p>
-          </div>
+        <h3
+          onClick={() => toggleSection('intermediateSpells')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.intermediateSpells ? '▼' : '▶'} Intermediate Tier Spells (Stage 4-6) ({intermediateSpellsCount} spells)
+        </h3>
+        {expandedSections.intermediateSpells && abilities.intermediateTierSpells?.map((spell, index) => (
+          <AbilityComponent key={`intermediate-${index}`} ability={spell} classId={classId} />
         ))}
       </div>
 
       {/* High Tier Spells */}
       <div className="advanced-abilities">
-        <h3>High Tier Spells (Inferno Level 7-9)</h3>
-        {abilities.highTierSpells.map((spell, index) => (
-          <div key={index} className="ability">
-            <div className="spell-header">
-              <SpellIcon classId={classId} spellName={spell.name} />
-              <h4>{spell.name}</h4>
-            </div>
-            <div className="ability-cost">
-              <span>AP: {spell.cost.actionPoints}</span>
-              <span>Mana: {spell.cost.mana}</span>
-              <span>Inferno: {spell.cost.inferno}</span>
-            </div>
-            <p><strong>Description:</strong> {spell.description}</p>
-            <p><strong>Mechanics:</strong> {spell.mechanics}</p>
-            <p><strong>Scaling:</strong> {spell.scaling}</p>
-          </div>
+        <h3
+          onClick={() => toggleSection('highTierSpells')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.highTierSpells ? '▼' : '▶'} Legendary Spells (Stage 7-9) ({highTierSpellsCount} spells)
+        </h3>
+        {expandedSections.highTierSpells && abilities.highTierSpells?.map((spell, index) => (
+          <AbilityComponent key={`high-tier-${index}`} ability={spell} classId={classId} />
         ))}
+      </div>
+
+      {/* Venting Abilities */}
+      <div className="venting-abilities">
+        <h3
+          onClick={() => toggleSection('ventingAbilities')}
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          {expandedSections.ventingAbilities ? '▼' : '▶'} Venting Abilities - Stage Reduction ({ventingAbilitiesCount} abilities)
+        </h3>
+        {expandedSections.ventingAbilities && (
+          <>
+            <p>These abilities allow the Pyrofiend to safely reduce their Ascension Stage to avoid the dangers of higher stages.</p>
+            {abilities.ventingAbilities?.map((ability, index) => (
+              <AbilityComponent key={`venting-${index}`} ability={ability} classId={classId} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const witchDoctorAbilities = {
     description: 'The Witch Doctor\'s signature mechanic is Voodoo Essence (VE) & Invocation Slots. VE is gathered through casting curses, applying poisons, placing totems, or defeating cursed enemies. When enough VE is accumulated, the Witch Doctor can unlock Invocation Slots to call upon powerful loa spirits for spectacular effects.',
     mechanics: [
       'Voodoo Essence (VE): Gained by casting curses (+1), applying poisons/grenades (+1), placing totems (+1), or defeating cursed enemies (+3).',
-      'Maximum VE: 5 + WIS modifier.',
+      'Maximum VE: 5 + Spirit modifier.',
       'At 5 VE, you unlock 1 Invocation Slot (up to 2 slots at once).',
       'Spend a slot + specific VE cost to call a loa for 3 rounds. After the effect ends, the slot empties and VE resets to 0.',
       'Only one Invocation can be active at a time. Re-invoking ends the prior effect.'

@@ -12,25 +12,43 @@ const CombatTabs = () => {
     setActiveAPSubtab(subtabId);
   };
 
-  // Define tab colors
+  // Define tab colors - Medieval theme
   const getTabStyle = (tabId) => {
     return activeTab === tabId ?
-      { backgroundColor: '#1e293b', borderBottom: '2px solid #f59e0b', color: '#f59e0b', borderRadius: '4px 4px 0 0' } :
-      { borderRadius: '4px 4px 0 0', margin: '0 2px' };
+      {
+        background: 'var(--color-background-light)',
+        borderBottom: '2px solid var(--color-secondary)',
+        color: 'var(--color-primary)',
+        borderRadius: '8px 8px 0 0',
+        fontWeight: '600'
+      } :
+      { borderRadius: '8px 8px 0 0', margin: '0 2px' };
   };
 
   // Style for the Basics tab (now matches other tabs)
   const getBasicsTabStyle = () => {
     return activeTab === 'basics' ?
-      { backgroundColor: '#1e293b', borderBottom: '2px solid #f59e0b', color: '#f59e0b', borderRadius: '4px 4px 0 0' } :
-      { borderRadius: '4px 4px 0 0', margin: '0 2px' };
+      {
+        background: 'var(--color-background-light)',
+        borderBottom: '2px solid var(--color-secondary)',
+        color: 'var(--color-primary)',
+        borderRadius: '8px 8px 0 0',
+        fontWeight: '600'
+      } :
+      { borderRadius: '8px 8px 0 0', margin: '0 2px' };
   };
 
   // Special style for Death & Exhaustion tab
   const getDeathTabStyle = () => {
     return activeTab === 'death' ?
-      { backgroundColor: '#1e293b', borderBottom: '2px solid #f59e0b', color: '#f59e0b', borderRadius: '4px 4px 0 0' } :
-      { borderRadius: '4px 4px 0 0', margin: '0 2px' };
+      {
+        background: 'var(--color-background-light)',
+        borderBottom: '2px solid var(--color-secondary)',
+        color: 'var(--color-primary)',
+        borderRadius: '8px 8px 0 0',
+        fontWeight: '600'
+      } :
+      { borderRadius: '8px 8px 0 0', margin: '0 2px' };
   };
 
   return (
@@ -63,6 +81,13 @@ const CombatTabs = () => {
           style={getTabStyle('crits')}
         >
           Critical Hits & Misses
+        </button>
+        <button
+          className={`combat-tab-button ${activeTab === 'damagemodifiers' ? 'active' : ''}`}
+          onClick={() => handleTabChange('damagemodifiers')}
+          style={getTabStyle('damagemodifiers')}
+        >
+          Damage Modifiers
         </button>
         <button
           className={`combat-tab-button ${activeTab === 'conditions' ? 'active' : ''}`}
@@ -449,6 +474,177 @@ const CombatTabs = () => {
                 <li><strong>Exploding Dice:</strong> Spell dice can also explode on critical hits, allowing even minor spells to overcome powerful defenses</li>
               </ul>
               <p>Some spells have unique critical effects specified in their descriptions, which take precedence over the standard effects.</p>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'damagemodifiers' && (
+          <div className="combat-tab-panel">
+            <h3 className="tab-title">Damage Modifiers</h3>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Understanding Damage Modifiers</h4>
+              <p className="flavor-text" style={{ fontStyle: 'italic', marginBottom: '1rem' }}>
+                "Understanding damage modifiers," the battle-scarred mage explained, ice crystals forming around her fingertips, "is the difference between a glancing blow and a devastating strike. Fire against ice, steel against flesh—every element has its weakness."
+              </p>
+              <p>Our damage modifier system uses standardized tiers to determine how much damage is increased, reduced, or converted. These modifiers are calculated after all other damage bonuses and stack with other effects.</p>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Damage Increase Modifiers</h4>
+              <p>These modifiers increase the damage taken from specific sources:</p>
+
+              <div className="action-points-cards">
+                <div className="action-card">
+                  <h5>Susceptible</h5>
+                  <p>Take 25% more damage (×1.25, round up)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Exposed</h5>
+                  <p>Take 50% more damage (×1.5, round up)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Vulnerable</h5>
+                  <p>Take 100% more damage (double damage)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Damage Reduction Modifiers</h4>
+              <p>These modifiers reduce the damage taken from specific sources:</p>
+
+              <div className="action-points-cards">
+                <div className="action-card">
+                  <h5>Guarded</h5>
+                  <p>Take 25% less damage (×0.75, round down)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Resistant</h5>
+                  <p>Take 50% less damage (×0.5, round down)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Immune</h5>
+                  <p>Take no damage (0 damage)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Damage Conversion Modifiers</h4>
+              <p>These modifiers convert damage dealt into healing for the attacker:</p>
+
+              <div className="action-points-cards">
+                <div className="action-card">
+                  <h5>Leech</h5>
+                  <p>25% of damage dealt heals attacker (×0.25, round up)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Absorb</h5>
+                  <p>50% of damage dealt heals attacker (×0.5, round up)</p>
+                </div>
+                <div className="action-card">
+                  <h5>Invert</h5>
+                  <p>100% of damage dealt heals attacker (full healing)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Calculation Order</h4>
+              <p>When multiple modifiers apply, calculate them in this order:</p>
+              <ol className="rule-list">
+                <li><strong>Base Damage:</strong> Calculate the initial damage (dice + modifiers)</li>
+                <li><strong>Armor Reduction:</strong> Apply armor damage reduction</li>
+                <li><strong>Damage Modifiers:</strong> Apply vulnerability/resistance modifiers</li>
+                <li><strong>Conversion Effects:</strong> Apply any leech/absorb/invert effects</li>
+                <li><strong>Final Damage:</strong> Apply the final damage to the target</li>
+              </ol>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Quick Reference Table</h4>
+              <div className="tab-table-container">
+                <table className="tab-table">
+                  <thead>
+                    <tr>
+                      <th>Modifier Type</th>
+                      <th>Effect</th>
+                      <th>Calculation</th>
+                      <th>Example (10 damage)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Susceptible</td>
+                      <td>25% more damage</td>
+                      <td>×1.25 (round up)</td>
+                      <td>13 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Exposed</td>
+                      <td>50% more damage</td>
+                      <td>×1.5 (round up)</td>
+                      <td>15 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Vulnerable</td>
+                      <td>100% more damage</td>
+                      <td>×2</td>
+                      <td>20 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Guarded</td>
+                      <td>25% less damage</td>
+                      <td>×0.75 (round down)</td>
+                      <td>7 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Resistant</td>
+                      <td>50% less damage</td>
+                      <td>×0.5 (round down)</td>
+                      <td>5 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Immune</td>
+                      <td>No damage</td>
+                      <td>×0</td>
+                      <td>0 damage</td>
+                    </tr>
+                    <tr>
+                      <td>Leech</td>
+                      <td>25% heals attacker</td>
+                      <td>×0.25 (round up)</td>
+                      <td>3 healing</td>
+                    </tr>
+                    <tr>
+                      <td>Absorb</td>
+                      <td>50% heals attacker</td>
+                      <td>×0.5 (round up)</td>
+                      <td>5 healing</td>
+                    </tr>
+                    <tr>
+                      <td>Invert</td>
+                      <td>100% heals attacker</td>
+                      <td>×1</td>
+                      <td>10 healing</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="tab-section">
+              <h4 className="tab-subtitle">Common Damage Type Interactions</h4>
+              <p>Examples of how different damage types interact with modifiers:</p>
+              <ul className="rule-list">
+                <li><strong>Fire vs Ice creatures:</strong> Ice creatures are typically Vulnerable to fire damage</li>
+                <li><strong>Lightning vs Wet targets:</strong> Wet targets take +100% lightning damage</li>
+                <li><strong>Cold vs Fire creatures:</strong> Fire creatures are typically Vulnerable to cold damage</li>
+                <li><strong>Psychic vs Low Intelligence:</strong> Creatures with low Intelligence are often Susceptible to psychic damage</li>
+                <li><strong>Radiant vs Undead:</strong> Undead are typically Vulnerable to radiant damage</li>
+                <li><strong>Necrotic vs Living:</strong> Living creatures may be Susceptible to necrotic damage</li>
+              </ul>
             </div>
           </div>
         )}

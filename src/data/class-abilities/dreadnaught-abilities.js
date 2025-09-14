@@ -184,6 +184,55 @@ const dreadnaughtAbilities = {
         { condition: 'With Shield', effect: 'Also gain +1 AC until your next turn.' }
       ],
       scaling: 'GP restored = CON mod (min 1)'
+    },
+    {
+      name: 'Shield Wall Formation',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        guardPoints: 1
+      },
+      description: 'Coordinate with nearby allies to form a defensive line.',
+      mechanics: 'You and adjacent allies gain +2 AC vs ranged attacks for 3 rounds. Each ally in formation grants you +1 GP.',
+      effects: [
+        { condition: 'With Shield', effect: 'AC bonus increases to +3.' },
+        { condition: 'With 3+ allies', effect: 'Duration increases to 4 rounds.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Formation also grants resistance to area effects.' }
+      ],
+      scaling: 'GP gained = number of adjacent allies'
+    },
+    {
+      name: 'Fortress Stance',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        guardPoints: 2
+      },
+      description: 'Plant yourself firmly, becoming immovable but gaining defensive bonuses.',
+      mechanics: 'Cannot move for 2 rounds, but gain +3 AC, advantage on STR saves, and +1 GP each time you take damage.',
+      effects: [
+        { condition: 'With Shield', effect: 'AC bonus increases to +4.' },
+        { condition: 'With 5+ GP', effect: 'Duration increases to 3 rounds.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Also gain resistance to forced movement effects.' }
+      ],
+      scaling: 'AC bonus = +3 (+4 with shield)'
+    },
+    {
+      name: 'Guardian\'s Sacrifice',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        guardPoints: 1
+      },
+      trigger: 'Reaction',
+      description: 'Intercept an attack meant for an ally.',
+      mechanics: 'When an ally within 10 ft is attacked, you can take the damage instead and gain +2 GP.',
+      effects: [
+        { condition: 'With Shield', effect: 'Reduce the intercepted damage by 2.' },
+        { condition: 'With 3+ GP', effect: 'Range increases to 15 ft.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Gain +3 GP instead of +2.' }
+      ],
+      scaling: 'GP gained = 2 (3 with 1+ Siege Stack)'
     }
   ],
 
@@ -336,6 +385,70 @@ const dreadnaughtAbilities = {
       scaling: 'N/A'
     },
     {
+      name: 'Shield Mastery',
+      cost: {
+        actionPoints: 2,
+        mana: 2,
+        guardPoints: 3
+      },
+      description: 'Demonstrate perfect shield technique, turning defense into offense.',
+      mechanics: 'For 4 rounds, every successful block or parry automatically triggers a Counter Riposte at no GP cost.',
+      effects: [
+        { condition: 'With Shield', effect: 'Counter Ripostes deal +1d4 damage.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Duration increases to 5 rounds.' },
+        { condition: 'With 2+ Siege Stacks', effect: 'Counter Ripostes also have a 25% chance to stun for 1 round.' }
+      ],
+      scaling: 'Duration = 4 rounds (5 with 1+ Siege Stack)'
+    },
+    {
+      name: 'Immovable Object',
+      cost: {
+        actionPoints: 1,
+        mana: 3,
+        guardPoints: 4
+      },
+      description: 'Become an unstoppable defensive force.',
+      mechanics: 'For 3 rounds, you are immune to forced movement, gain +2 AC, and each attack against you grants +1 GP.',
+      effects: [
+        { condition: 'With Shield', effect: 'AC bonus increases to +3.' },
+        { condition: 'With 5+ GP', effect: 'Duration increases to 4 rounds.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Also gain resistance to all damage types for the first round.' }
+      ],
+      scaling: 'AC bonus = +2 (+3 with shield)'
+    },
+    {
+      name: 'Retribution Aura',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        guardPoints: 2
+      },
+      description: 'Emanate an aura that punishes those who attack you or your allies.',
+      mechanics: 'For 5 rounds, enemies within 10 ft take 1d6 force damage when they attack you or adjacent allies.',
+      effects: [
+        { condition: 'With Shield', effect: 'Damage increases to 1d8 force.' },
+        { condition: 'With 3+ GP', effect: 'Radius increases to 15 ft.' },
+        { condition: 'With 1+ Siege Stack', effect: 'Damage also slows enemies for 1 round.' }
+      ],
+      scaling: 'Damage = 1d6 (1d8 with shield)'
+    },
+    {
+      name: 'Aegis Protocol',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        guardPoints: 5
+      },
+      description: 'Activate emergency defensive protocols, protecting all nearby allies.',
+      mechanics: 'All allies within 15 ft gain +3 AC and resistance to all damage for 2 rounds. You gain +1 Siege Stack.',
+      effects: [
+        { condition: 'With Shield', effect: 'AC bonus increases to +4.' },
+        { condition: 'With 8+ GP', effect: 'Duration increases to 3 rounds.' },
+        { condition: 'With 2+ Siege Stacks', effect: 'Allies also gain advantage on saving throws.' }
+      ],
+      scaling: 'AC bonus = +3 (+4 with shield)'
+    },
+    {
       name: 'Citadel Collapse',
       cost: {
         actionPoints: 3,
@@ -447,12 +560,12 @@ const dreadnaughtAbilities = {
       effect: 'Sets HP, raises save DCs for shouts, increases damage reduction amounts and max GP.'
     },
     {
-      attribute: 'Dexterity',
-      effect: 'Secondary AC if you go lighter shield; influences initiative.'
+      attribute: 'Agility',
+      effect: 'Secondary Armor if you go lighter shield; influences initiative.'
     },
     {
-      attribute: 'Wisdom',
-      effect: 'Buffs perception & battlefield calls; some talents use WIS to set fear/stun DCs.'
+      attribute: 'Spirit',
+      effect: 'Buffs perception & battlefield calls; some talents use Spirit to set fear/stun DCs.'
     }
   ],
 

@@ -4,7 +4,7 @@ const fateWeaverTalentTrees = [
     id: 'predictive-control',
     name: 'Predictive Control',
     description: 'Focus on planning and manipulating draws to maximize use of high cards and avoid bad draws.',
-    icon: '🔮',
+    icon: 'crystal',
     talents: [
       // Tier 1 (Level 10)
       {
@@ -13,7 +13,7 @@ const fateWeaverTalentTrees = [
         description: 'Briefly glimpse the future to gain an advantage on your next action.',
         maxRank: 5,
         position: { row: 0, col: 0 },
-        icon: '👁️',
+        icon: 'eye',
         rankDescription: [
           'Once per encounter, draw a card from the Fate deck. Roll 1d20; on a 20, gain advantage on your next attack or saving throw.',
           'Once per encounter, draw a card from the Fate deck. Roll 1d20; on a 19-20, gain advantage on your next attack or saving throw.',

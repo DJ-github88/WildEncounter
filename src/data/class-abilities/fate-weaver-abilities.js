@@ -186,6 +186,63 @@ const fateWeaverAbilities = {
       scaling: 'Effect power = base + INT'
     },
     {
+      name: 'Royal Flush',
+      cost: {
+        actionPoints: 3,
+        mana: 6,
+        cardDraw: 5
+      },
+      description: 'Draw five cards and attempt to form poker combinations for devastating effects.',
+      mechanics: 'Draw 5 cards and check for combinations:',
+      combos: [
+        { combo: 'Royal Flush (A,K,Q,J,10 same suit)', effect: 'Deal 10d10 damage to all enemies and restore all mana.' },
+        { combo: 'Straight Flush (5 consecutive same suit)', effect: 'Deal 8d8 damage to all enemies.' },
+        { combo: 'Four of a Kind', effect: 'Deal 6d8 damage to target, repeated 4 times.' },
+        { combo: 'Full House (3 + pair)', effect: 'Deal 5d8 damage and heal all allies for 3d8.' },
+        { combo: 'Flush (5 same suit)', effect: 'Elemental burst based on suit for 4d8 damage.' },
+        { combo: 'Straight (5 consecutive)', effect: 'Deal 3d8 damage to all enemies in a line.' },
+        { combo: 'Three of a Kind', effect: 'Deal 4d6 damage to target.' },
+        { combo: 'Two Pair', effect: 'Deal 3d6 damage to two targets.' },
+        { combo: 'One Pair', effect: 'Deal 2d6 damage to target.' },
+        { combo: 'High Card', effect: 'Deal 1d6 damage based on highest card value.' }
+      ],
+      scaling: 'Damage increases by 1 die per 2 levels'
+    },
+    {
+      name: 'Card Shark\'s Gambit',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        cardDraw: 3
+      },
+      description: 'Draw three cards and choose which one to play, holding the others.',
+      mechanics: 'Draw 3 cards, choose one to activate immediately, hold the other two for later use:',
+      suitEffects: [
+        { suit: 'Hearts', effect: 'Heal target for 3d6 + INT HP.' },
+        { suit: 'Diamonds', effect: 'Create a protective shield absorbing 2d8 damage.' },
+        { suit: 'Clubs', effect: 'Buff target with +3 to all rolls for 3 rounds.' },
+        { suit: 'Spades', effect: 'Curse target with -2 to all rolls for 3 rounds.' }
+      ],
+      special: 'Held cards can be played later as bonus actions without mana cost.',
+      scaling: 'Effects scale with Intelligence modifier'
+    },
+    {
+      name: 'Deck Shuffle',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        special: 'Reshuffles deck'
+      },
+      description: 'Reshuffle your fate deck and draw a new hand.',
+      mechanics: 'Reshuffle all discarded cards back into your deck and draw 3 new cards.',
+      effects: [
+        { condition: 'If deck was empty', effect: 'Gain 2 Fate Points.' },
+        { condition: 'If you have 3+ face cards', effect: 'Gain 1 Fate Point.' },
+        { condition: 'If all cards are same suit', effect: 'Next spell costs no mana.' }
+      ],
+      scaling: 'Can be used once per encounter'
+    },
+    {
       name: 'Fortune\'s Favor',
       cost: {
         actionPoints: 1,

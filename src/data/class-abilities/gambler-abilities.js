@@ -65,10 +65,10 @@ const gamblerAbilities = {
       description: 'Toss a coin. If heads, you gain a bonus; if tails, you incur a penalty.',
       mechanics: 'Flip a coin to determine the outcome:',
       outcomes: [
-        { result: 'Heads', effect: 'You gain +2 Armor Class until your next turn (using gambler\'s flashy reflexes).' },
+        { result: 'Heads', effect: 'You gain +2 Armor until your next turn (using gambler\'s flashy reflexes).' },
         { result: 'Tails', effect: 'You take 1d4 non-lethal damage as fate turns against you.' }
       ],
-      scaling: 'AC bonus = 2 + (CHA / 4)'
+      scaling: 'Armor bonus = 2 + (CHA / 4)'
     },
     {
       name: 'Lucky Strike',
@@ -83,7 +83,7 @@ const gamblerAbilities = {
         { result: '3-5 (Hit)', effect: 'Normal hit. Deal 3d6 damage and gain 1 Risk stack (you rode the luck!).' },
         { result: '6 (Critical)', effect: 'Perfect roll. Deal 5d6 damage and gain 2 Risk stacks.' }
       ],
-      scaling: 'Damage = base + (DEX modifier)'
+      scaling: 'Damage = base + (AGI modifier)'
     },
     {
       name: 'Loaded Dice',
@@ -156,7 +156,7 @@ const gamblerAbilities = {
       outcomes: [
         { result: '1', effect: 'Target gains +1 to attack rolls for 1d4 rounds.' },
         { result: '2', effect: 'Target gains +1 to saving throws for 1d4 rounds.' },
-        { result: '3', effect: 'Target gains +1 to AC for 1d4 rounds.' },
+        { result: '3', effect: 'Target gains +1 to Armor for 1d4 rounds.' },
         { result: '4', effect: 'Target gains all three bonuses for 1 round.' }
       ],
       scaling: 'Bonus = 1 + (LUK / 4)'
@@ -176,6 +176,57 @@ const gamblerAbilities = {
         { result: 'Off by 3+', effect: 'If the roll is 3+ away from your number, your next attack deals half damage.' }
       ],
       scaling: 'Damage multiplier increases by 0.5 for every 4 points in LUK'
+    },
+    {
+      name: 'Jackpot Spin',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        diceRoll: '3d6'
+      },
+      description: 'Channel the power of a slot machine, rolling three dice for a chance at massive rewards.',
+      mechanics: 'Roll 3d6 and check for matching numbers:',
+      outcomes: [
+        { result: 'No Match', effect: 'Deal 2d6 damage to target.' },
+        { result: 'Two Match', effect: 'Deal 4d6 damage to target and gain 1 Risk stack.' },
+        { result: 'Three Match (1s)', effect: 'Spell backfires - take 2d6 damage but gain 3 Luck Points.' },
+        { result: 'Three Match (2-5)', effect: 'Deal 6d6 damage to target and gain 2 Risk stacks.' },
+        { result: 'Three Match (6s)', effect: 'JACKPOT! Deal 8d6 damage to all enemies and gain 3 Risk stacks.' }
+      ],
+      scaling: 'Damage increases by 1d6 per 3 levels'
+    },
+    {
+      name: 'Coin Toss Barrage',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        coinFlip: 5
+      },
+      description: 'Flip five coins in rapid succession, each determining a separate attack.',
+      mechanics: 'Flip 5 coins, each coin creates an attack:',
+      outcomes: [
+        { result: 'Heads', effect: 'Deal 1d8 + CHA damage to target.' },
+        { result: 'Tails', effect: 'Miss, but gain 1 Luck Point.' }
+      ],
+      special: 'If all 5 coins land on heads (1/32 chance), deal an additional 3d10 bonus damage.',
+      scaling: 'Damage per coin = 1d8 + CHA modifier'
+    },
+    {
+      name: 'Probability Manipulation',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        luckPoints: 2
+      },
+      description: 'Bend the laws of chance to your will.',
+      mechanics: 'Choose one of the following effects:',
+      outcomes: [
+        { result: 'Loaded Dice', effect: 'Your next dice roll automatically results in maximum value.' },
+        { result: 'Weighted Coin', effect: 'Your next coin flip automatically lands on heads.' },
+        { result: 'Marked Cards', effect: 'Draw a specific card of your choice from your deck.' },
+        { result: 'Lucky Break', effect: 'Force an enemy to reroll their next successful attack.' }
+      ],
+      scaling: 'Can be used once per encounter'
     }
   ],
 
@@ -314,6 +365,209 @@ const gamblerAbilities = {
       ],
       requirements: 'Can only be used once per encounter',
       scaling: 'Effect power increases with CHA'
+    }
+  ],
+
+  // Coin-Flipper Specialization Spells
+  coinFlipperSpells: [
+    {
+      name: 'Lucky Penny',
+      cost: {
+        actionPoints: 1,
+        mana: 1
+      },
+      description: 'Flip a magical coin that grants minor benefits.',
+      mechanics: 'Flip a coin. Heads: +1 to your next attack roll. Tails: +1 to your next save.',
+      specialization: 'coin-flipper',
+      scaling: 'Bonus increases by +1 per 3 CHA modifier'
+    },
+    {
+      name: 'Coin Cascade',
+      cost: {
+        actionPoints: 2,
+        mana: 3
+      },
+      description: 'Unleash a barrage of magical coins at multiple targets.',
+      mechanics: 'Flip 3 coins. Each heads deals 1d6 damage to different targets within 30 ft.',
+      specialization: 'coin-flipper',
+      scaling: 'Damage increases to 1d8 at higher levels'
+    },
+    {
+      name: 'Fortune\'s Edge',
+      cost: {
+        actionPoints: 2,
+        mana: 2
+      },
+      description: 'Flip a coin to determine if your next attack is enhanced or your defense is boosted.',
+      mechanics: 'Flip a coin. Heads: Next attack deals +2d6 damage. Tails: Gain +3 Armor until next turn.',
+      specialization: 'coin-flipper',
+      scaling: 'Effects scale with CHA modifier'
+    },
+    {
+      name: 'Probability Flip',
+      cost: {
+        actionPoints: 1,
+        mana: 2
+      },
+      description: 'Manipulate probability to force a favorable coin flip.',
+      mechanics: 'Before any coin flip (yours or ally\'s), spend this to guarantee heads or tails.',
+      specialization: 'coin-flipper',
+      scaling: 'Can affect additional flips per day based on CHA'
+    }
+  ],
+
+  // Dice Mastery Specialization Spells
+  diceMasterySpells: [
+    {
+      name: 'Dice Swarm',
+      cost: {
+        actionPoints: 2,
+        mana: 3
+      },
+      description: 'Summon a swarm of magical dice that attack enemies.',
+      mechanics: 'Roll 4d6. Each die that shows 4+ deals damage to a different enemy within 30 ft.',
+      specialization: 'dice-mastery',
+      scaling: 'Number of dice increases with level'
+    },
+    {
+      name: 'Critical Gambit',
+      cost: {
+        actionPoints: 1,
+        mana: 2
+      },
+      description: 'Enhance your next attack with dice magic.',
+      mechanics: 'Roll 1d20. If 15+, your next attack automatically crits. If 1-5, you have disadvantage.',
+      specialization: 'dice-mastery',
+      scaling: 'Critical threshold decreases with CHA'
+    },
+    {
+      name: 'Dice Shield',
+      cost: {
+        actionPoints: 1,
+        mana: 2
+      },
+      description: 'Create a protective barrier powered by dice rolls.',
+      mechanics: 'Roll 2d6. Gain temporary HP equal to the total for 1 minute.',
+      specialization: 'dice-mastery',
+      scaling: 'Dice size increases with proficiency'
+    },
+    {
+      name: 'Loaded Outcome',
+      cost: {
+        actionPoints: 2,
+        mana: 4
+      },
+      description: 'Manipulate the outcome of any dice roll.',
+      mechanics: 'After any creature rolls dice, you can change one die to any value you choose.',
+      specialization: 'dice-mastery',
+      scaling: 'Can affect additional dice with higher CHA'
+    },
+    {
+      name: 'Dice Storm',
+      cost: {
+        actionPoints: 3,
+        mana: 5
+      },
+      description: 'Create a chaotic storm of magical dice in a large area.',
+      mechanics: '20 ft radius. All creatures roll 3d6. Odd total = damage, even total = healing.',
+      specialization: 'dice-mastery',
+      scaling: 'Area and dice count increase with level'
+    }
+  ],
+
+  // Cardsharp Specialization Spells
+  cardsharpSpells: [
+    {
+      name: 'Card Trick',
+      cost: {
+        actionPoints: 1,
+        mana: 1
+      },
+      description: 'Draw a card to determine a minor magical effect.',
+      mechanics: 'Draw a card. Hearts: heal 1d4. Diamonds: +1 Armor. Clubs: +1 damage. Spades: enemy -1 to next roll.',
+      specialization: 'cardsharp',
+      scaling: 'Effects increase with CHA modifier'
+    },
+    {
+      name: 'Royal Flush',
+      cost: {
+        actionPoints: 3,
+        mana: 6
+      },
+      description: 'Attempt to draw a royal flush for a devastating attack.',
+      mechanics: 'Draw 5 cards. If you get a flush, deal 5d10 damage. If royal flush, deal 10d10.',
+      specialization: 'cardsharp',
+      scaling: 'Damage increases with level'
+    },
+    {
+      name: 'Ace in the Hole',
+      cost: {
+        actionPoints: 1,
+        mana: 2
+      },
+      description: 'Keep a hidden card for a crucial moment.',
+      mechanics: 'Draw and hide a card. Later, reveal it to add its value to any roll or save.',
+      specialization: 'cardsharp',
+      scaling: 'Can hold additional cards with higher CHA'
+    },
+    {
+      name: 'Card Barrier',
+      cost: {
+        actionPoints: 2,
+        mana: 3
+      },
+      description: 'Create a protective wall of magical cards.',
+      mechanics: 'Draw 3 cards. Create a barrier with HP equal to total card values that blocks attacks.',
+      specialization: 'cardsharp',
+      scaling: 'Barrier strength increases with CHA'
+    },
+    {
+      name: 'Deck of Many Things',
+      cost: {
+        actionPoints: 3,
+        mana: 5
+      },
+      description: 'Draw from a deck of powerful magical effects.',
+      mechanics: 'Draw a card. Each suit triggers a different powerful effect based on card value.',
+      specialization: 'cardsharp',
+      scaling: 'More powerful effects at higher levels'
+    }
+  ],
+
+  // Universal Gambler Spells
+  universalSpells: [
+    {
+      name: 'Luck Manipulation',
+      cost: {
+        actionPoints: 1,
+        mana: 3
+      },
+      description: 'Bend probability to your will.',
+      mechanics: 'Force any creature to reroll their last roll. You choose which result they keep.',
+      specialization: 'universal',
+      scaling: 'Can affect additional rolls per day'
+    },
+    {
+      name: 'Risk Assessment',
+      cost: {
+        actionPoints: 1,
+        mana: 2
+      },
+      description: 'Analyze the odds of success for any action.',
+      mechanics: 'Learn the exact probability of success for any action before it\'s attempted.',
+      specialization: 'universal',
+      scaling: 'Can assess multiple actions simultaneously'
+    },
+    {
+      name: 'Gambler\'s Intuition',
+      cost: {
+        actionPoints: 0,
+        mana: 1
+      },
+      description: 'Sense when luck is about to turn.',
+      mechanics: 'Passive: Know when any creature is about to roll a natural 1 or 20.',
+      specialization: 'universal',
+      scaling: 'Range increases with CHA modifier'
     }
   ]
 };

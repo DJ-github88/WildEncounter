@@ -33,10 +33,10 @@ const FateWeaverGuide = () => {
           <ul className="mechanic-list">
             <li><strong>Card Suits:</strong> Each suit corresponds to a different type of effect:
               <ul>
-                <li>♥️ Hearts: Healing, protection, and positive buffs</li>
-                <li>♦️ Diamonds: Wealth, fortune, and resource generation</li>
-                <li>♣️ Clubs: Physical power, earth magic, and endurance</li>
-                <li>♠️ Spades: Damage, debuffs, and negative effects</li>
+                <li>Hearts: Healing, protection, and positive buffs</li>
+                <li>Diamonds: Wealth, fortune, and resource generation</li>
+                <li>Clubs: Physical power, earth magic, and endurance</li>
+                <li>Spades: Damage, debuffs, and negative effects</li>
               </ul>
             </li>
             <li><strong>Card Values:</strong> The numerical value (2-10, J, Q, K, A) determines the potency of the effect.</li>

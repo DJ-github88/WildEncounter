@@ -2,7 +2,7 @@ const classData = {
   'pyrofiend': {
     id: 'pyrofiend',
     name: 'Pyrofiend',
-    icon: '🔥',
+    icon: '◆',
     description: 'Demonic fire mage; builds Inferno to empower destructive spells.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Spirit', 'Constitution'],
@@ -16,7 +16,7 @@ const classData = {
   'minstrel': {
     id: 'minstrel',
     name: 'Minstrel',
-    icon: '🎵',
+    icon: '♪',
     description: 'Musical spellcaster; uses music theory combo points and Cadences.',
     primaryAttribute: 'Charisma',
     secondaryAttributes: ['Intelligence', 'Performance'],
@@ -30,7 +30,7 @@ const classData = {
   'chronarch': {
     id: 'chronarch',
     name: 'Chronarch',
-    icon: '⏳',
+    icon: '◐',
     description: 'Time manipulator; builds Continuum to unlock temporal effects.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Perception', 'Constitution'],
@@ -45,7 +45,7 @@ const classData = {
   'chaos-weaver': {
     id: 'chaos-weaver',
     name: 'Chaos Weaver',
-    icon: '🌀',
+    icon: '◈',
     description: 'Weaponizes randomness itself; conjures unpredictable magic and manipulates probability.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Charisma', 'Entropy'],
@@ -59,7 +59,7 @@ const classData = {
   'fate-weaver': {
     id: 'fate-weaver',
     name: 'Fate Weaver',
-    icon: '🃏',
+    icon: '◇',
     description: 'Enigmatic arcane gambler who twists destiny itself using a mystical deck.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Charisma', 'Fate'],
@@ -73,7 +73,7 @@ const classData = {
   'gambler': {
     id: 'gambler',
     name: 'Gambler',
-    icon: '🎲',
+    icon: '⬢',
     description: 'Flamboyant risk-taker who manipulates luck and plays high-stakes games.',
     primaryAttribute: 'Charisma',
     secondaryAttributes: ['Dexterity', 'Luck'],
@@ -88,7 +88,7 @@ const classData = {
   'martyr': {
     id: 'martyr',
     name: 'Martyr',
-    icon: '💉',
+    icon: '◊',
     description: 'Self-sacrificial guardian who trades HP for blessings and curses.',
     primaryAttribute: 'Constitution',
     secondaryAttributes: ['Wisdom', 'Devotion'],
@@ -102,7 +102,7 @@ const classData = {
   'false-prophet': {
     id: 'false-prophet',
     name: 'False Prophet',
-    icon: '👑',
+    icon: '◈',
     description: 'Masquerades as holy but wields divine power through deception.',
     primaryAttribute: 'Charisma',
     secondaryAttributes: ['Intelligence', 'Wisdom'],
@@ -117,7 +117,7 @@ const classData = {
     id: 'exorcist',
     name: 'Exorcist',
     path: 'zealot',
-    icon: '✝️',
+    icon: '†',
     description: 'A focused, stoic spirit-hunter who cleanses corruption and banishes evil.',
     primaryAttribute: 'Wisdom',
     secondaryAttributes: ['Constitution', 'Spirit'],
@@ -134,7 +134,7 @@ const classData = {
     id: 'deathcaller',
     name: 'Deathcaller',
 
-    icon: '💀',
+    icon: '◼',
     description: 'A grim herald of undeath who commands legions of undead and binds restless spirits.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Constitution', 'Necrotic Attunement'],
@@ -149,7 +149,7 @@ const classData = {
     id: 'plaguebringer',
     name: 'Plaguebringer',
     path: 'harrow',
-    icon: '☣️',
+    icon: '◆',
     description: 'A harbinger of disease and decay who wields pestilence as a weapon.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Constitution', 'Plaguecraft'],
@@ -164,7 +164,7 @@ const classData = {
     id: 'lichborne',
     name: 'Lichborne',
 
-    icon: '⚰️',
+    icon: '◼',
     description: 'Becomes undead; trades vitality for powerful necromancy.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Constitution', 'Spirit'],
@@ -181,7 +181,7 @@ const classData = {
     id: 'spellguard',
     name: 'Spellguard',
 
-    icon: '🛡️',
+    icon: '◇',
     description: 'Defensive caster; shields allies and redirects spells.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Constitution', 'Spirit'],
@@ -196,7 +196,7 @@ const classData = {
     id: 'inscriptor',
     name: 'Inscriptor',
 
-    icon: '📜',
+    icon: '⟡',
     description: 'Runes and glyph magic; preps effects before battle.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Spirit', 'Constitution'],
@@ -211,7 +211,7 @@ const classData = {
     id: 'arcanoneer',
     name: 'Arcanoneer',
 
-    icon: '🧙',
+    icon: '◊',
     description: 'Arcane artillery; explosive, long-range spellcaster.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Spirit', 'Agility'],
@@ -228,7 +228,7 @@ const classData = {
     id: 'witch-doctor',
     name: 'Witch Doctor',
 
-    icon: '🪦',
+    icon: '◈',
     description: 'Hexes and curses; debilitates enemies with totems or spirits.',
     primaryAttribute: 'Spirit',
     secondaryAttributes: ['Intelligence', 'Constitution'],
@@ -243,7 +243,7 @@ const classData = {
     id: 'formbender',
     name: 'Formbender',
 
-    icon: '🦊',
+    icon: '◆',
     description: 'Shapeshifter; alters self or others via magic.',
     primaryAttribute: 'Spirit',
     secondaryAttributes: ['Constitution', 'Agility'],
@@ -258,7 +258,7 @@ const classData = {
     id: 'primalist',
     name: 'Primalist',
 
-    icon: '🌋',
+    icon: '▲',
     description: 'Channels elemental or bestial powers through rituals.',
     primaryAttribute: 'Spirit',
     secondaryAttributes: ['Constitution', 'Strength'],
@@ -275,7 +275,7 @@ const classData = {
     id: 'berserker',
     name: 'Berserker',
 
-    icon: '😡',
+    icon: '◈',
     description: 'Rage-fueled warrior; trades control for power.',
     primaryAttribute: 'Strength',
     secondaryAttributes: ['Constitution', 'Agility'],
@@ -290,7 +290,7 @@ const classData = {
     id: 'dreadnaught',
     name: 'Dreadnaught',
 
-    icon: '🛡️',
+    icon: '◇',
     description: 'Tank-like fighter; unmovable and relentless.',
     primaryAttribute: 'Constitution',
     secondaryAttributes: ['Strength', 'Spirit'],
@@ -305,7 +305,7 @@ const classData = {
     id: 'titan',
     name: 'Titan',
 
-    icon: '🔨',
+    icon: '◆',
     description: 'Heavy bruiser; momentum-based attacks and area force.',
     primaryAttribute: 'Strength',
     secondaryAttributes: ['Constitution', 'Agility'],
@@ -322,7 +322,7 @@ const classData = {
     id: 'toxicologist',
     name: 'Toxicologist',
 
-    icon: '☣️',
+    icon: '◊',
     description: 'Poisons and alchemical bombs; battlefield control.',
     primaryAttribute: 'Intelligence',
     secondaryAttributes: ['Agility', 'Constitution'],
@@ -337,7 +337,7 @@ const classData = {
     id: 'covenbane',
     name: 'Covenbane',
 
-    icon: '🔍',
+    icon: '◈',
     description: 'Witch-hunter type; specializes in countering magic users.',
     primaryAttribute: 'Agility',
     secondaryAttributes: ['Intelligence', 'Spirit'],
@@ -352,7 +352,7 @@ const classData = {
     id: 'bladedancer',
     name: 'Bladedancer',
 
-    icon: '💃',
+    icon: '◇',
     description: 'Graceful melee specialist; mobility and precision strikes.',
     primaryAttribute: 'Agility',
     secondaryAttributes: ['Strength', 'Charisma'],
@@ -369,7 +369,7 @@ const classData = {
     id: 'lunarch',
     name: 'Lunarch',
 
-    icon: '🌙',
+    icon: '◐',
     description: 'Moonlight-based magic; illusions, radiance, and mysticism.',
     primaryAttribute: 'Spirit',
     secondaryAttributes: ['Intelligence', 'Charisma'],
@@ -384,7 +384,7 @@ const classData = {
     id: 'huntress',
     name: 'Huntress',
 
-    icon: '🏹',
+    icon: '⟐',
     description: 'Agile ranged fighter; uses traps, terrain, and pursuit.',
     primaryAttribute: 'Agility',
     secondaryAttributes: ['Intelligence', 'Constitution'],
@@ -399,7 +399,7 @@ const classData = {
     id: 'warden',
     name: 'Warden',
 
-    icon: '🛡️',
+    icon: '◇',
     description: 'Battlefield protector; controls zones and shields allies.',
     primaryAttribute: 'Constitution',
     secondaryAttributes: ['Spirit', 'Strength'],

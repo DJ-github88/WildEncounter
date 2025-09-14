@@ -1,0 +1,393 @@
+/* LinearGauge - Styling for linear gauge resource bars */
+
+.linear-gauge-container {
+  padding: 12px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1976d2;
+  border-radius: 8px;
+}
+
+.gauge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #1565c0;
+  font-family: 'Cinzel', serif;
+}
+
+.gauge-name {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.gauge-value {
+  font-size: 0.9em;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Main gauge styling */
+.linear-gauge {
+  position: relative;
+  height: 24px;
+  background: rgba(25, 118, 210, 0.1);
+  border: 1px solid rgba(25, 118, 210, 0.3);
+  border-radius: 12px;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.linear-gauge.size-small {
+  height: 18px;
+}
+
+.linear-gauge.size-large {
+  height: 32px;
+}
+
+.linear-gauge.interactive:hover {
+  box-shadow: 0 0 8px var(--gauge-glow, rgba(25, 118, 210, 0.4));
+  border-color: var(--gauge-color, #1976d2);
+}
+
+.linear-gauge.dragging {
+  box-shadow: 0 0 12px var(--gauge-glow, rgba(25, 118, 210, 0.6));
+  cursor: grabbing;
+}
+
+.gauge-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.gauge-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0.1) 100%);
+  border-radius: inherit;
+}
+
+/* Threshold markers */
+.threshold-marker {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 3px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marker-line {
+  width: 100%;
+  height: 100%;
+  background: var(--threshold-color, #f44336);
+  border-radius: 2px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.threshold-marker.active .marker-line {
+  opacity: 1;
+  box-shadow: 0 0 6px var(--threshold-color, #f44336);
+}
+
+.marker-label {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--threshold-color, #f44336);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.threshold-marker:hover .marker-label,
+.threshold-marker.active .marker-label {
+  opacity: 1;
+}
+
+.marker-label::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--threshold-color, #f44336);
+}
+
+/* Value indicator */
+.value-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--gauge-color, #1976d2);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.linear-gauge:hover .indicator-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px var(--gauge-glow, rgba(25, 118, 210, 0.6));
+}
+
+/* Active thresholds display */
+.active-thresholds {
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: rgba(25, 118, 210, 0.05);
+  border-radius: 4px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.threshold-label {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 4px;
+}
+
+.threshold-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-threshold {
+  font-size: 0.8em;
+  font-weight: 500;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+/* Continuum abilities section */
+.continuum-abilities {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(25, 118, 210, 0.1);
+  border: 1px solid rgba(25, 118, 210, 0.3);
+  border-radius: 8px;
+}
+
+.abilities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #1565c0;
+}
+
+.abilities-header h4 {
+  margin: 0;
+  font-size: 1em;
+  border-bottom: 1px solid rgba(21, 101, 192, 0.3);
+  padding-bottom: 2px;
+}
+
+.continuum-value {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #1976d2;
+  background: rgba(25, 118, 210, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(25, 118, 210, 0.4);
+}
+
+.abilities-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.current-effects,
+.available-abilities {
+  font-size: 0.9em;
+}
+
+.current-effects strong,
+.available-abilities strong {
+  color: #1565c0;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.effects-list,
+.abilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.effect-tag {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ability-tag {
+  background: linear-gradient(135deg, #3f51b5 0%, #303f9f 100%);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ability-tag.interactive {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.ability-tag.interactive:hover {
+  background: linear-gradient(135deg, #303f9f 0%, #3f51b5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.warning-zone {
+  background: rgba(255, 152, 0, 0.2);
+  border: 1px solid #ff9800;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 0.85em;
+}
+
+.warning-zone strong {
+  color: #ff9800;
+}
+
+.critical-zone {
+  background: rgba(156, 39, 176, 0.2);
+  border: 1px solid #9c27b0;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 0.85em;
+  animation: temporalPulse 1.5s infinite ease-in-out;
+}
+
+.critical-zone strong {
+  color: #9c27b0;
+}
+
+@keyframes temporalPulse {
+  0%, 100% {
+    background: rgba(156, 39, 176, 0.2);
+    border-color: #9c27b0;
+  }
+  50% {
+    background: rgba(156, 39, 176, 0.4);
+    border-color: #e91e63;
+  }
+}
+
+/* Animations */
+@keyframes gaugeGlow {
+  0%, 100% { 
+    box-shadow: 0 0 8px var(--gauge-glow, rgba(25, 118, 210, 0.4));
+  }
+  50% { 
+    box-shadow: 0 0 16px var(--gauge-glow, rgba(25, 118, 210, 0.8));
+  }
+}
+
+.linear-gauge.resource-animating {
+  animation: gaugeGlow 0.6s ease-in-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .gauge-header {
+    font-size: 0.9em;
+  }
+  
+  .linear-gauge {
+    height: 20px;
+  }
+  
+  .indicator-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .marker-label {
+    font-size: 0.6em;
+    padding: 1px 4px;
+  }
+  
+  .active-thresholds {
+    font-size: 0.8em;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gauge-fill,
+  .indicator-dot,
+  .marker-line {
+    transition: none;
+  }
+  
+  .linear-gauge.resource-animating {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .linear-gauge {
+    border-width: 2px;
+  }
+  
+  .threshold-marker .marker-line {
+    opacity: 1;
+  }
+  
+  .indicator-dot {
+    border-width: 3px;
+  }
+}

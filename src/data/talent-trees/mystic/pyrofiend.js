@@ -2,8 +2,8 @@
 const pyrofiendTalentTrees = [
   {
     id: 'inferno-attunement',
-    name: 'Inferno Attunement',
-    description: 'Master the Inferno Veil itself, achieving a balance between power and control.',
+    name: 'Inferno',
+    description: 'Controlled fire magic with precision and balance.',
     icon: '🔥',
     talents: [
       // Tier 1 (Level 10)
@@ -285,8 +285,8 @@ const pyrofiendTalentTrees = [
   },
   {
     id: 'wildfire-attunement',
-    name: 'Wildfire Attunement',
-    description: 'Embrace the chaotic, spreading nature of fire, focusing on area damage and damage-over-time effects.',
+    name: 'Wildfire',
+    description: 'Chaotic fire that spreads unpredictably across the battlefield.',
     icon: '🌋',
     talents: [
       // Tier 1 (Level 10)
@@ -567,8 +567,8 @@ const pyrofiendTalentTrees = [
   },
   {
     id: 'hellfire-attunement',
-    name: 'Hellfire Attunement',
-    description: 'Delve into the demonic aspect of your power, emphasizing survivability and curse-like effects.',
+    name: 'Hellfire',
+    description: 'Demonic fire magic with curses and life manipulation.',
     icon: '😈',
     talents: [
       // Tier 1 (Level 10)

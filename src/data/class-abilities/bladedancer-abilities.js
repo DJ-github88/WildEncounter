@@ -6,7 +6,7 @@ const bladedancerAbilities = {
     description: 'The Bladedancer is a hyper‑agile melee specialist who turns combat into choreography. Every strike links into the next, every sidestep opens a new line of attack. Your job: stay in motion, keep Edge high, and finish fights with flawless combos.',
     mechanics: [
       'Edge (0-10): Measures momentum & focus. Gain +1 per hit or dodge, +2 on crit, +3 when you drop a foe. Spend to boost abilities or trigger finishers.',
-      'Flourish Tokens (max = DEX mod): Extra acrobatic tricks. Start combat with 1; +1 each round you move ≥ 20 ft. Cash in for free movement, parries, or small buffs.',
+      'Flourish Tokens (max = AGI mod): Extra acrobatic tricks. Start combat with 1; +1 each round you move ≥ 20 ft. Cash in for free movement, parries, or small buffs.',
       'Stance Slot (1 active): One style at a time. Switch stance (bonus action). Grants passive bonuses (see below).'
     ],
     stances: {

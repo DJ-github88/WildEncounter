@@ -1,0 +1,300 @@
+/* Spell Effect Generator - Pathfinder Aesthetic */
+
+.spell-effect-generator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-background-light);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.08) 0%, transparent 50%);
+  border: 3px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px var(--color-secondary),
+    0 16px 32px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 2000;
+  font-family: 'Crimson Text', 'Times New Roman', 'Georgia', serif;
+}
+
+.generator-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-background-light);
+  padding: 1rem 1.5rem;
+  border-radius: 13px 13px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.generator-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--color-background-light);
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.generator-content {
+  padding: 1.5rem;
+}
+
+.spell-info {
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spell-info p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.spell-info strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.generator-controls {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
+  color: var(--color-background-light);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+.results-section {
+  min-height: 100px;
+}
+
+.result-item {
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  animation: slideIn 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.result-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-secondary);
+}
+
+.result-item.coin::before {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.result-item.dice::before {
+  background: linear-gradient(135deg, #FF6347, #FF4500);
+}
+
+.result-item.card::before {
+  background: linear-gradient(135deg, #9932CC, #BA55D3);
+}
+
+.result-item.chaos::before {
+  background: linear-gradient(135deg, #FF4500, #FF8C00);
+}
+
+.result-item.outcome::before {
+  background: linear-gradient(135deg, #32CD32, #228B22);
+}
+
+.result-item.backlash::before {
+  background: linear-gradient(135deg, #DC143C, #B22222);
+  animation: flash 1s infinite;
+}
+
+.result-item.surge::before {
+  background: linear-gradient(135deg, #FFD700, #FF8C00);
+  animation: glow 1s infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+}
+
+.result-description {
+  color: var(--color-text);
+  font-weight: 500;
+  line-height: 1.4;
+  padding-left: 0.5rem;
+}
+
+.result-item.coin .result-description {
+  color: #B8860B;
+  font-weight: 600;
+}
+
+.result-item.dice .result-description {
+  color: #FF4500;
+  font-weight: 600;
+}
+
+.result-item.card .result-description {
+  color: #8B008B;
+  font-weight: 600;
+}
+
+.result-item.chaos .result-description {
+  color: #FF6347;
+  font-weight: 600;
+}
+
+.result-item.outcome .result-description {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.result-item.backlash .result-description {
+  color: #DC143C;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.result-item.surge .result-description {
+  color: #FF8C00;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .spell-effect-generator {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .generator-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .generator-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .generator-content {
+    padding: 1rem;
+  }
+
+  .generate-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .result-item {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spell-effect-generator {
+    width: 98%;
+    max-height: 90vh;
+  }
+
+  .generator-header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .generator-header h3 {
+    font-size: 1rem;
+  }
+
+  .generator-content {
+    padding: 0.75rem;
+  }
+
+  .spell-info {
+    padding: 0.75rem;
+  }
+
+  .generate-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

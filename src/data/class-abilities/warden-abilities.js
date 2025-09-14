@@ -256,6 +256,70 @@ const wardenAbilities = {
         { condition: 'Wall-Smith Talents', effect: 'May enhance sensing effects' }
       ],
       scaling: 'No direct scaling'
+    },
+    {
+      name: 'Protective Barrier',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        bulwarkMeter: '+1'
+      },
+      description: 'Create a small barrier that provides cover for allies.',
+      mechanics: 'Create a 5-ft wide, 5-ft tall barrier (HP = 5 + CON mod) that provides half cover. Lasts until destroyed.',
+      effects: [
+        { condition: 'Creation', effect: 'Create a 5-ft wide barrier with HP = 5 + CON modifier' },
+        { condition: 'Cover', effect: 'Provides half cover to creatures behind it' },
+        { condition: 'Wall-Smith Talents', effect: 'May enhance barrier durability' }
+      ],
+      scaling: 'HP = 5 + CON modifier'
+    },
+    {
+      name: 'Sanctuary Zone',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        bulwarkMeter: '+2'
+      },
+      description: 'Create a zone of peace that prevents violence within its bounds.',
+      mechanics: 'Create 10-ft radius zone. Creatures inside cannot make attacks or cast harmful spells for 2 rounds.',
+      effects: [
+        { condition: 'Peace Zone', effect: 'Creatures inside cannot make attacks or cast harmful spells' },
+        { condition: 'Duration', effect: 'Lasts for 2 rounds' },
+        { condition: 'Guardian\'s Vow Talents', effect: 'May enhance peaceful effects' }
+      ],
+      scaling: 'Duration = 2 rounds'
+    },
+    {
+      name: 'Ward Network',
+      cost: {
+        actionPoints: 1,
+        mana: 2,
+        bulwarkMeter: '+1'
+      },
+      description: 'Link your wards together to share information and effects.',
+      mechanics: 'Connect up to 3 wards within 60 ft. When one ward is triggered, all connected wards activate their effects.',
+      effects: [
+        { condition: 'Connection', effect: 'Connect up to 3 wards within 60 ft' },
+        { condition: 'Shared Trigger', effect: 'When one ward triggers, all connected wards activate' },
+        { condition: 'Wall-Smith Talents', effect: 'May enhance network effects' }
+      ],
+      scaling: 'Max wards = 3'
+    },
+    {
+      name: 'Bulwark Regeneration',
+      cost: {
+        actionPoints: 1,
+        mana: 1,
+        bulwarkMeter: '-2'
+      },
+      description: 'Channel your defensive energy to heal damaged wards.',
+      mechanics: 'Restore 1d6 + CON mod HP to target ward within 30 ft.',
+      effects: [
+        { condition: 'Healing', effect: 'Restore 1d6 + CON modifier HP to target ward' },
+        { condition: 'Range', effect: 'Can target wards within 30 ft' },
+        { condition: 'Wall-Smith Talents', effect: 'May enhance healing amount' }
+      ],
+      scaling: 'Healing = 1d6 + CON modifier'
     }
   ],
 
@@ -495,6 +559,74 @@ const wardenAbilities = {
       scaling: 'Resurrected HP = Half of original ward HP'
     },
     {
+      name: 'Ward Fortress',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        bulwarkMeter: '-5'
+      },
+      description: 'Transform multiple wards into a connected fortress structure.',
+      mechanics: 'Connect 3+ wards within 30 ft to form walls between them. Connected structure gains +10 HP per ward and provides full cover.',
+      effects: [
+        { condition: 'Connection', effect: 'Connect 3 or more wards within 30 ft to form walls between them' },
+        { condition: 'Structure HP', effect: 'Connected structure gains +10 HP per ward involved' },
+        { condition: 'Cover', effect: 'Provides full cover to creatures behind the structure' },
+        { condition: 'Wall-Smith Talents', effect: 'May enhance fortress effects' }
+      ],
+      scaling: 'Bonus HP = +10 per connected ward'
+    },
+    {
+      name: 'Aegis Field',
+      cost: {
+        actionPoints: 2,
+        mana: 4,
+        bulwarkMeter: '-4'
+      },
+      description: 'Create a field that reduces all damage taken by allies within.',
+      mechanics: 'Create 20-ft radius field for 4 rounds. Allies inside take -2 damage from all sources (minimum 1).',
+      effects: [
+        { condition: 'Field', effect: 'Create a 20-ft radius field for 4 rounds' },
+        { condition: 'Damage Reduction', effect: 'Allies inside take -2 damage from all sources (minimum 1)' },
+        { condition: 'Guardian\'s Vow Talents', effect: 'May enhance protective effects' }
+      ],
+      scaling: 'Damage reduction = -2 (minimum 1 damage)'
+    },
+    {
+      name: 'Warding Circle',
+      cost: {
+        actionPoints: 3,
+        mana: 4,
+        bulwarkMeter: '-6'
+      },
+      description: 'Create a large protective circle that empowers all defensive abilities.',
+      mechanics: 'Create 25-ft radius circle for 5 rounds. All wards inside gain double HP, and allies gain +1 AC and advantage on saves.',
+      effects: [
+        { condition: 'Circle', effect: 'Create a 25-ft radius circle for 5 rounds' },
+        { condition: 'Ward Enhancement', effect: 'All wards inside gain double HP' },
+        { condition: 'Ally Benefits', effect: 'Allies gain +1 AC and advantage on saving throws' },
+        { condition: 'Wall-Smith Talents', effect: 'May enhance circle effects' }
+      ],
+      scaling: 'Ward HP multiplier = x2'
+    },
+    {
+      name: 'Master Guardian',
+      cost: {
+        actionPoints: 2,
+        mana: 3,
+        bulwarkMeter: '-3',
+        wardTokens: 1
+      },
+      description: 'Become the ultimate protector, redirecting all harm from allies to yourself.',
+      mechanics: 'For 3 rounds, all damage dealt to allies within 30 ft is redirected to you instead. You gain resistance to all damage during this time.',
+      effects: [
+        { condition: 'Damage Redirection', effect: 'All damage to allies within 30 ft is redirected to you' },
+        { condition: 'Resistance', effect: 'You gain resistance to all damage types' },
+        { condition: 'Duration', effect: 'Lasts for 3 rounds' },
+        { condition: 'Guardian\'s Vow Talents', effect: 'May enhance protective effects' }
+      ],
+      scaling: 'Duration = 3 rounds'
+    },
+    {
       name: 'Eternal Redoubt',
       cost: {
         actionPoints: 3,
@@ -512,7 +644,8 @@ const wardenAbilities = {
         { condition: 'Aftermath', effect: 'After the dome fades, your BM = 0 and you take 1 level of Exhaustion' },
         { condition: 'Wall-Smith Talents', effect: 'May enhance dome effects' }
       ],
-      scaling: 'Ally regeneration = 1d6 HP per turn'
+      scaling: 'Ally regeneration = 1d6 HP per turn',
+      ultimate: true
     }
   ],
 
